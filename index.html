@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///Users/yasmani/Downloads/Content_OS_v6_4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Content OS</title>
+<link href="./CONTENT OS FINAL_files/css2" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080808;--s1:#0F0F0F;--s2:#141414;--s3:#1A1A1A;--s4:#222;
+  --b1:#1E1E1E;--b2:#2A2A2A;--b3:#363636;
+  --txt:#EDE8E0;--dim:#5A5248;--faint:#2A2520;
+  --red:#FF3020;--rbg:#120300;--rmid:#3A0800;
+  --blue:#0EA5E9;--bbg:#010D18;--bmid:#052A3A;
+  --grn:#00D46A;--gbg:#010F07;--gmid:#013A18;
+  --gld:#F5A623;--ybg:#0F0800;--ymid:#2A1800;
+  --pur:#A855F7;--pbg:#090115;--pmid:#1E0840;
+  --pnk:#EC4899;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);font-family:'Syne',sans-serif;color:var(--txt);min-height:100vh;overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);display:flex;align-items:center;padding:0 1.5rem;height:48px}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--red);letter-spacing:.15em;margin-right:1.25rem;flex-shrink:0}
+.tabs{display:flex;gap:2px;flex:1;overflow-x:auto}
+.tabs::-webkit-scrollbar{display:none}
+.tab{font-family:'DM Mono',monospace;font-size:.56rem;text-transform:uppercase;letter-spacing:.1em;padding:.28rem .7rem;border-radius:4px;background:transparent;border:none;color:var(--dim);cursor:pointer;transition:all .15s;white-space:nowrap}
+.tab:hover{color:var(--txt);background:var(--s2)}
+.tab.on{color:var(--txt);background:var(--s3);border:1px solid var(--b2)}
+.nstat{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--dim);margin-left:auto;flex-shrink:0;display:flex;align-items:center;gap:.5rem}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--grn);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* SECTIONS */
+.sec{display:none;min-height:calc(100vh - 48px)}
+.sec.on{display:block;animation:fin .2s ease}
+@keyframes fin{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+
+/* PAGE HEADER */
+.ph{padding:1.75rem 2rem 1.25rem;border-bottom:1px solid var(--b1);display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.ph h1{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;line-height:.9;letter-spacing:.02em}
+.acc{color:var(--red)}
+.sub{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:.45rem}
+.rstat{text-align:right;flex-shrink:0}
+.rsn{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;line-height:1}
+.rsl{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.09em}
+
+/* CARDS */
+.card{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:.9rem 1rem;margin-bottom:.65rem}
+.card h3{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.06em;margin-bottom:.6rem}
+.hr{color:var(--red)}.hb{color:var(--blue)}.hg{color:var(--grn)}.hy{color:var(--gld)}.hp{color:var(--pur)}
+.srow{display:flex;justify-content:space-between;align-items:center;padding:.24rem 0;border-bottom:1px solid var(--b1)}
+.srow:last-child{border:none}
+.sl{font-family:'DM Mono',monospace;font-size:.56rem;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.sv{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;line-height:1}
+.sv.r{color:var(--red)}.sv.g{color:var(--grn)}.sv.y{color:var(--gld)}.sv.p{color:var(--pur)}.sv.b{color:var(--blue)}
+.ulist{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.ulist li{font-size:.68rem;color:#907F70;line-height:1.5;display:flex;gap:.4rem}
+
+/* FILTER TABS */
+.frow{display:flex;gap:.3rem;margin-bottom:.85rem;flex-wrap:wrap}
+.ft{font-family:'DM Mono',monospace;font-size:.53rem;text-transform:uppercase;letter-spacing:.07em;padding:.2rem .55rem;border-radius:4px;border:1px solid var(--b1);background:transparent;color:var(--dim);cursor:pointer;transition:all .15s}
+.ft:hover{border-color:var(--b2);color:var(--txt)}
+.ft.on{background:var(--s3);border-color:var(--b2);color:var(--txt)}
+
+/* PROGRESS */
+.pbar{height:2px;background:var(--s3);border-radius:2px;margin-top:.5rem;overflow:hidden}
+.pfill{height:100%;background:linear-gradient(90deg,var(--red),var(--gld));border-radius:2px;transition:width .5s}
+
+/* ══ SECTION 1 — BACKLOG ══ */
+.tb{padding:1.25rem 2rem;display:grid;grid-template-columns:1fr 260px;gap:1.25rem;align-items:start}
+.glabel{font-family:'DM Mono',monospace;font-size:.54rem;text-transform:uppercase;letter-spacing:.11em;color:var(--dim);padding:.3rem 0;border-bottom:1px solid var(--b1);margin-bottom:.3rem;margin-top:.8rem;display:flex;justify-content:space-between}
+.glabel:first-of-type{margin-top:0}
+.gc{color:var(--red)}
+.rr{display:grid;grid-template-columns:18px 40px 1fr auto;align-items:center;gap:.45rem;padding:.3rem .4rem;border-radius:5px;border:1px solid transparent;cursor:pointer;transition:all .15s;margin-bottom:.2rem;user-select:none}
+.rr:hover{background:var(--s2);border-color:var(--b1)}
+.rr.pri{background:var(--rbg);border-color:var(--rmid)}
+.rr.done{opacity:.35}
+.rr.hide{display:none}
+.cb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:.55rem;transition:all .15s;flex-shrink:0}
+.rr.done .cb{background:var(--grn);border-color:var(--grn);color:#000}
+.rr.pri .cb{border-color:var(--rmid)}
+.rd{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--gld)}
+.rr.done .rd,.rr.done .rt{color:var(--dim);text-decoration:line-through}
+.rr.pri .rd{color:var(--red)}
+.rt{font-size:.68rem;color:#B0A090}
+.tag{font-family:'DM Mono',monospace;font-size:.46rem;padding:.07rem .25rem;border-radius:3px;white-space:nowrap;border:1px solid;flex-shrink:0}
+.tnow{background:var(--rbg);color:var(--red);border-color:var(--rmid)}
+.tstock{background:var(--pbg);color:var(--pur);border-color:var(--pmid)}
+.tq{background:var(--s3);color:var(--dim);border-color:var(--b1)}
+.tdone{background:var(--gbg);color:var(--grn);border-color:var(--gmid)}
+.tp3{background:var(--ybg);color:var(--gld);border-color:var(--ymid)}
+.tsb{position:sticky;top:64px}
+
+/* ══ SECTION 2 — CALENDAR ══ */
+.cb2{padding:1.25rem 2rem}
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--b1);border-radius:10px;overflow:hidden;margin-bottom:.85rem}
+.cdh{background:var(--s2);padding:.3rem;font-family:'DM Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:.09em;color:var(--dim);text-align:center;border-bottom:1px solid var(--b1);border-right:1px solid var(--b1)}
+.cdh:nth-child(7),.cc:nth-child(7n){border-right:none}
+.cc{min-height:94px;padding:.3rem;border-right:1px solid var(--b1);border-bottom:1px solid var(--b1);background:var(--s1);position:relative;transition:background .15s}
+.cc:hover{background:var(--s2)}
+.cc.emp{background:var(--bg)}
+.cc.wknd{background:#0B0B0B}
+.cc.tday{outline:2px solid var(--gld);outline-offset:-2px}
+.cnum{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--dim);margin-bottom:.15rem}
+.cnum.tnum{color:var(--gld)}
+.coff{font-family:'DM Mono',monospace;font-size:.46rem;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-top:.15rem}
+.ev{display:block;padding:.14rem .22rem;border-radius:3px;margin-bottom:.14rem;font-size:.5rem;font-family:'DM Mono',monospace;line-height:1.3;border-left:2.5px solid;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.er{background:var(--rbg);border-color:var(--red);color:var(--red)}
+.eb{background:var(--bbg);border-color:var(--blue);color:var(--blue)}
+.eg{background:var(--gbg);border-color:var(--grn);color:var(--grn)}
+.ey{background:var(--ybg);border-color:var(--gld);color:var(--gld)}
+.ep{background:var(--pbg);border-color:var(--pur);color:var(--pur)}
+.cleg{display:flex;gap:1rem;flex-wrap:wrap;padding:.55rem .85rem;background:var(--s1);border:1px solid var(--b1);border-radius:7px}
+.cli{display:flex;align-items:center;gap:.3rem}
+.cld{width:7px;height:7px;border-radius:2px;flex-shrink:0}
+.cll{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--dim);text-transform:uppercase;letter-spacing:.07em}
+
+/* ══ SECTION 3 — PLAN ══ */
+.pb{padding:1.25rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.pf{grid-column:1/-1}
+.rgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem}
+.rday{background:var(--s2);border:1px solid var(--b1);border-radius:7px;padding:.5rem .4rem;display:flex;flex-direction:column;gap:.25rem}
+.dname{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.05em;text-align:center;color:var(--dim);margin-bottom:.08rem}
+.dev{font-family:'DM Mono',monospace;font-size:.46rem;padding:.14rem .22rem;border-radius:3px;line-height:1.3;border-left:2px solid}
+.dr{background:var(--rbg);border-color:var(--red);color:var(--red)}
+.db{background:var(--bbg);border-color:var(--blue);color:var(--blue)}
+.dg{background:var(--gbg);border-color:var(--grn);color:var(--grn)}
+.dy{background:var(--ybg);border-color:var(--gld);color:var(--gld)}
+.dpx{background:var(--pbg);border-color:var(--pur);color:var(--pur)}
+.doff{background:var(--s3);border-color:var(--b1);color:var(--dim)}
+.rule-banner{background:var(--pbg);border:1px solid var(--pmid);border-radius:10px;padding:1.1rem 1.4rem;display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.rb-badge{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--pur);letter-spacing:.08em;flex-shrink:0;padding-top:.1rem}
+.rb-text{font-size:.7rem;color:#C0A0D8;line-height:1.7}
+.rb-text strong{color:var(--txt)}
+.pc{background:var(--s1);border:1px solid var(--b1);border-radius:10px;overflow:hidden}
+.pch{padding:.7rem 1rem;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:.65rem}
+.pcn{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;flex-shrink:0}
+.pci h3{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.05em}
+.pcis{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;margin-top:.08rem}
+.pcb{padding:.75rem 1rem}
+.pcb ul{list-style:none;display:flex;flex-direction:column;gap:.3rem}
+.pcb li{font-size:.68rem;color:#A09080;line-height:1.5;display:flex;gap:.4rem}
+.bull{flex-shrink:0}
+.pcr{margin:0 1rem .75rem;padding:.35rem .55rem;border-radius:4px;font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.05em;text-align:center;border:1px solid}
+.p1 .pch{background:var(--rbg)}.p1 .pcn,.p1 .pci h3{color:var(--red)}.p1 .pcr{background:var(--rbg);color:var(--red);border-color:var(--rmid)}
+.p2 .pch{background:var(--pbg)}.p2 .pcn,.p2 .pci h3{color:var(--pur)}.p2 .pcr{background:var(--pbg);color:var(--pur);border-color:var(--pmid)}
+.p3 .pch{background:var(--gbg)}.p3 .pcn,.p3 .pci h3{color:var(--grn)}.p3 .pcr{background:var(--gbg);color:var(--grn);border-color:var(--gmid)}
+.dstock{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sblock{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:1rem 1.1rem}
+.sblock h3{font-family:'Bebas Neue',sans-serif;font-size:.9rem;letter-spacing:.06em;margin-bottom:.55rem}
+.slots{display:flex;gap:.25rem;flex-wrap:wrap;margin-bottom:.5rem}
+.slot{width:30px;height:30px;border-radius:4px;border:1px solid var(--b1);background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-family:'DM Mono',monospace;color:var(--dim);cursor:pointer;transition:all .2s;user-select:none}
+.slot:hover{border-color:var(--b2)}
+.scrow{display:flex;align-items:baseline;gap:.45rem}
+.scn{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1}
+.scl{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--dim);text-transform:uppercase;letter-spacing:.07em}
+.scs{font-family:'Bebas Neue',sans-serif;font-size:.9rem;margin-left:auto}
+
+/* ══ SECTION 4 — WHITEBOARD ══ */
+.wb{padding:1.25rem 2rem;display:grid;grid-template-columns:1fr 290px;gap:1.25rem;align-items:start}
+.wboard{background:#F4F1EC;border-radius:12px;border:3px solid #111;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.7)}
+.wbtop{background:#111;padding:.5rem .9rem;display:flex;align-items:center;justify-content:space-between}
+.wbtitle{font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.08em;color:#F0EBE1}
+.wbsub{font-family:'DM Mono',monospace;font-size:.46rem;color:#444;text-transform:uppercase;letter-spacing:.1em}
+.wbcal{padding:.5rem}
+.wbhdrs{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px}
+.wbdh{background:#E5E0D8;border-radius:2px;padding:.18rem;font-family:'Bebas Neue',sans-serif;font-size:.6rem;color:#888;text-align:center;letter-spacing:.04em}
+.wbwks{display:flex;flex-direction:column;gap:2px}
+.wbwk{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.wbc{background:#FFF;border-radius:2px;min-height:58px;padding:2px;position:relative;border:1px solid #E0D8CE}
+.wbc.emp{background:#EDE8E0;border-color:#E0D8CE}
+.wbc.tue{background:#F8F8F8}
+.wbc.twb{outline:2px solid #B45309;outline-offset:-2px}
+.wbn{font-family:'Bebas Neue',sans-serif;font-size:.78rem;color:#CCC;position:absolute;top:1px;right:2px}
+.wbn.act{color:#333}
+.wbn.tdy{color:#B45309}
+.wbev{font-size:.34rem;font-family:'DM Mono',monospace;padding:1px 2px;border-radius:1px;margin-bottom:1px;line-height:1.3;font-weight:500;border-left:2px solid;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;display:block}
+.we-r{background:#FDECEA;border-color:#D93025;color:#C62828}
+.we-b{background:#E8F0FE;border-color:#1565C0;color:#1565C0}
+.we-g{background:#E6F4ED;border-color:#1B7F4C;color:#1B7F4C}
+.we-p{background:#F3EFFE;border-color:#7C3AED;color:#6D28D9}
+.we-y{background:#FEF3C7;border-color:#B45309;color:#92400E}
+.wboff{font-size:.38rem;font-family:'DM Mono',monospace;color:#E0E0E0;text-align:center;margin-top:10px;letter-spacing:.08em}
+.wbnote{background:#EDE8E0;border:1.5px solid #1A1A1A;border-radius:4px;padding:4px 6px;margin-top:4px}
+.wbnt{font-family:'Bebas Neue',sans-serif;font-size:.75rem;color:#1A1A1A;margin-bottom:2px;letter-spacing:.04em}
+.wbni{font-family:'DM Mono',monospace;font-size:.34rem;display:flex;align-items:center;gap:3px;margin-bottom:2px}
+.wbndot{width:6px;height:6px;border-radius:1px;flex-shrink:0}
+.wbguide{display:flex;flex-direction:column;gap:.6rem}
+.wgc{background:var(--s1);border:1px solid var(--b1);border-radius:8px;overflow:hidden}
+.wgh{padding:.5rem .8rem;border-bottom:1px solid var(--b1);font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.05em}
+.wgb{padding:.5rem .8rem;display:flex;flex-direction:column;gap:.25rem}
+.wgrow{display:flex;align-items:flex-start;gap:.4rem;padding:.2rem 0;border-bottom:1px solid var(--b1)}
+.wgrow:last-child{border:none}
+.wgday{font-family:'Bebas Neue',sans-serif;font-size:.75rem;letter-spacing:.05em;min-width:36px;flex-shrink:0;margin-top:.03rem}
+.wgitems{display:flex;flex-direction:column;gap:.15rem;flex:1}
+.wi{font-family:'DM Mono',monospace;font-size:.52rem;padding:.1rem .25rem;border-radius:3px;border-left:2px solid;line-height:1.4}
+.wi-r{background:var(--rbg);border-color:var(--red);color:var(--red)}
+.wi-b{background:var(--bbg);border-color:var(--blue);color:var(--blue)}
+.wi-g{background:var(--gbg);border-color:var(--grn);color:var(--grn)}
+.wi-p{background:var(--pbg);border-color:var(--pur);color:var(--pur)}
+.wi-y{background:var(--ybg);border-color:var(--gld);color:var(--gld)}
+.wi-off{background:var(--s2);border-color:var(--b1);color:var(--dim)}
+.colorkey{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:.8rem .9rem;margin-bottom:.6rem}
+.colorkey h3{font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.05em;color:var(--gld);margin-bottom:.5rem}
+.ckrow{display:flex;align-items:center;gap:.4rem;margin-bottom:.28rem}
+.cksw{width:14px;height:14px;border-radius:2px;flex-shrink:0}
+.cktext{font-size:.64rem;color:#A09080;line-height:1.3}
+.cktext strong{color:var(--txt)}
+
+/* ══ SECTION 5 — IDEA BANK ══ */
+.ib{padding:1.25rem 2rem;display:grid;grid-template-columns:1fr 270px;gap:1.25rem;align-items:start}
+.irow{display:grid;grid-template-columns:16px auto 1fr auto;align-items:center;gap:.5rem;padding:.35rem .45rem;border-radius:6px;border:1px solid var(--b1);background:var(--s1);margin-bottom:.25rem;cursor:pointer;transition:all .15s}
+.irow:hover{border-color:var(--b2);background:var(--s2)}
+.iused{opacity:.35}
+.icb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;transition:all .15s}
+.iused .icb{background:var(--grn);border-color:var(--grn);color:#000}
+.itag{font-family:'DM Mono',monospace;font-size:.46rem;padding:.07rem .25rem;border-radius:3px;border:1px solid;white-space:nowrap;flex-shrink:0}
+.ititle{font-size:.7rem;color:var(--txt)}
+.ihook{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--dim);margin-top:.07rem}
+.iused .ititle{text-decoration:line-through;color:var(--dim)}
+.iact{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--dim);white-space:nowrap}
+.isb{position:sticky;top:64px}
+
+/* checklist */
+.chki{display:flex;align-items:flex-start;gap:.4rem;padding:.28rem .38rem;border-radius:4px;cursor:pointer;transition:background .15s;margin-bottom:.18rem}
+.chki.ck{background:var(--gbg)}
+.chkb{width:14px;height:14px;border-radius:3px;border:1.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:.52rem;flex-shrink:0;margin-top:1px;transition:all .15s}
+.chki.ck .chkb{background:var(--grn);border-color:var(--grn);color:#000}
+.chkl{font-size:.65rem;color:var(--txt);line-height:1.3}
+.chks{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--dim);margin-top:.08rem}
+.chki.ck .chkl{color:var(--grn)}
+
+/* ══ SECTION 6 — FRIDAY PLAN ══ */
+.fp{padding:1.25rem 2rem;display:grid;grid-template-columns:1fr 270px;gap:1.25rem;align-items:start}
+.tline{position:relative;padding-left:64px}
+.tline::before{content:'';position:absolute;left:48px;top:0;bottom:0;width:1px;background:var(--b1)}
+.tblock{position:relative;margin-bottom:1.1rem}
+.tblock::before{content:'';position:absolute;left:-20px;top:.85rem;width:8px;height:8px;border-radius:50%;background:var(--b2);border:1.5px solid var(--bg);transition:all .3s}
+.tblock.tdone::before{background:var(--grn);border-color:var(--grn);box-shadow:0 0 8px rgba(0,212,106,.4)}
+.tblock.tcur::before{background:var(--gld);border-color:var(--gld);box-shadow:0 0 10px rgba(245,166,35,.5)}
+.ttime{position:absolute;left:-64px;top:.75rem;font-family:'DM Mono',monospace;font-size:.56rem;color:var(--dim);white-space:nowrap;letter-spacing:.06em}
+.tblock.tcur .ttime{color:var(--gld)}
+.ttitle{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.05em;margin-bottom:.3rem}
+.ttasks{display:flex;flex-direction:column;gap:.18rem;margin-bottom:.3rem}
+.ttask{font-family:'DM Mono',monospace;font-size:.58rem;color:#907F70;line-height:1.4;padding:.16rem .38rem;border-radius:3px;border-left:2px solid var(--b2);cursor:pointer;transition:all .15s}
+.ttask:hover{border-color:var(--gld);color:var(--txt);background:var(--ybg)}
+.ttask.tk{border-color:var(--grn);color:var(--grn);background:var(--gbg);text-decoration:line-through;opacity:.6}
+.tnote{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--dim);padding:.22rem .38rem;border-radius:3px;background:var(--s2);border:1px solid var(--b1)}
+
+/* ══ SECTION 7 — WEEKLY BREAKDOWN ══ */
+.wk{padding:1.25rem 2rem}
+.wksec{margin-bottom:1.5rem}
+.wksec h2{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.06em;margin-bottom:.75rem;padding-bottom:.35rem;border-bottom:1px solid var(--b1)}
+.dayrow{display:grid;grid-template-columns:80px 1fr;gap:0;margin-bottom:.35rem;border:1px solid var(--b1);border-radius:7px;overflow:hidden}
+.dayname{background:var(--s2);padding:.65rem .75rem;display:flex;flex-direction:column;justify-content:center;gap:.2rem}
+.dn{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.05em}
+.dd{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.daybody{padding:.55rem .75rem;display:flex;flex-direction:column;gap:.28rem;background:var(--s1)}
+.daybody.offday{background:var(--bg)}
+.dtask{font-size:.68rem;color:#A09080;line-height:1.5;display:flex;align-items:flex-start;gap:.4rem}
+.dtask .dk{color:var(--red);font-weight:600;flex-shrink:0}
+.dtask .db2{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--dim);margin-top:.12rem}
+
+/* ══ SECTION 8 — STATS ══ */
+.st{padding:1.25rem 2rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.stcard{background:var(--s1);border:1px solid var(--b1);border-radius:10px;padding:1.1rem;display:flex;flex-direction:column;gap:.5rem}
+.stlabel{font-family:'DM Mono',monospace;font-size:.52rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
+.stnum{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;line-height:1}
+.stsub{font-size:.68rem;color:#907F70;line-height:1.5}
+.stbar{height:4px;background:var(--s3);border-radius:2px;overflow:hidden;margin-top:.25rem}
+.stfill{height:100%;border-radius:2px;transition:width .6s}
+
+/* ══ SECTION 9 — IG SCRIPTS ══ */
+.scripts-body{padding:1.25rem 2rem;display:grid;grid-template-columns:280px 1fr;gap:1.25rem;align-items:start}
+.script-list{display:flex;flex-direction:column;gap:.3rem;position:sticky;top:64px;max-height:calc(100vh - 120px);overflow-y:auto}
+.script-list::-webkit-scrollbar{width:3px}.script-list::-webkit-scrollbar-thumb{background:var(--b2);border-radius:2px}
+.sitem{padding:.5rem .7rem;border-radius:6px;border:1px solid var(--b1);background:var(--s1);cursor:pointer;transition:all .15s}
+.sitem:hover{border-color:var(--b2);background:var(--s2)}
+.sitem.son{border-color:var(--red);background:var(--rbg)}
+.sitem-num{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.15rem}
+.sitem-title{font-size:.68rem;color:var(--txt);line-height:1.3}
+.sitem-cat{font-family:'DM Mono',monospace;font-size:.46rem;color:var(--dim);margin-top:.1rem}
+.sitem.son .sitem-title{color:var(--red)}
+.script-viewer{background:var(--s1);border:1px solid var(--b1);border-radius:10px;overflow:hidden}
+.sv-header{padding:1rem 1.25rem;border-bottom:1px solid var(--b1);background:var(--s2)}
+.sv-num{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.2rem}
+.sv-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;line-height:1;margin-bottom:.3rem}
+.sv-meta{display:flex;gap:.75rem;flex-wrap:wrap}
+.sv-badge{font-family:'DM Mono',monospace;font-size:.5rem;padding:.12rem .4rem;border-radius:3px;border:1px solid;text-transform:uppercase;letter-spacing:.07em}
+.sv-body{padding:1.25rem}
+.script-block{margin-bottom:1.25rem;padding:1rem 1.1rem;border-radius:8px;border:1px solid;position:relative}
+.sb-label{font-family:'DM Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem;display:flex;align-items:center;gap:.4rem}
+.sb-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sb-timing{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--dim);margin-left:auto}
+.sb-hook{background:var(--rbg);border-color:var(--rmid)}
+.sb-hook .sb-label{color:var(--red)}
+.sb-hook .sb-dot{background:var(--red)}
+.sb-body{background:var(--bbg);border-color:var(--bmid)}
+.sb-body .sb-label{color:var(--blue)}
+.sb-body .sb-dot{background:var(--blue)}
+.sb-cta{background:var(--gbg);border-color:var(--gmid)}
+.sb-cta .sb-label{color:var(--grn)}
+.sb-cta .sb-dot{background:var(--grn)}
+.sb-text{font-size:.78rem;color:var(--txt);line-height:1.8;font-style:italic}
+.sb-text strong{font-style:normal;color:var(--gld)}
+.sb-note{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--dim);margin-top:.5rem;padding:.3rem .5rem;background:var(--s3);border-radius:4px;border:1px solid var(--b1);font-style:normal}
+.sb-visual{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--pur);margin-top:.5rem;padding:.3rem .5rem;background:var(--pbg);border-radius:4px;border:1px solid var(--pmid)}
+.sv-footer{padding:.75rem 1.25rem;border-top:1px solid var(--b1);display:flex;gap:.75rem;flex-wrap:wrap;background:var(--s2)}
+.svf-stat{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--dim)}
+.svf-stat strong{color:var(--txt)}
+.copy-btn{font-family:'DM Mono',monospace;font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;padding:.3rem .65rem;border-radius:4px;border:1px solid var(--b2);background:transparent;color:var(--dim);cursor:pointer;transition:all .15s;margin-left:auto}
+.copy-btn:hover{border-color:var(--red);color:var(--red)}
+
+  .tb,.pb,.wb,.ib,.fp{grid-template-columns:1fr}
+  .pb .pf{grid-column:1}
+  .rgrid{grid-template-columns:repeat(4,1fr)}
+  .dstock{grid-template-columns:1fr}
+  .tsb,.isb{position:static}
+  .ph h1{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">CONTENT OS</div>
+  <div class="tabs">
+    <button class="tab on" onclick="go(&#39;backlog&#39;,this)">01 · Backlog</button>
+    <button class="tab" onclick="go(&#39;cal&#39;,this)">02 · Calendar</button>
+    <button class="tab" onclick="go(&#39;plan&#39;,this)">03 · 2 Weeks Ahead</button>
+    <button class="tab" onclick="go(&#39;board&#39;,this)">04 · Whiteboard</button>
+    <button class="tab" onclick="go(&#39;ideas&#39;,this)">05 · Idea Bank</button>
+    <button class="tab" onclick="go(&#39;friday&#39;,this)">06 · Friday Plan</button>
+    <button class="tab" onclick="go(&#39;weekly&#39;,this)">07 · Weekly Breakdown</button>
+    <button class="tab" onclick="go(&#39;stats&#39;,this)">08 · Stats</button>
+    <button class="tab" onclick="go(&#39;scripts&#39;,this)">09 · IG Scripts</button>
+  </div>
+  <div class="nstat"><div class="dot"></div><span id="nstat">1 / 43 done</span></div>
+</nav>
+
+<!-- ══════════════ 01 BACKLOG ══════════════ -->
+<div class="sec on" id="backlog">
+  <div class="ph">
+    <div>
+      <h1>REEL <span class="acc">BACKLOG</span></h1>
+      <div class="sub">43 unedited reels · 2 gym edits/week · Sun + Sat sessions</div>
+      <div class="pbar"><div class="pfill" id="prog" style="width: 2%;"></div></div>
+      <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.54rem;color:var(--dim);margin-top:.3rem">
+        <span id="dnum">1</span> done · <span id="pnum">2%</span> · ~<span id="wnum">21</span>w to clear
+      </div>
+    </div>
+    <div class="rstat"><div class="rsn r" id="remnum">42</div><div class="rsl">Remaining</div></div>
+  </div>
+  <div class="tb">
+    <div>
+      <div class="frow">
+        <button class="ft on" onclick="filt(&#39;all&#39;,this)">All</button>
+        <button class="ft" onclick="filt(&#39;todo&#39;,this)">To Do</button>
+        <button class="ft" onclick="filt(&#39;done&#39;,this)">Done ✓</button>
+        <button class="ft" onclick="filt(&#39;pri&#39;,this)">🔴 Priority</button>
+        <button class="ft" onclick="filt(&#39;stock&#39;,this)">📦 Stockpile</button>
+      </div>
+      <div class="glabel"><span>🔴 Priority Queue — Edit These First</span><span class="gc" id="gp">5 left</span></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 1 SUN"><div class="cb"></div><div class="rd">Feb 4</div><div class="rt">Flocka Video</div><div class="tag tnow">WEEK 1 SUN</div></div>
+      <div class="rr pri done" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 1 SAT"><div class="cb">✓</div><div class="rd">Feb 2</div><div class="rt">DITD Routine</div><div class="tag tdone">DONE ✓</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 2 SUN"><div class="cb"></div><div class="rd">Feb 6</div><div class="rt">DITD Routine</div><div class="tag tnow">WEEK 2 SUN</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 2 SAT"><div class="cb"></div><div class="rd">Feb 19</div><div class="rt">School Routine</div><div class="tag tnow">WEEK 2 SAT</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jan 28</div><div class="rt">Laowa Unboxing</div><div class="tag tp3">P3</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jan 21</div><div class="rt">HEB Shopping</div><div class="tag tp3">P3</div></div>
+
+      <div class="glabel"><span>📦 January · 13 reels</span><span class="gc" id="gjan">13 left</span></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tstock" data-orig="STOCKPILE"><div class="cb"></div><div class="rd">Jan 30</div><div class="rt">Laowa gym video</div><div class="tag tstock">STOCKPILE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 20</div><div class="rt">Quick back day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jan 19</div><div class="rt">Chest + Tri Day</div><div class="tag tp3">P3</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 16</div><div class="rt">Leg day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 15</div><div class="rt">Back + Bicep</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 12</div><div class="rt">Back day AR LW</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 11</div><div class="rt">Upper body day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 10</div><div class="rt">HEB Shopping w Sandra</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 9</div><div class="rt">Leg day + work + eating</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 7</div><div class="rt">Shoulder day + eating gym</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 6</div><div class="rt">Back day + leaving gym</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 18</div><div class="rt">AR Day 1, AR Frisco</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 5</div><div class="rt">Back day</div><div class="tag tq">QUEUE</div></div>
+
+      <div class="glabel"><span>📦 December · 4 reels</span><span class="gc" id="gdec">4 left</span></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 4</div><div class="rt">Chest day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Dec 3</div><div class="rt">Leg day</div><div class="tag tp3">P3</div></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 1</div><div class="rt">Chest + Triceps</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jun 21</div><div class="rt">HEB Day 1</div><div class="tag tp3">P3</div></div>
+
+      <div class="glabel"><span>📦 November · 6 reels</span><span class="gc" id="gnov">6 left</span></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 10</div><div class="rt">Pull day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 9</div><div class="rt">Push day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 6</div><div class="rt">Push day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 5</div><div class="rt">Pull day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 4</div><div class="rt">Leg day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 2</div><div class="rt">Back + dog clip</div><div class="tag tq">QUEUE</div></div>
+
+      <div class="glabel"><span>📦 October · 8 reels</span><span class="gc" id="goct">8 left</span></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 29</div><div class="rt">Back and Bi H</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 28</div><div class="rt">Leg day H</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 27</div><div class="rt">Chest H</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 21</div><div class="rt">Chest + tricep + laptop work</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 14</div><div class="rt">Abs + leg day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 13</div><div class="rt">Bicep + back day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 6</div><div class="rt">Bicep + back day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 1</div><div class="rt">Leg day</div><div class="tag tq">QUEUE</div></div>
+
+      <div class="glabel"><span>📦 September · 4 reels</span><span class="gc" id="gsep">4 left</span></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Sep 10</div><div class="rt">Chest day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Sep 5</div><div class="rt">Shoulder day LC + cinematics</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Sep 4</div><div class="rt">Back + Bi workout</div><div class="tag tp3">P3</div></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Sep 2</div><div class="rt">UNT workout + cinematics</div><div class="tag tq">QUEUE</div></div>
+    </div>
+    <div class="tsb">
+      <div class="card"><h3 class="hr">Progress</h3>
+        <div class="srow"><span class="sl">Total Reels</span><span class="sv y">43</span></div>
+        <div class="srow"><span class="sl">Done</span><span class="sv g" id="sbdone">1</span></div>
+        <div class="srow"><span class="sl">Remaining</span><span class="sv r" id="sbrem">42</span></div>
+        <div class="srow"><span class="sl">Weeks to Clear</span><span class="sv y" id="sbwks">21w</span></div>
+        <div class="srow"><span class="sl">Edit Pace</span><span class="sv" style="color:var(--txt)">2/week</span></div>
+      </div>
+      <div class="card"><h3 class="hg">Weekly Cycle</h3>
+        <ul class="ulist">
+          <li><span>📝</span><span><strong style="color:var(--txt)">Sun</strong> — Writing Day + Edit Gym Reel → stockpile</span></li>
+          <li><span>🔵</span><span><strong style="color:var(--txt)">Mon</strong> — POST Teach #1</span></li>
+          <li><span>🚫</span><span><strong style="color:var(--red)">Tue</strong> — OFF. Classes until 5:30pm.</span></li>
+          <li><span>🔴</span><span><strong style="color:var(--txt)">Wed</strong> — POST Gym Edit</span></li>
+          <li><span>🎥</span><span><strong style="color:var(--txt)">Thu 2–5:30pm</strong> — Batch film × 3</span></li>
+          <li><span>✂️</span><span><strong style="color:var(--txt)">Fri</strong> — Edit Teach #2, POST, Edit batch 2&amp;3</span></li>
+          <li><span>📝</span><span><strong style="color:var(--txt)">Sat</strong> — Writing Day + Edit Gym Reel #1</span></li>
+        </ul>
+      </div>
+      <div class="card"><h3 class="hp">Posting Schedule</h3>
+        <ul class="ulist">
+          <li><span>🔵</span><span><strong style="color:var(--txt)">Mon</strong> — POST Teach #1</span></li>
+          <li><span>🔴</span><span><strong style="color:var(--txt)">Wed</strong> — POST Gym Edit</span></li>
+          <li><span>🔵</span><span><strong style="color:var(--txt)">Fri</strong> — POST Teach #2</span></li>
+          <li><span>🟣</span><span><strong style="color:var(--pur)">Batch #3</strong> — teach stockpile every week</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 02 CALENDAR ══════════════ -->
+<div class="sec" id="cal">
+  <div class="ph">
+    <div><h1>CONTENT <span class="acc">CALENDAR</span></h1><div class="sub">March 2026 · Sun+Sat gym edit · Mon teach · Wed gym · Thu batch · Fri teach</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--pur)">3</div><div class="rsl">Posts / Week</div></div>
+  </div>
+  <div class="cb2">
+    <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.35rem;color:var(--txt);letter-spacing:.06em;margin-bottom:.75rem">MARCH <span style="color:var(--dim)">2026</span></div>
+    <div class="cgrid" id="cgrid"><div class="cdh">SUN</div><div class="cdh">MON</div><div class="cdh">TUE</div><div class="cdh">WED</div><div class="cdh">THU</div><div class="cdh">FRI</div><div class="cdh">SAT</div><div class="cc wknd"><div class="cnum">1</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel #2</div></div><div class="cc"><div class="cnum">2</div></div><div class="cc"><div class="cnum">3</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">4</div><div class="ev eg">🟢 Post Gym Edit #1</div></div><div class="cc tday"><div class="cnum tnum">5</div><div class="ev eb">🎥 Batch × 3 videos</div></div><div class="cc"><div class="cnum">6</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev eg">🟢 Post Teach #2</div><div class="ev eb">✂️ batch 2&amp;3</div></div><div class="cc wknd"><div class="cnum">7</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel #1</div></div><div class="cc wknd"><div class="cnum">8</div><div class="ev ey">📝 Writing Day</div><div class="ev ep">📦 Edit gym → stock</div></div><div class="cc"><div class="cnum">9</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">10</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">11</div><div class="ev eg">🟢 Post Gym Edit #2</div></div><div class="cc"><div class="cnum">12</div><div class="ev eb">🎥 Batch × 3 videos</div></div><div class="cc"><div class="cnum">13</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev eg">🟢 Post Teach #2</div><div class="ev eb">✂️ batch 2&amp;3</div></div><div class="cc wknd"><div class="cnum">14</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel #1</div></div><div class="cc wknd"><div class="cnum">15</div><div class="ev ey">📝 Writing Day</div><div class="ev ep">📦 Stock: 2</div></div><div class="cc"><div class="cnum">16</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">17</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">18</div><div class="ev eg">🟢 Post Gym Edit #3</div></div><div class="cc"><div class="cnum">19</div><div class="ev eb">🎥 Batch × 3 videos</div></div><div class="cc"><div class="cnum">20</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev eg">🟢 Post Teach #2</div><div class="ev eb">✂️ batch 2&amp;3</div></div><div class="cc wknd"><div class="cnum">21</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel #1</div></div><div class="cc wknd"><div class="cnum">22</div><div class="ev ey">📝 Writing Day</div><div class="ev ep">📦 Stock: 3 ⚡</div></div><div class="cc"><div class="cnum">23</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">24</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">25</div><div class="ev eg">🟢 Post Gym Edit · Priority ✓</div></div><div class="cc"><div class="cnum">26</div><div class="ev eb">🎥 Batch × 3 videos</div></div><div class="cc"><div class="cnum">27</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev eg">🟢 Post Teach #2</div><div class="ev eb">✂️ batch 2&amp;3</div></div><div class="cc wknd"><div class="cnum">28</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel #1</div></div><div class="cc wknd"><div class="cnum">29</div><div class="ev ey">📝 Writing Day</div><div class="ev ep">📦 Stock: 4 = 2 WKS AHEAD!</div></div><div class="cc"><div class="cnum">30</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">31</div><div class="coff">OFF</div></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div></div>
+    <div class="cleg" style="margin-top:.75rem">
+      <div class="cli"><div class="cld" style="background:var(--red)"></div><div class="cll">Gym Edit</div></div>
+      <div class="cli"><div class="cld" style="background:var(--blue)"></div><div class="cll">Batch / Teach Edit</div></div>
+      <div class="cli"><div class="cld" style="background:var(--grn)"></div><div class="cll">Post Day</div></div>
+      <div class="cli"><div class="cld" style="background:var(--gld)"></div><div class="cll">Writing Day</div></div>
+      <div class="cli"><div class="cld" style="background:var(--pur)"></div><div class="cll">Stockpile</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 03 PLAN ══════════════ -->
+<div class="sec" id="plan">
+  <div class="ph">
+    <div><h1>2 WEEKS <span class="acc">AHEAD</span></h1><div class="sub">Build buffer · gym stockpile 4 = 2 weeks ahead · target Apr 13</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--gld)">Apr 13</div><div class="rsl">Target Date</div></div>
+  </div>
+  <div class="pb">
+    <div class="pf">
+      <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1rem;color:var(--gld);letter-spacing:.08em;margin-bottom:.6rem">YOUR WEEKLY RHYTHM</div>
+      <div class="rgrid">
+        <div class="rday"><div class="dname" style="color:var(--gld)">SUN</div><div class="dev dy">📝 Writing Day</div><div class="dev dr">✂️ Edit Gym #2</div><div class="dev dpx" style="font-size:.4rem">→ Stockpile</div></div>
+        <div class="rday"><div class="dname" style="color:var(--blue)">MON</div><div class="dev dg">🟢 POST Teach #1</div><div class="dev db" style="font-size:.4rem">From Thu batch</div></div>
+        <div class="rday" style="background:var(--bg);border-color:var(--b1)"><div class="dname">TUE</div><div class="dev doff">🚫 OFF · classes</div></div>
+        <div class="rday"><div class="dname" style="color:var(--red)">WED</div><div class="dev dg">🟢 POST Gym Edit</div><div class="dev dr" style="font-size:.4rem">Edited last Sunday</div></div>
+        <div class="rday"><div class="dname" style="color:var(--blue)">THU</div><div class="dev db">🎥 BATCH × 3</div><div class="dev db" style="font-size:.4rem">2–5:30pm window</div></div>
+        <div class="rday"><div class="dname" style="color:var(--blue)">FRI</div><div class="dev db">✂️ Edit Teach #2</div><div class="dev dg">🟢 POST Teach #2</div><div class="dev db" style="font-size:.4rem">Edit batch 2 &amp; 3</div></div>
+        <div class="rday"><div class="dname" style="color:var(--gld)">SAT</div><div class="dev dy">📝 Writing Day</div><div class="dev dr">✂️ Edit Gym #1</div><div class="dev dy" style="font-size:.4rem">Posts next Wed</div></div>
+      </div>
+    </div>
+    <div class="pf rule-banner">
+      <div class="rb-badge">⚡ The Cycle</div>
+      <div class="rb-text"><strong>Gym:</strong> Sat edit posts next Wed. Sun edit goes to stockpile. Never post it immediately — that's the whole game. Stockpile 4 = 2 weeks of insurance. Miss a week? Stockpile covers it.<br><br><strong>Teaching:</strong> Thu batch film × 3. Fri edit #2 and post it. Mon post #1. #3 goes to teach stockpile every single week. By May you have a month banked. Finals can't touch you.</div>
+    </div>
+    <div class="pc p1">
+      <div class="pch"><div class="pcn">01</div><div class="pci"><h3>March — Build the Engine</h3><div class="pcis">Priority queue cleared Mar 25 · stockpile: 3 by Mar 31</div></div></div>
+      <div class="pcb"><ul>
+        <li><span class="bull">→</span>Thu Mar 5: first batch film × 3 · 2–5:30pm</li>
+        <li><span class="bull">→</span>Fri: Edit Teach #2, POST, Edit batch 2&amp;3</li>
+        <li><span class="bull">→</span>Sun: Writing Day + Edit gym reel → stockpile</li>
+        <li><span class="bull">→</span>Mon POST Teach · Wed POST Gym — every week</li>
+        <li><span class="bull">→</span>Priority queue cleared Wed Mar 25</li>
+      </ul></div>
+      <div class="pcr">Stockpile: 3 gym + 3+ teach by Mar 31</div>
+    </div>
+    <div class="pc p2">
+      <div class="pch"><div class="pcn">02</div><div class="pci"><h3>April — Hit 2 Weeks Ahead</h3><div class="pcis">Same rhythm · gym stockpile hits 4 = Apr 13</div></div></div>
+      <div class="pcb"><ul>
+        <li><span class="bull">→</span>Zero changes. Just keep the cycle running.</li>
+        <li><span class="bull">→</span>Gym stockpile: 3 → 4 = 2 WEEKS AHEAD ⚡</li>
+        <li><span class="bull">→</span><strong style="color:var(--txt)">Apr 13 — the milestone. Never miss a post again.</strong></li>
+        <li><span class="bull">→</span>Teach stockpile: 1/week → 4 videos banked by Apr 13</li>
+        <li><span class="bull">→</span>Switch to Phase 3 once gym hits 4</li>
+      </ul></div>
+      <div class="pcr">⚡ 2 Weeks Ahead — Apr 13</div>
+    </div>
+    <div class="pc p3">
+      <div class="pch"><div class="pcn">03</div><div class="pci"><h3>May+ — Maintenance Mode</h3><div class="pcis">1 gym edit/week · post from stockpile · finals can't touch you</div></div></div>
+      <div class="pcb"><ul>
+        <li><span class="bull">→</span>Drop to 1 gym edit/week (Sat only)</li>
+        <li><span class="bull">→</span>Post from gym stockpile every Wed</li>
+        <li><span class="bull">→</span>Keep Thursday batch — teach stockpile keeps growing</li>
+        <li><span class="bull">→</span>Finals week: don't open Premiere. Stockpile handles it.</li>
+        <li><span class="bull">→</span>Summer: burn the backlog, scale to daily if you want</li>
+      </ul></div>
+      <div class="pcr">Stress-free creator mode ✓</div>
+    </div>
+    <div class="pf dstock">
+      <div class="sblock"><h3 class="hr">🏋️ Gym Stockpile</h3><div class="slots" id="gymslots"><div class="slot">1</div><div class="slot">2</div><div class="slot">3</div><div class="slot">4</div><div class="slot">5</div><div class="slot">6</div><div class="slot">7</div><div class="slot">8</div></div><div class="scrow"><div class="scn" style="color:var(--red)" id="gymn">0</div><div class="scl">edits banked</div><div class="scs" id="gyms" style="color:var(--dim)">0 weeks</div></div></div>
+      <div class="sblock"><h3 class="hb">🎥 Teach Stockpile</h3><div class="slots" id="teachslots"><div class="slot">1</div><div class="slot">2</div><div class="slot">3</div><div class="slot">4</div><div class="slot">5</div><div class="slot">6</div><div class="slot">7</div><div class="slot">8</div></div><div class="scrow"><div class="scn" style="color:var(--blue)" id="teachn">0</div><div class="scl">videos banked</div><div class="scs" id="teachs" style="color:var(--dim)">0 weeks</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 04 WHITEBOARD ══════════════ -->
+<div class="sec" id="board">
+  <div class="ph">
+    <div><h1>YOUR <span class="acc">WHITEBOARD</span></h1><div class="sub">Matches your physical calendar exactly · 4 marker colors</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--gld)">4</div><div class="rsl">Marker Colors</div></div>
+  </div>
+  <div class="wb">
+    <div>
+      <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:.85rem;color:var(--dim);letter-spacing:.08em;margin-bottom:.5rem">MARCH 2026</div>
+      <div class="wboard">
+        <div class="wbtop"><div class="wbtitle">MARCH 2026</div><div class="wbsub">Content Pipeline</div></div>
+        <div class="wbcal">
+          <div class="wbhdrs"><div class="wbdh">SUN</div><div class="wbdh">MON</div><div class="wbdh" style="color:#CCC">TUE</div><div class="wbdh">WED</div><div class="wbdh">THU</div><div class="wbdh">FRI</div><div class="wbdh">SAT</div></div>
+          <div class="wbwks" id="wbcal"><div class="wbwk"><div class="wbc"><div class="wbn act">1</div><div class="wbev we-y">📝 Writing#2</div><div class="wbev we-r">✂️ gym#2→stk</div></div><div class="wbc"><div class="wbn">2</div></div><div class="wbc tue"><div class="wbn">3</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">4</div><div class="wbev we-g">🟢 PostGym#1</div></div><div class="wbc twb"><div class="wbn act tdy">5</div><div class="wbev we-b">🎥 Batch×3</div></div><div class="wbc"><div class="wbn act">6</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-b">✂️ batch2&amp;3</div></div><div class="wbc"><div class="wbn act">7</div><div class="wbev we-y">📝 Writing#1</div><div class="wbev we-r">✂️ gym#1</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">8</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-p">📦 Stock:1</div></div><div class="wbc"><div class="wbn act">9</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc tue"><div class="wbn">10</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">11</div><div class="wbev we-g">🟢 PostGym#2</div></div><div class="wbc"><div class="wbn act">12</div><div class="wbev we-b">🎥 Batch×3</div></div><div class="wbc"><div class="wbn act">13</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-b">✂️ batch2&amp;3</div></div><div class="wbc"><div class="wbn act">14</div><div class="wbev we-y">📝 Writing#1</div><div class="wbev we-r">✂️ gym#1</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">15</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-p">📦 Stock:2</div></div><div class="wbc"><div class="wbn act">16</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc tue"><div class="wbn">17</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">18</div><div class="wbev we-g">🟢 PostGym#3</div></div><div class="wbc"><div class="wbn act">19</div><div class="wbev we-b">🎥 Batch×3</div></div><div class="wbc"><div class="wbn act">20</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-b">✂️ batch2&amp;3</div></div><div class="wbc"><div class="wbn act">21</div><div class="wbev we-y">📝 Writing#1</div><div class="wbev we-r">✂️ gym#1</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">22</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-p">📦 Stock:3⚡</div></div><div class="wbc"><div class="wbn act">23</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc tue"><div class="wbn">24</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">25</div><div class="wbev we-g">🟢 PostGym✓</div></div><div class="wbc"><div class="wbn act">26</div><div class="wbev we-b">🎥 Batch×3</div></div><div class="wbc"><div class="wbn act">27</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-b">✂️ batch2&amp;3</div></div><div class="wbc"><div class="wbn act">28</div><div class="wbev we-y">📝 Writing#1</div><div class="wbev we-r">✂️ gym#1</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">29</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-p">📦 Stock:4=2WKS!</div></div><div class="wbc"><div class="wbn act">30</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc tue"><div class="wbn">31</div><div class="wboff">OFF</div></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div></div></div>
+          <div class="wbnote">
+            <div class="wbnt">NOTE</div>
+            <div class="wbni"><div class="wbndot" style="background:#B45309"></div><span>Writing / Scripting</span></div>
+            <div class="wbni"><div class="wbndot" style="background:#1565C0"></div><span>Filming / Batch</span></div>
+            <div class="wbni"><div class="wbndot" style="background:#D93025"></div><span>Editing (gym)</span></div>
+            <div class="wbni"><div class="wbndot" style="background:#1B7F4C"></div><span>Posting</span></div>
+            <div class="wbni"><div class="wbndot" style="background:#7C3AED"></div><span>Stockpile</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="colorkey">
+        <h3>🎨 Marker Color Guide</h3>
+        <div class="ckrow"><div class="cksw" style="background:#D93025"></div><div class="cktext"><strong>RED</strong> — Gym edits (Sun + Sat sessions)</div></div>
+        <div class="ckrow"><div class="cksw" style="background:#1565C0"></div><div class="cktext"><strong>BLUE</strong> — Batch film Thu + teach edits Fri</div></div>
+        <div class="ckrow"><div class="cksw" style="background:#1B7F4C"></div><div class="cktext"><strong>GREEN</strong> — Post days (Mon, Wed, Fri)</div></div>
+        <div class="ckrow"><div class="cksw" style="background:#B45309"></div><div class="cktext"><strong>GOLD</strong> — Writing / scripting days</div></div>
+      </div>
+      <div class="wbguide" id="wbguide"><div class="wgc"><div class="wgh" style="color: var(--red);">Week 1 · Mar 1–7</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 1</div><div class="wgitems"><div class="wi wi-y">Writing Day + Script 3</div><div class="wi wi-r">Edit gym reel #2 → stockpile</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 4</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 5</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 6</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 7</div><div class="wgitems"><div class="wi wi-y">Writing Day #1</div><div class="wi wi-r">Edit gym reel #1 → posts Wed</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--red);">Week 2 · Mar 8–14 · Stock: 1</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 8</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-p">Edit gym reel → stockpile · Stock:1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON 9</div><div class="wgitems"><div class="wi wi-g">POST Teach #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 11</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit #2</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 12</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 13</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 14</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-r">Edit gym reel #1</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--grn);">Week 3 · Mar 15–21 · Stock: 2</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 15</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-p">Edit gym reel → stockpile · Stock:2</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON 16</div><div class="wgitems"><div class="wi wi-g">POST Teach #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 18</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit #3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 19</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 20</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 21</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-r">Edit gym reel #1</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--pur);">Week 4 · Mar 22–28 · Stock: 3 ⚡</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 22</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-p">Edit gym reel → stockpile · Stock:3 ⚡</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON 23</div><div class="wgitems"><div class="wi wi-g">POST Teach #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 25</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit · Priority Queue ✓</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 26</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 27</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 28</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-r">Edit gym reel #1 → posts Wed Apr 1</div></div></div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 05 IDEA BANK ══════════════ -->
+<div class="sec" id="ideas">
+  <div class="ph">
+    <div><h1>IDEA <span class="acc">BANK</span></h1><div class="sub">Teaching video ideas · script Wed · film Thu · never stare at a blank page</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--blue)" id="ideasleft">39</div><div class="rsl">Ideas Ready</div></div>
+  </div>
+  <div class="ib">
+    <div>
+      <div class="frow">
+        <button class="ft on" onclick="fiidea(&#39;all&#39;,this)">All</button>
+        <button class="ft" onclick="fiidea(&#39;camera&#39;,this)">📷 Camera</button>
+        <button class="ft" onclick="fiidea(&#39;edit&#39;,this)">✂️ Editing</button>
+        <button class="ft" onclick="fiidea(&#39;lighting&#39;,this)">💡 Lighting</button>
+        <button class="ft" onclick="fiidea(&#39;workflow&#39;,this)">⚙️ Workflow</button>
+        <button class="ft" onclick="fiidea(&#39;used&#39;,this)">✅ Used</button>
+      </div>
+      <div id="idealist"><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Clone Effect Tutorial</div><div class="ihook">Hook: "How I filmed myself twice in one shot"</div></div><div class="iact">tap to use</div></div><div class="irow iused"><div class="icb">✓</div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">Monitor &amp; Ctrl App Camera Setup</div><div class="ihook">Hook: "My full desk filming setup revealed"</div></div><div class="iact">USED</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">Laowa Lens Full Review</div><div class="ihook">Hook: "This lens makes your videos look cinematic for $200"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">Best Camera Settings for Gym Videos</div><div class="ihook">Hook: "Stop filming on auto — here's what I actually use"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">How to Film Yourself Alone at the Gym</div><div class="ihook">Hook: "No camera person needed — my full solo setup"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">ND Filters Explained in 60 Seconds</div><div class="ihook">Hook: "Why your footage looks weird in daylight"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">iPhone vs Camera for Content</div><div class="ihook">Hook: "I tested both for 30 days — honest results"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">Best Camera Angles for Gym Reels</div><div class="ihook">Hook: "3 angles that make every workout look cinematic"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">How to Get Smooth Slow Motion</div><div class="ihook">Hook: "Frame rate settings nobody talks about"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">My Full Camera Bag for $500</div><div class="ihook">Hook: "Everything I use to film gym content on a budget"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">Autofocus Settings for Fast Movement</div><div class="ihook">Hook: "Your camera keeps losing focus — 30 second fix"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--blue); color: var(--blue);">📷 Camera</div><div><div class="ititle">Anamorphic Look on a Budget</div><div class="ihook">Hook: "That cinematic lens flare without spending $1,000"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">My Premiere Pro Gym Reel Workflow</div><div class="ihook">Hook: "How I edit a full reel in under 4 hours"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Color Grading Gym Footage</div><div class="ihook">Hook: "The exact LUT settings I use for every video"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Syncing Cuts to Music — My Method</div><div class="ihook">Hook: "This makes your edits feel like a music video"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">How to Make a Cinematic Vlog</div><div class="ihook">Hook: "Turn boring raw footage into a story in Premiere"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Speed Ramping Tutorial</div><div class="ihook">Hook: "The slow-mo effect everyone always asks me about"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Export Settings for Instagram Reels</div><div class="ihook">Hook: "Stop uploading blurry videos — export like this"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Transitions I Use Every Single Edit</div><div class="ihook">Hook: "3 transitions that work on any gym footage"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">How to Edit a Day in My Life Vlog</div><div class="ihook">Hook: "My full DITD editing process from raw to posted"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Sound Design for Gym Content</div><div class="ihook">Hook: "Adding impact sounds without making it cringe"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--red); color: var(--red);">✂️ Editing</div><div><div class="ititle">Building a Cinematic Intro</div><div class="ihook">Hook: "The first 3 seconds of every great video"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--gld); color: var(--gld);">💡 Lighting</div><div><div class="ititle">Gym Lighting — What Actually Works</div><div class="ihook">Hook: "Why overhead gym lights ruin your footage"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--gld); color: var(--gld);">💡 Lighting</div><div><div class="ititle">Budget Lighting Setup Under $100</div><div class="ihook">Hook: "I filmed this entire video with a $40 light"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--gld); color: var(--gld);">💡 Lighting</div><div><div class="ititle">Natural Light for Desk Setup</div><div class="ihook">Hook: "The one window trick for perfect YouTube lighting"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--gld); color: var(--gld);">💡 Lighting</div><div><div class="ititle">Lighting for Dark Gym Environments</div><div class="ihook">Hook: "High ISO vs external light — the real answer"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--gld); color: var(--gld);">💡 Lighting</div><div><div class="ititle">RGB Lights for Content — Worth It?</div><div class="ihook">Hook: "I tested every color setting for 2 weeks"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--gld); color: var(--gld);">💡 Lighting</div><div><div class="ititle">How to Avoid Shadows on Your Face</div><div class="ihook">Hook: "This $0 fix changed how my videos look forever"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">My Full Content Creation Schedule</div><div class="ihook">Hook: "How I post 3x/week while taking 4 college classes"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">How I Batch Film 3 Videos in 90 Minutes</div><div class="ihook">Hook: "Thursday is my most productive filming day — here's why"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">Apps I Use for Content Planning</div><div class="ihook">Hook: "The 3 apps that run my entire content system"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">How to Stay Consistent When Motivation Drops</div><div class="ihook">Hook: "I almost quit in November — this kept me going"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">Building a Content Stockpile</div><div class="ihook">Hook: "Why I never post the video I just finished editing"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">My File Organization in Premiere</div><div class="ihook">Hook: "How I find any clip from any day in 10 seconds"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">Filming While Traveling or at School</div><div class="ihook">Hook: "Keep your content consistent on crazy busy weeks"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">How I Plan a Whole Month of Content</div><div class="ihook">Hook: "The whiteboard system I use every month"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">Creator Burnout — What I Actually Do</div><div class="ihook">Hook: "When you don't want to film, watch this first"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">My Sunday Reset Routine as a Creator</div><div class="ihook">Hook: "The 2-hour session that sets up my whole week"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">How I Grew Posting Gym + Teaching Content</div><div class="ihook">Hook: "Two niches, one channel — here's what happened"</div></div><div class="iact">tap to use</div></div><div class="irow"><div class="icb"></div><div class="itag" style="border-color: var(--grn); color: var(--grn);">⚙️ Workflow</div><div><div class="ititle">What I Wish I Knew Before Starting</div><div class="ihook">Hook: "Every mistake I made in 3 years in one video"</div></div><div class="iact">tap to use</div></div></div>
+    </div>
+    <div class="isb">
+      <div class="card"><h3 class="hy">📝 Wednesday Script Session</h3>
+        <ul class="ulist">
+          <li><span>1.</span><span>Pick 3 ideas from the bank</span></li>
+          <li><span>2.</span><span>Write a 1-line hook — what's the FIRST thing they see?</span></li>
+          <li><span>3.</span><span>Outline 3–5 bullets per video</span></li>
+          <li><span>4.</span><span>Plan thumbnail before filming Thursday</span></li>
+          <li><span>5.</span><span>Mark ideas as Used here so you never repeat</span></li>
+        </ul>
+      </div>
+      <div class="card"><h3 class="hr">⚡ Pre-Post Checklist</h3>
+        <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.45rem">Run before EVERY post</div>
+        <div id="chklist"><div class="chki"><div class="chkb"></div><div><div class="chkl">Thumbnail passes 3-second rule</div><div class="chks">Would you click it over 6 others?</div></div></div><div class="chki"><div class="chkb"></div><div><div class="chkl">First 2 seconds = most intense moment</div><div class="chks">No slow intros, no black screen starts</div></div></div><div class="chki"><div class="chkb"></div><div><div class="chkl">Caption has search keywords</div><div class="chks">Terms your audience actually types</div></div></div><div class="chki"><div class="chkb"></div><div><div class="chkl">Cover photo manually selected</div><div class="chks">Best frame, not auto-generated</div></div></div><div class="chki"><div class="chkb"></div><div><div class="chkl">Posted at the right time</div><div class="chks">Mon=Teach · Wed=Gym · Fri=Teach · Fri=5pm</div></div></div><div class="chki"><div class="chkb"></div><div><div class="chkl">Marked as done in Backlog Tracker</div><div class="chks">Check it off in Tab 01</div></div></div></div>
+        <button onclick="resetChk()" style="margin-top:.55rem;width:100%;font-family:&#39;DM Mono&#39;,monospace;font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;padding:.28rem;border-radius:4px;border:1px solid var(--b1);background:transparent;color:var(--dim);cursor:pointer" onmouseover="this.style.color=&#39;var(--txt)&#39;" onmouseout="this.style.color=&#39;var(--dim)&#39;">↺ Reset for next post</button>
+      </div>
+      <div class="card"><h3 class="hp">🎯 Series Breakdown</h3>
+        <div style="display:flex;flex-direction:column;gap:.3rem">
+          <div style="display:flex;align-items:center;gap:.4rem"><div style="width:9px;height:9px;border-radius:2px;background:var(--blue);flex-shrink:0"></div><div style="font-size:.64rem;color:#A09080"><strong style="color:var(--txt)">Camera</strong> — gear, settings, techniques</div></div>
+          <div style="display:flex;align-items:center;gap:.4rem"><div style="width:9px;height:9px;border-radius:2px;background:var(--red);flex-shrink:0"></div><div style="font-size:.64rem;color:#A09080"><strong style="color:var(--txt)">Editing</strong> — Premiere Pro, effects, color</div></div>
+          <div style="display:flex;align-items:center;gap:.4rem"><div style="width:9px;height:9px;border-radius:2px;background:var(--gld);flex-shrink:0"></div><div style="font-size:.64rem;color:#A09080"><strong style="color:var(--txt)">Lighting</strong> — setups, tips, gear</div></div>
+          <div style="display:flex;align-items:center;gap:.4rem"><div style="width:9px;height:9px;border-radius:2px;background:var(--grn);flex-shrink:0"></div><div style="font-size:.64rem;color:#A09080"><strong style="color:var(--txt)">Workflow</strong> — apps, systems, productivity</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 06 FRIDAY PLAN ══════════════ -->
+<div class="sec" id="friday">
+  <div class="ph">
+    <div><h1>FRIDAY <span class="acc">BATTLE PLAN</span></h1><div class="sub">Most complex day · edit teach #2 · post · edit batch 2&amp;3 · done by 6:30pm</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--blue)" id="fridaydone">0/4</div><div class="rsl">Blocks Done</div></div>
+  </div>
+  <div class="fp">
+    <div>
+      <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:.9rem;color:var(--gld);letter-spacing:.08em;margin-bottom:.9rem">CLICK TASKS TO CHECK OFF</div>
+      <div class="tline" id="tline"><div class="tblock tcur"><div class="ttime">12:00 PM</div><div class="ttitle" style="color: var(--blue);">Edit Teach #2</div><div class="ttasks"><div class="ttask">○ Import Thursday batch footage</div><div class="ttask">○ Sync audio to video clips</div><div class="ttask">○ Rough cut — story first, effects second</div><div class="ttask">○ Add music, color grade, effects, titles</div></div><div class="tnote">💡 Peak energy. Hardest edit first. Don't skip straight to effects.</div></div><div class="tblock"><div class="ttime">2:00 PM</div><div class="ttitle" style="color: var(--grn);">Export &amp; Post Teach #2</div><div class="ttasks"><div class="ttask">○ Export H.264 · Instagram Reels preset</div><div class="ttask">○ Write caption with 5+ search keywords</div><div class="ttask">○ Select cover photo manually</div><div class="ttask">○ Post at 5pm or schedule it now</div></div><div class="tnote">💡 Thumbnail done BEFORE export. 3-second rule. Would you click it?</div></div><div class="tblock"><div class="ttime">3:00 PM</div><div class="ttitle" style="color: var(--blue);">Edit Batch Video #2</div><div class="ttasks"><div class="ttask">○ Import batch vid #2</div><div class="ttask">○ Rough cut, sync, trim to pace</div><div class="ttask">○ Color grade — copy settings from Teach #2</div><div class="ttask">○ Export to teach stockpile folder</div></div><div class="tnote">💡 Already filmed. Just needs the edit. Don't overthink it.</div></div><div class="tblock"><div class="ttime">5:00 PM</div><div class="ttitle" style="color: var(--blue);">Edit Batch Video #3</div><div class="ttasks"><div class="ttask">○ Import batch vid #3</div><div class="ttask">○ Cut, grade, music — keep it moving</div><div class="ttask">○ Export to teach stockpile folder</div><div class="ttask">○ Label file clearly with date + topic</div></div><div class="tnote">💡 Third video = direct to stockpile. Never posts this week.</div></div><div class="tblock"><div class="ttime">6:30 PM</div><div class="ttitle" style="color: var(--gld);">Done — Weekend Unlocked 🔓</div><div class="ttasks"><div class="ttask">○ 3 videos processed this session</div><div class="ttask">○ 1 posted (Teach #2)</div><div class="ttask">○ 2 in teach stockpile</div><div class="ttask">○ Mark edits complete in backlog tracker</div></div><div class="tnote">💡 Sunday: Writing Day + Gym Edit. Monday: POST Teach #1.</div></div></div>
+    </div>
+    <div>
+      <div class="card"><h3 class="hb">Friday Energy Map</h3>
+        <ul class="ulist">
+          <li><span>🔋</span><span><strong style="color:var(--txt)">Noon–2pm</strong> — Peak energy. Edit Teach #2 first while sharp.</span></li>
+          <li><span>⚡</span><span><strong style="color:var(--txt)">2–3pm</strong> — Post Teach #2. Thumbnail, caption, cover photo.</span></li>
+          <li><span>🎯</span><span><strong style="color:var(--txt)">3–6pm</strong> — Edit batch vids 2 &amp; 3. Already filmed. Just needs the cut.</span></li>
+          <li><span>📦</span><span><strong style="color:var(--txt)">6:30pm</strong> — Export all three. Weekend unlocked.</span></li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:.65rem"><h3 class="hy">⚡ Thumbnail Rule</h3>
+        <ul class="ulist">
+          <li><span>1.</span><span>Face/body reacting beats a cool shot every time</span></li>
+          <li><span>2.</span><span>Dark background, bright subject — instant contrast</span></li>
+          <li><span>3.</span><span>One word or nothing. Readable in 0.5 seconds.</span></li>
+          <li><span>4.</span><span>Would you click it over 6 others next to it?</span></li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:.65rem"><h3 class="hr">🎬 Hook Rule</h3>
+        <ul class="ulist">
+          <li><span>→</span><span>Gym: heaviest lift or most intense moment — FIRST 2 seconds</span></li>
+          <li><span>→</span><span>Teach: show finished result first, then explain how</span></li>
+          <li><span>→</span><span>Never start with talking. Never start with intro. Start mid-action.</span></li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:.65rem"><h3 class="hg">✅ Before You Post</h3>
+        <ul class="ulist">
+          <li><span>□</span><span>Thumbnail passes 3-second rule</span></li>
+          <li><span>□</span><span>First 2 seconds = most intense moment</span></li>
+          <li><span>□</span><span>Caption has search keywords</span></li>
+          <li><span>□</span><span>Cover photo manually selected</span></li>
+          <li><span>□</span><span>Posted at right time (Fri = 5pm)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 07 WEEKLY BREAKDOWN ══════════════ -->
+<div class="sec" id="weekly">
+  <div class="ph">
+    <div><h1>WEEKLY <span class="acc">BREAKDOWN</span></h1><div class="sub">Every day of the week explained · what to do and when</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--grn)">3</div><div class="rsl">Posts / Week</div></div>
+  </div>
+  <div class="wk">
+    <div class="wksec">
+      <h2 style="color:var(--gld)">Your Full Week</h2>
+      <div class="dayrow">
+        <div class="dayname"><div class="dn" style="color:var(--gld)">SUN</div><div class="dd">Full Day</div></div>
+        <div class="daybody">
+          <div class="dtask"><span class="dk">📝</span><div><div>Writing Day — script 3 teach video ideas from Idea Bank</div><div class="db2">Pick ideas · write 1-line hook · outline 3–5 bullets each · plan thumbnail concept</div></div></div>
+          <div class="dtask"><span class="dk">✂️</span><div><div>Edit Gym Reel #2 → goes straight to <strong style="color:var(--pur)">stockpile folder</strong></div><div class="db2">Do NOT post this one. It sits in stockpile. This is your insurance.</div></div></div>
+        </div>
+      </div>
+      <div class="dayrow">
+        <div class="dayname"><div class="dn" style="color:var(--blue)">MON</div><div class="dd">Post Day</div></div>
+        <div class="daybody">
+          <div class="dtask"><span class="dk">🟢</span><div><div>POST Teach #1 — filmed Thursday, edited Friday</div><div class="db2">Post in the morning. Caption with keywords. Engage comments for first 30 minutes.</div></div></div>
+        </div>
+      </div>
+      <div class="dayrow">
+        <div class="dayname"><div class="dn" style="color:var(--dim)">TUE</div><div class="dd">OFF</div></div>
+        <div class="daybody offday">
+          <div class="dtask"><span class="dk" style="color:var(--dim)">🚫</span><div><div style="color:var(--dim)">OFF — 3 back-to-back classes until 5:30pm</div><div class="db2">No editing. No filming. Rest. System runs on autopilot today.</div></div></div>
+        </div>
+      </div>
+      <div class="dayrow">
+        <div class="dayname"><div class="dn" style="color:var(--red)">WED</div><div class="dd">Post Day</div></div>
+        <div class="daybody">
+          <div class="dtask"><span class="dk">🟢</span><div><div>POST Gym Edit — edited last Sunday, sat in stockpile all week</div><div class="db2">This is the edit from Sunday. It's been sitting for days. That's the system working.</div></div></div>
+        </div>
+      </div>
+      <div class="dayrow">
+        <div class="dayname"><div class="dn" style="color:var(--blue)">THU</div><div class="dd">2–5:30pm</div></div>
+        <div class="daybody">
+          <div class="dtask"><span class="dk">🎥</span><div><div>BATCH FILM × 3 teaching videos — 2pm to 5:30pm</div><div class="db2">Scripts already done from Wednesday. Show up, hit record × 3. Don't overthink it.</div></div></div>
+          <div class="dtask"><span class="dk">📋</span><div><div>Check all 3 clips on playback before leaving setup</div><div class="db2">Audio levels, focus, framing. Easier to reshoot now than fix in Premiere tomorrow.</div></div></div>
+        </div>
+      </div>
+      <div class="dayrow">
+        <div class="dayname"><div class="dn" style="color:var(--blue)">FRI</div><div class="dd">Noon–6:30pm</div></div>
+        <div class="daybody">
+          <div class="dtask"><span class="dk">✂️</span><div><div>Noon — Edit Teach #2 from yesterday's batch</div><div class="db2">Peak energy window. Hardest edit first. Sync, cut, color, music, export.</div></div></div>
+          <div class="dtask"><span class="dk">🟢</span><div><div>~2pm — POST Teach #2</div><div class="db2">Thumbnail · caption with keywords · cover photo manually selected · post at 5pm</div></div></div>
+          <div class="dtask"><span class="dk">✂️</span><div><div>3pm — Edit batch vid #2 → stockpile</div><div class="db2">Already filmed. Just needs the cut. Color grade, music, export.</div></div></div>
+          <div class="dtask"><span class="dk">✂️</span><div><div>5pm — Edit batch vid #3 → teach stockpile</div><div class="db2">Third video goes straight to teach stockpile. Never post same day you edit.</div></div></div>
+        </div>
+      </div>
+      <div class="dayrow">
+        <div class="dayname"><div class="dn" style="color:var(--gld)">SAT</div><div class="dd">Free Window</div></div>
+        <div class="daybody">
+          <div class="dtask"><span class="dk">📝</span><div><div>Writing Day — second script session if needed</div><div class="db2">Review ideas from Sunday · refine outlines · prep for next Thursday batch</div></div></div>
+          <div class="dtask"><span class="dk">✂️</span><div><div>Edit Gym Reel #1 → posts next Wednesday</div><div class="db2">This one DOES get posted (next Wed). The Sunday edit goes to stockpile. Know the difference.</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="wksec">
+      <h2 style="color:var(--red)">The Two Edit Rules</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="card" style="border-color:var(--rmid);background:var(--rbg)">
+          <h3 style="color:var(--red)">SAT Edit → Posts Wed</h3>
+          <p style="font-size:.7rem;color:#C09080;line-height:1.7;margin-top:.4rem">Saturday's gym edit gets posted the very next Wednesday. 4 days of sitting. This is the regular post — it's the freshest and most polished edit of the week.</p>
+        </div>
+        <div class="card" style="border-color:var(--pmid);background:var(--pbg)">
+          <h3 style="color:var(--pur)">SUN Edit → Stockpile</h3>
+          <p style="font-size:.7rem;color:#B090C0;line-height:1.7;margin-top:.4rem">Sunday's gym edit goes directly to the stockpile folder. It does NOT get posted this week. It waits. Every week you add 1 to the stockpile. When you hit 4, you're 2 weeks ahead.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 08 STATS ══════════════ -->
+<div class="sec" id="stats">
+  <div class="ph">
+    <div><h1>YOUR <span class="acc">STATS</span></h1><div class="sub">Progress overview · goals · pace tracking</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--grn)" id="statheader">2%</div><div class="rsl">Overall Done</div></div>
+  </div>
+  <div class="st">
+    <div class="stcard">
+      <div class="stlabel">Reels Edited</div>
+      <div class="stnum r" id="st-done">1</div>
+      <div class="stsub">out of 43 total backlog reels</div>
+      <div class="stbar"><div class="stfill" id="st-prog" style="width: 2%; background: var(--red);"></div></div>
+    </div>
+    <div class="stcard">
+      <div class="stlabel">Weeks to Clear Backlog</div>
+      <div class="stnum y" id="st-weeks">21</div>
+      <div class="stsub">at current pace of 2 gym edits/week</div>
+    </div>
+    <div class="stcard">
+      <div class="stlabel">Gym Stockpile</div>
+      <div class="stnum" style="color:var(--red)" id="st-gym">0</div>
+      <div class="stsub">target: 4 = 2 weeks ahead of schedule</div>
+      <div class="stbar"><div class="stfill" id="st-gymp" style="width:0%;background:var(--red)"></div></div>
+    </div>
+    <div class="stcard">
+      <div class="stlabel">Teach Stockpile</div>
+      <div class="stnum" style="color:var(--blue)" id="st-teach">0</div>
+      <div class="stsub">target: 4 = 2 weeks of teach content banked</div>
+      <div class="stbar"><div class="stfill" id="st-teachp" style="width:0%;background:var(--blue)"></div></div>
+    </div>
+    <div class="stcard">
+      <div class="stlabel">Posts Per Week</div>
+      <div class="stnum g">3</div>
+      <div class="stsub">1 gym + 2 teach · Mon, Wed, Fri</div>
+    </div>
+    <div class="stcard">
+      <div class="stlabel">Videos Batch Filmed</div>
+      <div class="stnum" style="color:var(--blue)" id="st-batch">0</div>
+      <div class="stsub">3 per Thursday session · tracks across weeks</div>
+      <div class="stbar"><div class="stfill" id="st-batchp" style="width:0%;background:var(--blue)"></div></div>
+    </div>
+    <div class="stcard">
+      <div class="stlabel">Ideas Used</div>
+      <div class="stnum" style="color:var(--pur)" id="st-ideas">1</div>
+      <div class="stsub">out of 40 idea bank ideas</div>
+      <div class="stbar"><div class="stfill" id="st-ideap" style="width: 2.5%; background: var(--pur);"></div></div>
+    </div>
+    <div class="stcard">
+      <div class="stlabel">Target Date</div>
+      <div class="stnum y">Apr 13</div>
+      <div class="stsub">2 weeks ahead of posting schedule</div>
+    </div>
+    <div class="stcard" style="grid-column:1/-1;background:var(--rbg);border-color:var(--rmid)">
+      <div class="stlabel" style="color:var(--red)">Priority Queue Status</div>
+      <div style="display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-top:.25rem">
+        <div class="stnum r" id="st-prirem">5</div><div style="font-size:.8rem;color:#C09080">remaining · cleared by <strong style="color:var(--txt)">Wed Mar 25</strong></div>
+      </div>
+      <div class="stbar" style="margin-top:.5rem"><div class="stfill" id="st-prip" style="width: 16.6667%; background: var(--red);"></div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── NAV ───
+function go(id, btn) {
+  document.querySelectorAll('.sec').forEach(function(s) { s.classList.remove('on'); });
+  document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('on'); });
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+// ─── DATA ───
+var TOTAL = 43;
+var TODAY_DATE = 5; // March 5 2026
+var gymCount = 0;
+var teachCount = 0;
+var batchCount = 0;
+
+var WEEKS = [
+  [1,2,3,4,5,6,7],
+  [8,9,10,11,12,13,14],
+  [15,16,17,18,19,20,21],
+  [22,23,24,25,26,27,28],
+  [29,30,31,null,null,null,null]
+];
+
+var CAL_EVENTS = {
+  1: [{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel #2'}],
+  4: [{c:'eg',t:'🟢 Post Gym Edit #1'}],
+  5: [{c:'eb',t:'🎥 Batch × 3 videos'}],
+  6: [{c:'eb',t:'✂️ Edit Teach #2'},{c:'eg',t:'🟢 Post Teach #2'},{c:'eb',t:'✂️ batch 2&3'}],
+  7: [{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel #1'}],
+  8: [{c:'ey',t:'📝 Writing Day'},{c:'ep',t:'📦 Edit gym → stock'}],
+  9: [{c:'eg',t:'🟢 Post Teach #1'}],
+  11:[{c:'eg',t:'🟢 Post Gym Edit #2'}],
+  12:[{c:'eb',t:'🎥 Batch × 3 videos'}],
+  13:[{c:'eb',t:'✂️ Edit Teach #2'},{c:'eg',t:'🟢 Post Teach #2'},{c:'eb',t:'✂️ batch 2&3'}],
+  14:[{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel #1'}],
+  15:[{c:'ey',t:'📝 Writing Day'},{c:'ep',t:'📦 Stock: 2'}],
+  16:[{c:'eg',t:'🟢 Post Teach #1'}],
+  18:[{c:'eg',t:'🟢 Post Gym Edit #3'}],
+  19:[{c:'eb',t:'🎥 Batch × 3 videos'}],
+  20:[{c:'eb',t:'✂️ Edit Teach #2'},{c:'eg',t:'🟢 Post Teach #2'},{c:'eb',t:'✂️ batch 2&3'}],
+  21:[{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel #1'}],
+  22:[{c:'ey',t:'📝 Writing Day'},{c:'ep',t:'📦 Stock: 3 ⚡'}],
+  23:[{c:'eg',t:'🟢 Post Teach #1'}],
+  25:[{c:'eg',t:'🟢 Post Gym Edit · Priority ✓'}],
+  26:[{c:'eb',t:'🎥 Batch × 3 videos'}],
+  27:[{c:'eb',t:'✂️ Edit Teach #2'},{c:'eg',t:'🟢 Post Teach #2'},{c:'eb',t:'✂️ batch 2&3'}],
+  28:[{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel #1'}],
+  29:[{c:'ey',t:'📝 Writing Day'},{c:'ep',t:'📦 Stock: 4 = 2 WKS AHEAD!'}],
+  30:[{c:'eg',t:'🟢 Post Teach #1'}]
+};
+
+var WB_EVENTS = {
+  1: [{cls:'we-y',t:'📝 Writing#2'},{cls:'we-r',t:'✂️ gym#2→stk'}],
+  4: [{cls:'we-g',t:'🟢 PostGym#1'}],
+  5: [{cls:'we-b',t:'🎥 Batch×3'}],
+  6: [{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-b',t:'✂️ batch2&3'}],
+  7: [{cls:'we-y',t:'📝 Writing#1'},{cls:'we-r',t:'✂️ gym#1'}],
+  8: [{cls:'we-y',t:'📝 Writing'},{cls:'we-p',t:'📦 Stock:1'}],
+  9: [{cls:'we-g',t:'🟢 PostT#1'}],
+  11:[{cls:'we-g',t:'🟢 PostGym#2'}],
+  12:[{cls:'we-b',t:'🎥 Batch×3'}],
+  13:[{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-b',t:'✂️ batch2&3'}],
+  14:[{cls:'we-y',t:'📝 Writing#1'},{cls:'we-r',t:'✂️ gym#1'}],
+  15:[{cls:'we-y',t:'📝 Writing'},{cls:'we-p',t:'📦 Stock:2'}],
+  16:[{cls:'we-g',t:'🟢 PostT#1'}],
+  18:[{cls:'we-g',t:'🟢 PostGym#3'}],
+  19:[{cls:'we-b',t:'🎥 Batch×3'}],
+  20:[{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-b',t:'✂️ batch2&3'}],
+  21:[{cls:'we-y',t:'📝 Writing#1'},{cls:'we-r',t:'✂️ gym#1'}],
+  22:[{cls:'we-y',t:'📝 Writing'},{cls:'we-p',t:'📦 Stock:3⚡'}],
+  23:[{cls:'we-g',t:'🟢 PostT#1'}],
+  25:[{cls:'we-g',t:'🟢 PostGym✓'}],
+  26:[{cls:'we-b',t:'🎥 Batch×3'}],
+  27:[{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-b',t:'✂️ batch2&3'}],
+  28:[{cls:'we-y',t:'📝 Writing#1'},{cls:'we-r',t:'✂️ gym#1'}],
+  29:[{cls:'we-y',t:'📝 Writing'},{cls:'we-p',t:'📦 Stock:4=2WKS!'}],
+  30:[{cls:'we-g',t:'🟢 PostT#1'}]
+};
+
+// ─── BACKLOG ───
+function tog(el) {
+  var was = el.classList.contains('done');
+  el.classList.toggle('done');
+  var cb = el.querySelector('.cb');
+  var tag = el.querySelector('.tag');
+  if (!was) {
+    cb.textContent = '✓';
+    tag.className = 'tag tdone';
+    tag.textContent = 'DONE ✓';
+  } else {
+    cb.textContent = '';
+    tag.className = 'tag ' + el.dataset.tag;
+    tag.textContent = el.dataset.orig;
+  }
+  updTracker();
+  saveReels();
+}
+
+function updTracker() {
+  var done = document.querySelectorAll('.rr.done').length;
+  var rem = TOTAL - done;
+  var pct = Math.round(done / TOTAL * 100);
+  var wks = Math.ceil(rem / 2);
+  document.getElementById('prog').style.width = pct + '%';
+  document.getElementById('dnum').textContent = done;
+  document.getElementById('pnum').textContent = pct + '%';
+  document.getElementById('wnum').textContent = wks;
+  document.getElementById('remnum').textContent = rem;
+  document.getElementById('sbdone').textContent = done;
+  document.getElementById('sbrem').textContent = rem;
+  document.getElementById('sbwks').textContent = wks + 'w';
+  document.getElementById('nstat').textContent = done + ' / ' + TOTAL + ' done';
+  var gmap = {p:'gp',jan:'gjan',dec:'gdec',nov:'gnov',oct:'goct',sep:'gsep'};
+  Object.keys(gmap).forEach(function(g) {
+    var all = document.querySelectorAll('.rr[data-g="'+g+'"]').length;
+    var d = document.querySelectorAll('.rr[data-g="'+g+'"].done').length;
+    var el = document.getElementById(gmap[g]);
+    if (el) el.textContent = (all-d) + ' left';
+  });
+  updStats(done, rem, wks, pct);
+}
+
+function filt(type, btn) {
+  document.querySelectorAll('.ft').forEach(function(t) { t.classList.remove('on'); });
+  btn.classList.add('on');
+  document.querySelectorAll('.rr').forEach(function(r) {
+    r.classList.remove('hide');
+    if (type === 'todo' && r.classList.contains('done')) r.classList.add('hide');
+    if (type === 'done' && !r.classList.contains('done')) r.classList.add('hide');
+    if (type === 'pri' && !r.classList.contains('pri')) r.classList.add('hide');
+    if (type === 'stock' && !r.querySelector('.tstock')) r.classList.add('hide');
+  });
+}
+
+function saveReels() {
+  try {
+    var s = [].slice.call(document.querySelectorAll('.rr')).map(function(r) { return r.classList.contains('done') ? 1 : 0; });
+    localStorage.setItem('rOS6', JSON.stringify(s));
+  } catch(e) {}
+}
+
+function loadReels() {
+  try {
+    var s = JSON.parse(localStorage.getItem('rOS6') || '[]');
+    [].slice.call(document.querySelectorAll('.rr')).forEach(function(r, i) {
+      if (s[i] === 1) {
+        r.classList.add('done');
+        r.querySelector('.cb').textContent = '✓';
+        var tag = r.querySelector('.tag');
+        tag.className = 'tag tdone';
+        tag.textContent = 'DONE ✓';
+      }
+    });
+  } catch(e) {}
+  updTracker();
+}
+
+// ─── CALENDAR ───
+function buildCal() {
+  var grid = document.getElementById('cgrid');
+  ['SUN','MON','TUE','WED','THU','FRI','SAT'].forEach(function(d) {
+    var h = document.createElement('div');
+    h.className = 'cdh';
+    h.textContent = d;
+    grid.appendChild(h);
+  });
+  WEEKS.forEach(function(week) {
+    week.forEach(function(date, ci) {
+      var cell = document.createElement('div');
+      var isTue = ci === 2;
+      var isWknd = ci === 0 || ci === 6;
+      var cls = 'cc' + (!date ? ' emp' : isWknd ? ' wknd' : '');
+      if (date === TODAY_DATE) cls += ' tday';
+      cell.className = cls;
+      if (date) {
+        var num = document.createElement('div');
+        num.className = 'cnum' + (date === TODAY_DATE ? ' tnum' : '');
+        num.textContent = date;
+        cell.appendChild(num);
+        if (isTue) {
+          var off = document.createElement('div');
+          off.className = 'coff';
+          off.textContent = 'OFF';
+          cell.appendChild(off);
+        } else {
+          (CAL_EVENTS[date] || []).forEach(function(ev) {
+            var e = document.createElement('div');
+            e.className = 'ev ' + ev.c;
+            e.textContent = ev.t;
+            cell.appendChild(e);
+          });
+        }
+      }
+      grid.appendChild(cell);
+    });
+  });
+}
+
+// ─── WHITEBOARD ───
+function buildWB() {
+  var container = document.getElementById('wbcal');
+  WEEKS.forEach(function(week) {
+    var wr = document.createElement('div');
+    wr.className = 'wbwk';
+    week.forEach(function(date, ci) {
+      var isTue = ci === 2;
+      var cell = document.createElement('div');
+      var cls = 'wbc' + (!date ? ' emp' : isTue ? ' tue' : '');
+      if (date === TODAY_DATE) cls += ' twb';
+      cell.className = cls;
+      if (date) {
+        var num = document.createElement('div');
+        num.className = 'wbn' + (WB_EVENTS[date] ? ' act' : '') + (date === TODAY_DATE ? ' tdy' : '');
+        num.textContent = date;
+        cell.appendChild(num);
+        if (isTue) {
+          var off = document.createElement('div');
+          off.className = 'wboff';
+          off.textContent = 'OFF';
+          cell.appendChild(off);
+        } else {
+          (WB_EVENTS[date] || []).forEach(function(ev) {
+            var e = document.createElement('div');
+            e.className = 'wbev ' + ev.cls;
+            e.textContent = ev.t;
+            cell.appendChild(e);
+          });
+        }
+      }
+      wr.appendChild(cell);
+    });
+    container.appendChild(wr);
+  });
+
+  // Write-on guide weeks
+  var guide = document.getElementById('wbguide');
+  var wkdata = [
+    {h:'Week 1 · Mar 1–7',hc:'var(--red)',days:[
+      {d:'SUN 1',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day + Script 3'},{c:'wi-r',t:'Edit gym reel #2 → stockpile'}]},
+      {d:'WED 4',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit #1'}]},
+      {d:'THU 5',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
+      {d:'FRI 6',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT 7',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day #1'},{c:'wi-r',t:'Edit gym reel #1 → posts Wed'}]}
+    ]},
+    {h:'Week 2 · Mar 8–14 · Stock: 1',hc:'var(--red)',days:[
+      {d:'SUN 8',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-p',t:'Edit gym reel → stockpile · Stock:1'}]},
+      {d:'MON 9',dc:'var(--blue)',items:[{c:'wi-g',t:'POST Teach #1'}]},
+      {d:'WED 11',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit #2'}]},
+      {d:'THU 12',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
+      {d:'FRI 13',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT 14',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-r',t:'Edit gym reel #1'}]}
+    ]},
+    {h:'Week 3 · Mar 15–21 · Stock: 2',hc:'var(--grn)',days:[
+      {d:'SUN 15',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-p',t:'Edit gym reel → stockpile · Stock:2'}]},
+      {d:'MON 16',dc:'var(--blue)',items:[{c:'wi-g',t:'POST Teach #1'}]},
+      {d:'WED 18',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit #3'}]},
+      {d:'THU 19',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
+      {d:'FRI 20',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT 21',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-r',t:'Edit gym reel #1'}]}
+    ]},
+    {h:'Week 4 · Mar 22–28 · Stock: 3 ⚡',hc:'var(--pur)',days:[
+      {d:'SUN 22',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-p',t:'Edit gym reel → stockpile · Stock:3 ⚡'}]},
+      {d:'MON 23',dc:'var(--blue)',items:[{c:'wi-g',t:'POST Teach #1'}]},
+      {d:'WED 25',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit · Priority Queue ✓'}]},
+      {d:'THU 26',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
+      {d:'FRI 27',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT 28',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-r',t:'Edit gym reel #1 → posts Wed Apr 1'}]}
+    ]}
+  ];
+
+  wkdata.forEach(function(wk) {
+    var card = document.createElement('div');
+    card.className = 'wgc';
+    var hdr = document.createElement('div');
+    hdr.className = 'wgh';
+    hdr.style.color = wk.hc;
+    hdr.textContent = wk.h;
+    card.appendChild(hdr);
+    var body = document.createElement('div');
+    body.className = 'wgb';
+    wk.days.forEach(function(day) {
+      var row = document.createElement('div');
+      row.className = 'wgrow';
+      var dname = document.createElement('div');
+      dname.className = 'wgday';
+      dname.style.color = day.dc;
+      dname.textContent = day.d;
+      var items = document.createElement('div');
+      items.className = 'wgitems';
+      day.items.forEach(function(item) {
+        var i = document.createElement('div');
+        i.className = 'wi ' + item.c;
+        i.textContent = item.t;
+        items.appendChild(i);
+      });
+      row.appendChild(dname);
+      row.appendChild(items);
+      body.appendChild(row);
+    });
+    card.appendChild(body);
+    guide.appendChild(card);
+  });
+}
+
+// ─── STOCKPILE METERS ───
+function buildMeter(slotId, numId, statusId, count, color, max) {
+  var container = document.getElementById(slotId);
+  if (!container) return;
+  container.innerHTML = '';
+  for (var i = 0; i < max; i++) {
+    var s = document.createElement('div');
+    s.className = 'slot';
+    var idx = i; // capture for closure
+    if (idx < count) {
+      s.style.background = color + '30';
+      s.style.borderColor = color;
+      s.style.color = color;
+      s.textContent = '▪';
+    } else {
+      s.textContent = idx + 1;
+    }
+    s.onclick = (function(ii) {
+      return function() {
+        if (slotId === 'gymslots') {
+          gymCount = (ii < gymCount) ? ii : ii + 1;
+          buildMeter('gymslots','gymn','gyms',gymCount,'#FF3020',8);
+          try { localStorage.setItem('gymOS6', gymCount); } catch(e) {}
+        } else {
+          teachCount = (ii < teachCount) ? ii : ii + 1;
+          buildMeter('teachslots','teachn','teachs',teachCount,'#0EA5E9',8);
+          try { localStorage.setItem('teachOS6', teachCount); } catch(e) {}
+        }
+        updStats();
+      };
+    })(idx);
+    container.appendChild(s);
+  }
+  var nel = document.getElementById(numId);
+  var sel = document.getElementById(statusId);
+  if (nel) nel.textContent = count;
+  if (sel) {
+    sel.textContent = (count / 2) + ' weeks';
+    sel.style.color = count >= 4 ? 'var(--grn)' : count >= 2 ? 'var(--gld)' : 'var(--dim)';
+  }
+}
+
+// ─── IDEA BANK ───
+var IDEA_FILTER = 'all';
+var IDEAS = [
+  {id:'clone',cat:'edit',title:'Clone Effect Tutorial',hook:'How I filmed myself twice in one shot'},
+  {id:'monitor',cat:'workflow',title:'Monitor & Ctrl App Camera Setup',hook:'My full desk filming setup revealed',seeded:true},
+  {id:'laowa',cat:'camera',title:'Laowa Lens Full Review',hook:'This lens makes your videos look cinematic for $200'},
+  {id:'gymset',cat:'camera',title:'Best Camera Settings for Gym Videos',hook:'Stop filming on auto — here\'s what I actually use'},
+  {id:'solo',cat:'camera',title:'How to Film Yourself Alone at the Gym',hook:'No camera person needed — my full solo setup'},
+  {id:'nd',cat:'camera',title:'ND Filters Explained in 60 Seconds',hook:'Why your footage looks weird in daylight'},
+  {id:'iphone',cat:'camera',title:'iPhone vs Camera for Content',hook:'I tested both for 30 days — honest results'},
+  {id:'angles',cat:'camera',title:'Best Camera Angles for Gym Reels',hook:'3 angles that make every workout look cinematic'},
+  {id:'slowmo',cat:'camera',title:'How to Get Smooth Slow Motion',hook:'Frame rate settings nobody talks about'},
+  {id:'bag',cat:'camera',title:'My Full Camera Bag for $500',hook:'Everything I use to film gym content on a budget'},
+  {id:'af',cat:'camera',title:'Autofocus Settings for Fast Movement',hook:'Your camera keeps losing focus — 30 second fix'},
+  {id:'anam',cat:'camera',title:'Anamorphic Look on a Budget',hook:'That cinematic lens flare without spending $1,000'},
+  {id:'premiere',cat:'edit',title:'My Premiere Pro Gym Reel Workflow',hook:'How I edit a full reel in under 4 hours'},
+  {id:'color',cat:'edit',title:'Color Grading Gym Footage',hook:'The exact LUT settings I use for every video'},
+  {id:'sync',cat:'edit',title:'Syncing Cuts to Music — My Method',hook:'This makes your edits feel like a music video'},
+  {id:'vlog',cat:'edit',title:'How to Make a Cinematic Vlog',hook:'Turn boring raw footage into a story in Premiere'},
+  {id:'ramp',cat:'edit',title:'Speed Ramping Tutorial',hook:'The slow-mo effect everyone always asks me about'},
+  {id:'export',cat:'edit',title:'Export Settings for Instagram Reels',hook:'Stop uploading blurry videos — export like this'},
+  {id:'trans',cat:'edit',title:'Transitions I Use Every Single Edit',hook:'3 transitions that work on any gym footage'},
+  {id:'ditd',cat:'edit',title:'How to Edit a Day in My Life Vlog',hook:'My full DITD editing process from raw to posted'},
+  {id:'sound',cat:'edit',title:'Sound Design for Gym Content',hook:'Adding impact sounds without making it cringe'},
+  {id:'intro',cat:'edit',title:'Building a Cinematic Intro',hook:'The first 3 seconds of every great video'},
+  {id:'gymlight',cat:'lighting',title:'Gym Lighting — What Actually Works',hook:'Why overhead gym lights ruin your footage'},
+  {id:'budget',cat:'lighting',title:'Budget Lighting Setup Under $100',hook:'I filmed this entire video with a $40 light'},
+  {id:'natural',cat:'lighting',title:'Natural Light for Desk Setup',hook:'The one window trick for perfect YouTube lighting'},
+  {id:'dark',cat:'lighting',title:'Lighting for Dark Gym Environments',hook:'High ISO vs external light — the real answer'},
+  {id:'rgb',cat:'lighting',title:'RGB Lights for Content — Worth It?',hook:'I tested every color setting for 2 weeks'},
+  {id:'shadow',cat:'lighting',title:'How to Avoid Shadows on Your Face',hook:'This $0 fix changed how my videos look forever'},
+  {id:'sched',cat:'workflow',title:'My Full Content Creation Schedule',hook:'How I post 3x/week while taking 4 college classes'},
+  {id:'batch',cat:'workflow',title:'How I Batch Film 3 Videos in 90 Minutes',hook:'Thursday is my most productive filming day — here\'s why'},
+  {id:'apps',cat:'workflow',title:'Apps I Use for Content Planning',hook:'The 3 apps that run my entire content system'},
+  {id:'consist',cat:'workflow',title:'How to Stay Consistent When Motivation Drops',hook:'I almost quit in November — this kept me going'},
+  {id:'spile',cat:'workflow',title:'Building a Content Stockpile',hook:'Why I never post the video I just finished editing'},
+  {id:'files',cat:'workflow',title:'My File Organization in Premiere',hook:'How I find any clip from any day in 10 seconds'},
+  {id:'travel',cat:'workflow',title:'Filming While Traveling or at School',hook:'Keep your content consistent on crazy busy weeks'},
+  {id:'month',cat:'workflow',title:'How I Plan a Whole Month of Content',hook:'The whiteboard system I use every month'},
+  {id:'burnout',cat:'workflow',title:'Creator Burnout — What I Actually Do',hook:'When you don\'t want to film, watch this first'},
+  {id:'sunday',cat:'workflow',title:'My Sunday Reset Routine as a Creator',hook:'The 2-hour session that sets up my whole week'},
+  {id:'grow',cat:'workflow',title:'How I Grew Posting Gym + Teaching Content',hook:'Two niches, one channel — here\'s what happened'},
+  {id:'wish',cat:'workflow',title:'What I Wish I Knew Before Starting',hook:'Every mistake I made in 3 years in one video'}
+];
+
+var CCAT = {camera:'var(--blue)',edit:'var(--red)',lighting:'var(--gld)',workflow:'var(--grn)'};
+var CLBL = {camera:'📷 Camera',edit:'✂️ Editing',lighting:'💡 Lighting',workflow:'⚙️ Workflow'};
+
+function ideaUsed(idea) { return idea.seeded || localStorage.getItem('id_'+idea.id)==='1'; }
+
+function renderIdeas() {
+  var list = document.getElementById('idealist');
+  if (!list) return;
+  list.innerHTML = '';
+  var unused = IDEAS.filter(function(i) { return !ideaUsed(i); }).length;
+  var el = document.getElementById('ideasleft');
+  if (el) el.textContent = unused;
+  var filtered = IDEAS.filter(function(idea) {
+    if (IDEA_FILTER === 'used') return ideaUsed(idea);
+    if (IDEA_FILTER === 'all') return true;
+    return idea.cat === IDEA_FILTER;
+  });
+  filtered.forEach(function(idea) {
+    var used = ideaUsed(idea);
+    var row = document.createElement('div');
+    row.className = 'irow' + (used ? ' iused' : '');
+    if (!idea.seeded) {
+      row.onclick = function() {
+        var isNowUsed = localStorage.getItem('id_'+idea.id)==='1';
+        localStorage.setItem('id_'+idea.id, isNowUsed ? '0' : '1');
+        renderIdeas();
+        updStats();
+      };
+    }
+    var cb = document.createElement('div'); cb.className = 'icb'; cb.textContent = used ? '✓' : '';
+    var tag = document.createElement('div');
+    tag.className = 'itag';
+    tag.style.borderColor = CCAT[idea.cat];
+    tag.style.color = CCAT[idea.cat];
+    tag.textContent = CLBL[idea.cat];
+    var txt = document.createElement('div');
+    txt.innerHTML = '<div class="ititle">'+idea.title+'</div><div class="ihook">Hook: "'+idea.hook+'"</div>';
+    var act = document.createElement('div'); act.className = 'iact'; act.textContent = used ? 'USED' : 'tap to use';
+    row.appendChild(cb); row.appendChild(tag); row.appendChild(txt); row.appendChild(act);
+    list.appendChild(row);
+  });
+}
+
+function fiidea(cat, btn) {
+  IDEA_FILTER = cat;
+  document.querySelectorAll('#ideas .ft').forEach(function(t) { t.classList.remove('on'); });
+  btn.classList.add('on');
+  renderIdeas();
+}
+
+// ─── PRE-POST CHECKLIST ───
+var CHKS = [
+  {id:'thumb',l:'Thumbnail passes 3-second rule',s:'Would you click it over 6 others?'},
+  {id:'hook',l:'First 2 seconds = most intense moment',s:'No slow intros, no black screen starts'},
+  {id:'caption',l:'Caption has search keywords',s:'Terms your audience actually types'},
+  {id:'cover',l:'Cover photo manually selected',s:'Best frame, not auto-generated'},
+  {id:'time',l:'Posted at the right time',s:'Mon=Teach · Wed=Gym · Fri=Teach · Fri=5pm'},
+  {id:'tracker',l:'Marked as done in Backlog Tracker',s:'Check it off in Tab 01'}
+];
+
+function renderChk() {
+  var c = document.getElementById('chklist');
+  if (!c) return;
+  c.innerHTML = '';
+  CHKS.forEach(function(chk) {
+    var on = localStorage.getItem('chk_'+chk.id) === '1';
+    var item = document.createElement('div');
+    item.className = 'chki' + (on ? ' ck' : '');
+    item.onclick = (function(cid, was) {
+      return function() { localStorage.setItem('chk_'+cid, was ? '0' : '1'); renderChk(); };
+    })(chk.id, on);
+    var box = document.createElement('div'); box.className = 'chkb'; box.textContent = on ? '✓' : '';
+    var txt = document.createElement('div');
+    txt.innerHTML = '<div class="chkl">'+chk.l+'</div><div class="chks">'+chk.s+'</div>';
+    item.appendChild(box); item.appendChild(txt);
+    c.appendChild(item);
+  });
+}
+
+function resetChk() {
+  CHKS.forEach(function(c) { localStorage.removeItem('chk_'+c.id); });
+  renderChk();
+}
+
+// ─── FRIDAY BATTLE PLAN ───
+var FRIDAY = [
+  {time:'12:00 PM',title:'Edit Teach #2',color:'var(--blue)',
+   tasks:['Import Thursday batch footage','Sync audio to video clips','Rough cut — story first, effects second','Add music, color grade, effects, titles'],note:'Peak energy. Hardest edit first. Don\'t skip straight to effects.'},
+  {time:'2:00 PM',title:'Export & Post Teach #2',color:'var(--grn)',
+   tasks:['Export H.264 · Instagram Reels preset','Write caption with 5+ search keywords','Select cover photo manually','Post at 5pm or schedule it now'],note:'Thumbnail done BEFORE export. 3-second rule. Would you click it?'},
+  {time:'3:00 PM',title:'Edit Batch Video #2',color:'var(--blue)',
+   tasks:['Import batch vid #2','Rough cut, sync, trim to pace','Color grade — copy settings from Teach #2','Export to teach stockpile folder'],note:'Already filmed. Just needs the edit. Don\'t overthink it.'},
+  {time:'5:00 PM',title:'Edit Batch Video #3',color:'var(--blue)',
+   tasks:['Import batch vid #3','Cut, grade, music — keep it moving','Export to teach stockpile folder','Label file clearly with date + topic'],note:'Third video = direct to stockpile. Never posts this week.'},
+  {time:'6:30 PM',title:'Done — Weekend Unlocked 🔓',color:'var(--gld)',
+   tasks:['3 videos processed this session','1 posted (Teach #2)','2 in teach stockpile','Mark edits complete in backlog tracker'],note:'Sunday: Writing Day + Gym Edit. Monday: POST Teach #1.'}
+];
+
+function buildFriday() {
+  var tl = document.getElementById('tline');
+  if (!tl) return;
+  tl.innerHTML = '';
+  var done = 0;
+  FRIDAY.forEach(function(block, bi) {
+    var allDone = block.tasks.every(function(t, ti) { return localStorage.getItem('fri_'+bi+'_'+ti)==='1'; });
+    if (allDone) done++;
+    var div = document.createElement('div');
+    div.className = 'tblock' + (allDone ? ' tdone' : (bi===0 ? ' tcur' : ''));
+    var ttime = document.createElement('div'); ttime.className = 'ttime'; ttime.textContent = block.time;
+    var ttitle = document.createElement('div'); ttitle.className = 'ttitle'; ttitle.style.color = block.color; ttitle.textContent = block.title;
+    var ttasks = document.createElement('div'); ttasks.className = 'ttasks';
+    block.tasks.forEach(function(t, ti) {
+      var key = 'fri_'+bi+'_'+ti;
+      var isDone = localStorage.getItem(key)==='1';
+      var task = document.createElement('div');
+      task.className = 'ttask' + (isDone ? ' tk' : '');
+      task.textContent = (isDone ? '✓ ' : '○ ') + t;
+      task.onclick = (function(k, was) {
+        return function() { localStorage.setItem(k, was ? '0' : '1'); buildFriday(); };
+      })(key, isDone);
+      ttasks.appendChild(task);
+    });
+    var tnote = document.createElement('div'); tnote.className = 'tnote'; tnote.textContent = '💡 ' + block.note;
+    div.appendChild(ttime); div.appendChild(ttitle); div.appendChild(ttasks); div.appendChild(tnote);
+    tl.appendChild(div);
+  });
+  var fd = document.getElementById('fridaydone');
+  if (fd) fd.textContent = done + '/4';
+}
+
+// ─── STATS ───
+function updStats(done, rem, wks, pct) {
+  done = done !== undefined ? done : document.querySelectorAll('.rr.done').length;
+  rem = rem !== undefined ? rem : TOTAL - done;
+  wks = wks !== undefined ? wks : Math.ceil(rem / 2);
+  pct = pct !== undefined ? pct : Math.round(done / TOTAL * 100);
+  var ideasUsed = IDEAS.filter(function(i) { return ideaUsed(i); }).length;
+  var priDone = document.querySelectorAll('.rr.pri.done').length;
+
+  function setEl(id, val) { var e = document.getElementById(id); if (e) e.textContent = val; }
+  function setW(id, w) { var e = document.getElementById(id); if (e) e.style.width = Math.min(w,100) + '%'; }
+
+  setEl('st-done', done);
+  setEl('st-weeks', wks);
+  setEl('st-gym', gymCount);
+  setEl('st-teach', teachCount);
+  setEl('st-batch', batchCount * 3);
+  setEl('st-ideas', ideasUsed);
+  setEl('st-prirem', 6 - priDone);
+  setEl('statheader', pct + '%');
+  setW('st-prog', pct);
+  setW('st-gymp', gymCount / 8 * 100);
+  setW('st-teachp', teachCount / 8 * 100);
+  setW('st-batchp', Math.min(batchCount / 4 * 100, 100));
+  setW('st-ideap', ideasUsed / IDEAS.length * 100);
+  setW('st-prip', priDone / 6 * 100);
+}
+
+// ─── INIT ───
+try { gymCount = parseInt(localStorage.getItem('gymOS6') || '0') || 0; } catch(e) { gymCount = 0; }
+try { teachCount = parseInt(localStorage.getItem('teachOS6') || '0') || 0; } catch(e) { teachCount = 0; }
+try { batchCount = parseInt(localStorage.getItem('batchOS6') || '0') || 0; } catch(e) { batchCount = 0; }
+
+loadReels();
+buildCal();
+buildWB();
+buildMeter('gymslots','gymn','gyms', gymCount, '#FF3020', 8);
+buildMeter('teachslots','teachn','teachs', teachCount, '#0EA5E9', 8);
+renderIdeas();
+renderChk();
+buildFriday();
+updStats();
+</script>
+<!-- ══════════════ 09 IG SCRIPTS ══════════════ -->
+<div class="sec" id="scripts">
+  <div class="ph">
+    <div><h1>IG <span class="acc">SCRIPTS</span></h1><div class="sub">30-second scripts · hook → body → CTA · first 20 idea bank videos · ready to film Thursday</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--red)">20</div><div class="rsl">Scripts Ready</div></div>
+  </div>
+  <div class="scripts-body">
+    <div class="script-list" id="scriptList"><div class="sitem son"><div class="sitem-num">01 · edit</div><div class="sitem-title">Clone Effect Tutorial</div></div><div class="sitem"><div class="sitem-num">02 · camera</div><div class="sitem-title">Laowa Lens Full Review</div></div><div class="sitem"><div class="sitem-num">03 · camera</div><div class="sitem-title">Best Camera Settings for Gym Videos</div></div><div class="sitem"><div class="sitem-num">04 · camera</div><div class="sitem-title">How to Film Yourself Alone at the Gym</div></div><div class="sitem"><div class="sitem-num">05 · camera</div><div class="sitem-title">ND Filters Explained in 60 Seconds</div></div><div class="sitem"><div class="sitem-num">06 · camera</div><div class="sitem-title">iPhone vs Camera for Content</div></div><div class="sitem"><div class="sitem-num">07 · camera</div><div class="sitem-title">Best Camera Angles for Gym Reels</div></div><div class="sitem"><div class="sitem-num">08 · camera</div><div class="sitem-title">How to Get Smooth Slow Motion</div></div><div class="sitem"><div class="sitem-num">09 · camera</div><div class="sitem-title">My Full Camera Bag for $500</div></div><div class="sitem"><div class="sitem-num">10 · camera</div><div class="sitem-title">Autofocus Settings for Fast Movement</div></div><div class="sitem"><div class="sitem-num">11 · camera</div><div class="sitem-title">Anamorphic Look on a Budget</div></div><div class="sitem"><div class="sitem-num">12 · edit</div><div class="sitem-title">My Premiere Pro Gym Reel Workflow</div></div><div class="sitem"><div class="sitem-num">13 · edit</div><div class="sitem-title">Color Grading Gym Footage</div></div><div class="sitem"><div class="sitem-num">14 · edit</div><div class="sitem-title">Syncing Cuts to Music — My Method</div></div><div class="sitem"><div class="sitem-num">15 · edit</div><div class="sitem-title">How to Make a Cinematic Vlog</div></div><div class="sitem"><div class="sitem-num">16 · edit</div><div class="sitem-title">Speed Ramping Tutorial</div></div><div class="sitem"><div class="sitem-num">17 · edit</div><div class="sitem-title">Export Settings for Instagram Reels</div></div><div class="sitem"><div class="sitem-num">18 · edit</div><div class="sitem-title">Transitions I Use Every Single Edit</div></div><div class="sitem"><div class="sitem-num">19 · edit</div><div class="sitem-title">How to Edit a Day in My Life Vlog</div></div><div class="sitem"><div class="sitem-num">20 · edit</div><div class="sitem-title">Sound Design for Gym Content</div></div></div>
+    <div class="script-viewer" id="scriptViewer"><div class="sv-header"><div class="sv-num">Script 01 of 20</div><div class="sv-title">Clone Effect Tutorial</div><div class="sv-meta"><span class="sv-badge" style="border-color:var(--red);color:var(--red)">✂️ Editing</span><span class="sv-badge" style="border-color:var(--grn);color:var(--grn)">~30 seconds</span><span class="sv-badge" style="border-color:var(--dim);color:var(--dim)">~78 words</span></div></div><div class="sv-body"><div class="script-block sb-hook"><div class="sb-label"><div class="sb-dot"></div>HOOK<span class="sb-timing">0–3s</span></div><div class="sb-text">"I filmed myself doing two things at the same time — and it was easier than you think."</div><div class="sb-visual">📷 Visual: Show the finished clone shot immediately. No intro. Show result FIRST.</div></div><div class="script-block sb-body"><div class="sb-label"><div class="sb-dot"></div>BODY<span class="sb-timing">3–25s</span></div><div class="sb-text">"All you need is a <strong>tripod</strong> and two takes. First take — do your action on the left side of frame. Second take — right side, same background. In Premiere, stack both clips, mask down the middle, and boom — you're in two places at once. The key is <strong>keeping the camera locked</strong> between takes. Don't touch it. Not even a little."</div><div class="sb-visual">📷 Visual: Show split screen of both raw takes, then show the mask line being drawn, then reveal the final effect. Cut fast.</div></div><div class="script-block sb-cta"><div class="sb-label"><div class="sb-dot"></div>CTA<span class="sb-timing">25–30s</span></div><div class="sb-text">"Follow for more Premiere Pro tricks that actually save you time."</div><div class="sb-note">💡 Tip: Say the CTA with the same energy as the hook. Don't trail off. End strong.</div></div></div><div class="sv-footer"><span class="svf-stat">~<strong>78</strong> words spoken</span><span class="svf-stat">·</span><span class="svf-stat">Speak at <strong>natural pace</strong> = ~30s</span><span class="svf-stat">·</span><span class="svf-stat"><strong>0–3s</strong> hook · <strong>3–25s</strong> body · <strong>25–30s</strong> CTA</span><button class="copy-btn" onclick="copyScript(0)">Copy Script</button></div></div>
+  </div>
+</div>
+
+<script>
+var SCRIPTS = [
+  {
+    id:'clone', num:'01', title:'Clone Effect Tutorial', cat:'edit',
+    hook:{text:'"I filmed myself doing two things at the same time — and it was easier than you think."', note:'Show the finished clone shot immediately. No intro. Show result FIRST.', timing:'0–3s'},
+    body:{text:'"All you need is a <strong>tripod</strong> and two takes. First take — do your action on the left side of frame. Second take — right side, same background. In Premiere, stack both clips, mask down the middle, and boom — you\'re in two places at once. The key is <strong>keeping the camera locked</strong> between takes. Don\'t touch it. Not even a little."', note:'Show split screen of both raw takes, then show the mask line being drawn, then reveal the final effect. Cut fast.', timing:'3–25s'},
+    cta:{text:'"Follow for more Premiere Pro tricks that actually save you time."', timing:'25–30s'},
+    words:78, seconds:30
+  },
+  {
+    id:'laowa', num:'02', title:'Laowa Lens Full Review', cat:'camera',
+    hook:{text:'"This $200 lens makes my gym videos look like they cost $2,000."', note:'Open on your most cinematic Laowa shot. Let the footage speak before you say anything.', timing:'0–3s'},
+    body:{text:'"The Laowa 10mm is a super wide lens with <strong>zero distortion</strong> — which is wild for how wide it is. At the gym it lets me get close to the action without the fisheye warping. The shallow depth of field at f2 makes everything behind me blur out beautifully. The only downside — it\'s <strong>fully manual focus</strong>. Takes a week to get used to, but once you dial it in, nothing looks the same."', note:'Cut between: box shot, lens on camera, wide gym shots, close-up f2 shot, manual focus ring turning.', timing:'3–25s'},
+    cta:{text:'"Drop a comment if you want my exact camera settings for gym videos."', timing:'25–30s'},
+    words:82, seconds:30
+  },
+  {
+    id:'gymset', num:'03', title:'Best Camera Settings for Gym Videos', cat:'camera',
+    hook:{text:'"If your gym videos look flat and muddy — it\'s your settings, not your camera."', note:'Show a bad auto-mode clip side by side with your correct settings clip. Instant visual proof.', timing:'0–3s'},
+    body:{text:'"Here\'s what I run: <strong>1080p at 60fps</strong> so I can slow down any clip in post. Shutter speed is double my frame rate — so 1/120. ISO as low as possible, bump it only if you have to. Picture profile set to <strong>flat or log</strong> to keep detail in highlights and shadows. White balance locked manually — auto white balance flickers under gym lights and it\'ll ruin your edit."', note:'Show each setting on the actual camera menu. Quick cuts. Text overlay each setting as you say it.', timing:'3–25s'},
+    cta:{text:'"Save this. Your future self will thank you."', timing:'25–30s'},
+    words:85, seconds:30
+  },
+  {
+    id:'solo', num:'04', title:'How to Film Yourself Alone at the Gym', cat:'camera',
+    hook:{text:'"I film all my gym videos completely alone — here\'s the whole setup."', note:'Pan across your gear laid out before you. Tripod, camera, lens. Simple visual inventory.', timing:'0–3s'},
+    body:{text:'"I use a <strong>tripod with a ball head</strong> so I can adjust angles fast between sets. I set the camera to a 10-second self-timer, hit record, walk into frame. For smaller gyms I ask staff where I can set up without blocking anyone — most are cool with it. The real secret is <strong>previsualizing the shot</strong> before you walk over. Know the angle, know the distance. You get one set — make it count."', note:'Show yourself setting up the tripod, hitting record, walking into position. Real footage from a real session.', timing:'3–25s'},
+    cta:{text:'"Follow and I\'ll show you my full gym filming checklist next."', timing:'25–30s'},
+    words:87, seconds:30
+  },
+  {
+    id:'nd', num:'05', title:'ND Filters Explained in 60 Seconds', cat:'camera',
+    hook:{text:'"Your footage looks weird in daylight because you\'re missing this one thing."', note:'Show overexposed, choppy-looking outdoor clip. Let people feel the problem.', timing:'0–3s'},
+    body:{text:'"When you\'re outside, to keep your shutter at the correct speed you\'d need to close your aperture way down — killing your depth of field. An <strong>ND filter is like sunglasses for your lens</strong>. It cuts the light coming in without changing your aperture. ND4 for cloudy days, ND8 for bright sun, ND16 for harsh noon light. I use a <strong>variable ND</strong> so I just dial it in on the fly. Game changer for outdoor content."', note:'Show the filter physically, then demonstrate the before/after on screen. Show the dial turning.', timing:'3–25s'},
+    cta:{text:'"Comment the word FILTER and I\'ll send you the exact one I use."', timing:'25–30s'},
+    words:88, seconds:30
+  },
+  {
+    id:'iphone', num:'06', title:'iPhone vs Camera for Content', cat:'camera',
+    hook:{text:'"I filmed the same gym session on my iPhone and my camera. The results surprised me."', note:'Split screen of both clips side by side right away. No talking over a blank screen.', timing:'0–3s'},
+    body:{text:'"The iPhone is genuinely incredible for <strong>run-and-gun, vlog-style content</strong>. The stabilization is better, it\'s faster to pull out, and the quality at 4K is no joke. But for cinematic gym reels — the camera wins. The <strong>shallow depth of field, the color science, the low-light performance</strong> — there\'s a look you just can\'t replicate on a phone yet. My actual answer: <strong>use both</strong>. iPhone for behind the scenes and daily life. Camera for the main reel footage."', note:'Cut between phone footage and camera footage clearly labeled. Let the visual do the argument.', timing:'3–25s'},
+    cta:{text:'"What do you film on — phone or camera? Drop it below."', timing:'25–30s'},
+    words:96, seconds:30
+  },
+  {
+    id:'angles', num:'07', title:'Best Camera Angles for Gym Reels', cat:'camera',
+    hook:{text:'"Most gym videos are boring because everyone uses the same angle. Here are the three I rotate."', note:'Quick cut of all 3 angles in 2 seconds. Tease the variety before explaining.', timing:'0–3s'},
+    body:{text:'"Number one: <strong>low angle looking up</strong> — set the camera on the floor and shoot upward. Makes every lift look powerful and dramatic. Number two: <strong>side profile at eye level</strong> — classic, shows form clearly, works for everything. Number three: <strong>over the shoulder from behind</strong> — great for pulling exercises, gives a POV feel. Rotate these three angles within one session and your reel will never look repetitive."', note:'Show each angle being set up, then cut to the actual footage from that angle. Fast and clear.', timing:'3–25s'},
+    cta:{text:'"Follow — I\'m posting my full gym filming guide this week."', timing:'25–30s'},
+    words:90, seconds:30
+  },
+  {
+    id:'slowmo', num:'08', title:'How to Get Smooth Slow Motion', cat:'camera',
+    hook:{text:'"Your slow motion looks choppy because you\'re not using the right frame rate."', note:'Show choppy 24fps slowed down versus smooth 120fps slowed down. The difference is obvious.', timing:'0–3s'},
+    body:{text:'"To get smooth slow motion you need to film at <strong>120fps or higher</strong>. In Premiere, drop a 120fps clip into a 24fps timeline, right click, set to frame rate 24fps — and your clip is now playing at 20% speed, buttery smooth. The trick most people miss: <strong>your shutter speed needs to match</strong>. At 120fps, set shutter to 1/240. If you use 1/120 at 120fps you get motion blur that kills the effect."', note:'Screen record the Premiere sequence settings. Show the right-click frame rate option. Simple and clear.', timing:'3–25s'},
+    cta:{text:'"Save this — you\'re going to need it."', timing:'25–30s'},
+    words:91, seconds:30
+  },
+  {
+    id:'bag', num:'09', title:'My Full Camera Bag for $500', cat:'camera',
+    hook:{text:'"You don\'t need $3,000 of gear to make cinematic content. Here\'s my entire setup for $500."', note:'Lay flat of everything in your bag. Clean, organized, well-lit. Let people see it all at once.', timing:'0–3s'},
+    body:{text:'"The camera body is a <strong>used Sony a6400 — $350</strong>. Pair it with the kit lens for everyday stuff, or the Laowa 10mm for gym work. Tripod is a $40 Amazon one that\'s held up for two years. Memory card, extra battery, and a small <strong>LED panel for desk setup filming</strong> — that\'s literally it. The biggest difference in your content isn\'t the gear. It\'s <strong>learning your gear completely</strong>. Know every button. Know every setting."', note:'Pick up each item and show it clearly. Price tag or text overlay on each. End on the full bag again.', timing:'3–25s'},
+    cta:{text:'"Comment SETUP and I\'ll send you the full Amazon list."', timing:'25–30s'},
+    words:94, seconds:30
+  },
+  {
+    id:'af', num:'10', title:'Autofocus Settings for Fast Movement', cat:'camera',
+    hook:{text:'"Your camera keeps losing focus mid-lift — fix it in 30 seconds."', note:'Show the problem first. A clip where autofocus hunts and misses during a rep. People will recognize it.', timing:'0–3s'},
+    body:{text:'"Go into your autofocus settings and switch from <strong>wide area AF to zone AF or flexible spot</strong>. Wide area tries to track everything in the frame and gets confused. Zone AF locks to a specific region — usually center. Also make sure <strong>face and eye tracking is OFF</strong> during gym footage unless you\'re doing talking head content. The last thing — turn your AF drive speed down one notch. Slower tracking actually misses less because it doesn\'t overcorrect."', note:'Screen record or show camera menu live. Point to each setting clearly as you change it.', timing:'3–25s'},
+    cta:{text:'"Follow for more camera settings that fix real problems."', timing:'25–30s'},
+    words:93, seconds:30
+  },
+  {
+    id:'anam', num:'11', title:'Anamorphic Look on a Budget', cat:'camera',
+    hook:{text:'"That horizontal lens flare look costs $1,000 — or you can fake it for $30."', note:'Show the lens flare effect on a gym clip. Dramatic, cinematic. Then cut to the $30 solution.', timing:'0–3s'},
+    body:{text:'"Real anamorphic lenses are expensive and hard to use. But you can get <strong>80% of the look</strong> two ways. First: a cheap anamorphic lens adapter on Amazon — fits over your existing lens and adds those signature horizontal flares. Second: do it in Premiere. Download a free <strong>anamorphic lens flare overlay</strong>, drop it on your clip in Overlay blend mode, and dial the opacity to about 40%. Add a slight horizontal letterbox crop. Done. Nobody will know the difference."', note:'Show both methods on screen. The adapter physically, then the Premiere overlay step by step.', timing:'3–25s'},
+    cta:{text:'"Save this for your next edit."', timing:'25–30s'},
+    words:92, seconds:30
+  },
+  {
+    id:'premiere', num:'12', title:'My Premiere Pro Gym Reel Workflow', cat:'edit',
+    hook:{text:'"Here\'s how I edit a complete gym reel in under 4 hours — start to finish."', note:'Show your finished reel playing for 2 seconds. Then cut to the Premiere Pro timeline. Contrast the output with the process.', timing:'0–3s'},
+    body:{text:'"Step one: <strong>dump all clips and mark selects</strong> — I use the star rating to flag the best 20% of footage. Step two: rough cut to music — get the story down before you touch any effects. Step three: <strong>color grade on a locked cut</strong> — I use a flat picture profile and apply a LUT first, then adjust. Step four: effects and transitions last. Most reels only need 2 or 3 transitions max. Don\'t let effects become a way to avoid making decisions about your footage."', note:'Screen record real Premiere timeline. Show each phase briefly. Move fast — this is a taste, not a tutorial.', timing:'3–25s'},
+    cta:{text:'"Follow — I\'m dropping the full 4-hour workflow breakdown this week."', timing:'25–30s'},
+    words:95, seconds:30
+  },
+  {
+    id:'color', num:'13', title:'Color Grading Gym Footage', cat:'edit',
+    hook:{text:'"Your gym footage looks washed out because you\'re grading it wrong."', note:'Side by side: flat ungraded clip versus your finished grade. Let the visual make the case.', timing:'0–3s'},
+    body:{text:'"I shoot in a <strong>flat picture profile</strong> to preserve dynamic range, then I apply a LUT as a starting point — I like a warm, cinematic look so I use a golden-orange LUT at about 60% opacity. Then in Lumetri Color I push the <strong>shadows slightly cool and highlights slightly warm</strong> — that split tone is what makes gym footage look premium. Last thing: crush the blacks just a little. Bring the lift down on the tone curve. <strong>Deep blacks make everything pop.</strong>"', note:'Do this live in Premiere. Show Lumetri panel. Real before/after on actual gym footage.', timing:'3–25s'},
+    cta:{text:'"Comment LUTS and I\'ll send you the pack I use for free."', timing:'25–30s'},
+    words:94, seconds:30
+  },
+  {
+    id:'sync', num:'14', title:'Syncing Cuts to Music — My Method', cat:'edit',
+    hook:{text:'"Your edits feel slow because your cuts aren\'t landing on the beat."', note:'Show a badly synced clip — cut happens off-beat. Then show a well-synced version. The difference is physical.', timing:'0–3s'},
+    body:{text:'"In Premiere, I use the <strong>beat detection in the Remix tool</strong> to auto-mark beat hits on the audio track. Then I cut to those markers. But here\'s the trick — don\'t cut on every beat. Cut on <strong>every other beat, or every 4th beat</strong> depending on the energy you want. Slower cut rhythm = more dramatic. Faster = more hype. Also: cut on <strong>movement peaks</strong>, not movement starts. When the bar reaches its highest point — that\'s your cut frame."', note:'Show the beat markers appearing in Premiere. Show the difference between cutting on vs off the peak of movement.', timing:'3–25s'},
+    cta:{text:'"Save this — it\'s the thing that changed my edits most."', timing:'25–30s'},
+    words:97, seconds:30
+  },
+  {
+    id:'vlog', num:'15', title:'How to Make a Cinematic Vlog', cat:'edit',
+    hook:{text:'"The difference between a boring vlog and a cinematic one is structure — not gear."', note:'Open on your best DITD footage. Let it play 2 seconds before saying anything.', timing:'0–3s'},
+    body:{text:'"Every cinematic vlog needs three things. <strong>An opening sequence</strong> — your most visually interesting shot, no talking, just mood. A <strong>middle section with a rhythm</strong> — talking head cuts balanced with b-roll, never more than 10 seconds of just talking. And an <strong>ending that resolves something</strong> — even something small. You went to the gym. You finished the workout. You got the shot. Give the viewer a landing. The music should be doing 50% of the emotional work."', note:'Cut between your actual vlog segments as examples. Label each section on screen — Opening / Middle / End.', timing:'3–25s'},
+    cta:{text:'"Follow — I break down my full DITD editing process next week."', timing:'25–30s'},
+    words:96, seconds:30
+  },
+  {
+    id:'ramp', num:'16', title:'Speed Ramping Tutorial', cat:'edit',
+    hook:{text:'"This slow-motion effect is in every viral gym reel — here\'s how to do it."', note:'Show the speed ramp effect on one of your best clips. Impact moment → dramatic slowdown → speed back up.', timing:'0–3s'},
+    body:{text:'"In Premiere, right click your clip and go to <strong>Show Clip Keyframes → Time Remapping → Speed</strong>. You\'ll see a horizontal band across your clip. Click to add keyframes at the point where you want the ramp to start and end. Drag between keyframes down to slow motion — I use <strong>20–30% speed</strong> at the peak of the movement. Then pull the Bezier handles on the keyframe to smooth the transition in and out. <strong>The ramp should feel invisible</strong> — like the world just held its breath."', note:'Screen record this in real time. Slow and clear. People will pause and rewatch this one.', timing:'3–25s'},
+    cta:{text:'"Save this. Comment RAMP if you want the full breakdown."', timing:'25–30s'},
+    words:100, seconds:30
+  },
+  {
+    id:'export', num:'17', title:'Export Settings for Instagram Reels', cat:'edit',
+    hook:{text:'"Instagram is compressing your videos and making them look terrible. Fix it with these settings."', note:'Show a blurry, over-compressed reel versus a crisp one. Instagram compression is a real and visible problem.', timing:'0–3s'},
+    body:{text:'"In Premiere export: format <strong>H.264</strong>, preset <strong>Match Source — High Bitrate</strong>. Resolution: <strong>1080 × 1920</strong> for Reels. Frame rate: match your timeline — 24 or 30fps. Bitrate: set to VBR 2-pass, target <strong>20 Mbps, max 25 Mbps</strong>. This gives Instagram enough data that even after their compression the quality holds. One more thing — <strong>export at exactly the right aspect ratio</strong>. If you export 16:9 and let Instagram crop it, it loses quality in that process."', note:'Screen record the exact export panel. Circle each setting. Go slow — this is reference material.', timing:'3–25s'},
+    cta:{text:'"Save this before your next export."', timing:'25–30s'},
+    words:97, seconds:30
+  },
+  {
+    id:'trans', num:'18', title:'Transitions I Use Every Single Edit', cat:'edit',
+    hook:{text:'"I use 3 transitions for every gym reel. That\'s it. Here they are."', note:'Show all 3 transitions back to back in 3 seconds. Let them hit before you explain any of them.', timing:'0–3s'},
+    body:{text:'"Number one: the <strong>whip cut</strong> — pan fast at the end of one clip, start the next clip already mid-pan. Feels kinetic, works on any music. Number two: the <strong>smash cut on beat</strong> — hard cut right on a drum hit with a 2-frame flash frame. Adds impact to heavy lifts. Number three: the <strong>match cut</strong> — cut from one movement to a similar movement. Reaching up to reaching up. Sitting to sitting. When it lands, it feels like magic. <strong>You don\'t need 20 transitions. You need 3 that you use perfectly.</strong>"', note:'Show each one isolated with a label. Then show it in context of a real edit.', timing:'3–25s'},
+    cta:{text:'"Follow — posting a full transition pack tutorial this month."', timing:'25–30s'},
+    words:98, seconds:30
+  },
+  {
+    id:'ditd', num:'19', title:'How to Edit a Day in My Life Vlog', cat:'edit',
+    hook:{text:'"Here\'s my exact editing process for a DITD vlog — from 3 hours of raw footage to a 90-second reel."', note:'Flash the raw footage folder — show how much there is. Then cut to the finished 90 seconds. The contrast is the hook.', timing:'0–3s'},
+    body:{text:'"Step one: <strong>watch everything once, mark selects</strong> — I aim for 5–8 minutes of selects from a full day. Step two: build the arc. Morning → gym → afternoon → one meaningful moment → end. Step three: cut to music first, then <strong>fit the story into the rhythm</strong>, not the other way around. The music is the skeleton. Step four: color grade everything to the same look so it feels like one cohesive day. DITD editing is about <strong>curation, not coverage</strong>. Show less. Make every second matter."', note:'Show your actual Premiere timeline for a real DITD edit. Point to each section as you describe it.', timing:'3–25s'},
+    cta:{text:'"Follow for more editing breakdowns every week."', timing:'25–30s'},
+    words:99, seconds:30
+  },
+  {
+    id:'sound', num:'20', title:'Sound Design for Gym Content', cat:'edit',
+    hook:{text:'"Add this one layer to your gym edits and they\'ll feel 10 times more powerful."', note:'Play a clip with no sound design, then the same clip with impact hits and atmosphere. The difference is felt physically.', timing:'0–3s'},
+    body:{text:'"Impact sounds. Every heavy rep, every bar drop, every peak moment — layer in a <strong>low-end thud or a hit sound</strong> from a free SFX pack. I use Freesound.org — search "impact hit" and download 5 options. Drop them on a separate audio track and sync them to the movement peak. Keep the volume low — around <strong>minus 12 to minus 15 dB</strong>. You want people to feel it subconsciously, not notice it consciously. This is what separates gym edits that feel like movies from ones that just look like gym videos."', note:'Show the audio panel in Premiere. Show the impact hit layer sitting below the main audio track. Zoom in on the waveforms.', timing:'3–25s'},
+    cta:{text:'"Save this. Your edits will never sound the same."', timing:'25–30s'},
+    words:101, seconds:30
+  }
+];
+
+var activeScript = 0;
+
+function buildScriptList() {
+  var list = document.getElementById('scriptList');
+  if (!list) return;
+  list.innerHTML = '';
+  SCRIPTS.forEach(function(s, i) {
+    var item = document.createElement('div');
+    item.className = 'sitem' + (i === activeScript ? ' son' : '');
+    item.innerHTML = '<div class="sitem-num">' + s.num + ' · ' + s.cat + '</div>' +
+      '<div class="sitem-title">' + s.title + '</div>';
+    item.onclick = (function(idx) { return function() { activeScript = idx; buildScriptList(); showScript(idx); }; })(i);
+    list.appendChild(item);
+  });
+}
+
+function showScript(idx) {
+  var s = SCRIPTS[idx];
+  var v = document.getElementById('scriptViewer');
+  if (!v) return;
+  var catColor = {edit:'var(--red)',camera:'var(--blue)',lighting:'var(--gld)',workflow:'var(--grn)'}[s.cat] || 'var(--dim)';
+  var catLabel = {edit:'✂️ Editing',camera:'📷 Camera',lighting:'💡 Lighting',workflow:'⚙️ Workflow'}[s.cat];
+  v.innerHTML =
+    '<div class="sv-header">' +
+      '<div class="sv-num">Script ' + s.num + ' of 20</div>' +
+      '<div class="sv-title">' + s.title + '</div>' +
+      '<div class="sv-meta">' +
+        '<span class="sv-badge" style="border-color:' + catColor + ';color:' + catColor + '">' + catLabel + '</span>' +
+        '<span class="sv-badge" style="border-color:var(--grn);color:var(--grn)">~' + s.seconds + ' seconds</span>' +
+        '<span class="sv-badge" style="border-color:var(--dim);color:var(--dim)">~' + s.words + ' words</span>' +
+      '</div>' +
+    '</div>' +
+    '<div class="sv-body">' +
+      '<div class="script-block sb-hook">' +
+        '<div class="sb-label"><div class="sb-dot"></div>HOOK<span class="sb-timing">' + s.hook.timing + '</span></div>' +
+        '<div class="sb-text">' + s.hook.text + '</div>' +
+        '<div class="sb-visual">📷 Visual: ' + s.hook.note + '</div>' +
+      '</div>' +
+      '<div class="script-block sb-body">' +
+        '<div class="sb-label"><div class="sb-dot"></div>BODY<span class="sb-timing">' + s.body.timing + '</span></div>' +
+        '<div class="sb-text">' + s.body.text + '</div>' +
+        '<div class="sb-visual">📷 Visual: ' + s.body.note + '</div>' +
+      '</div>' +
+      '<div class="script-block sb-cta">' +
+        '<div class="sb-label"><div class="sb-dot"></div>CTA<span class="sb-timing">' + s.cta.timing + '</span></div>' +
+        '<div class="sb-text">' + s.cta.text + '</div>' +
+        '<div class="sb-note">💡 Tip: Say the CTA with the same energy as the hook. Don\'t trail off. End strong.</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="sv-footer">' +
+      '<span class="svf-stat">~<strong>' + s.words + '</strong> words spoken</span>' +
+      '<span class="svf-stat">·</span>' +
+      '<span class="svf-stat">Speak at <strong>natural pace</strong> = ~' + s.seconds + 's</span>' +
+      '<span class="svf-stat">·</span>' +
+      '<span class="svf-stat"><strong>' + s.hook.timing + '</strong> hook · <strong>' + s.body.timing + '</strong> body · <strong>' + s.cta.timing + '</strong> CTA</span>' +
+      '<button class="copy-btn" onclick="copyScript(' + idx + ')">Copy Script</button>' +
+    '</div>';
+}
+
+function copyScript(idx) {
+  var s = SCRIPTS[idx];
+  var raw = s.hook.text.replace(/<[^>]+>/g,'') + '\n\n' + s.body.text.replace(/<[^>]+>/g,'') + '\n\n' + s.cta.text;
+  try { navigator.clipboard.writeText(raw); } catch(e) {}
+  var btn = document.querySelector('.copy-btn');
+  if (btn) { btn.textContent = 'Copied ✓'; btn.style.color = 'var(--grn)'; btn.style.borderColor = 'var(--grn)'; setTimeout(function() { btn.textContent = 'Copy Script'; btn.style.color = ''; btn.style.borderColor = ''; }, 2000); }
+}
+
+// init scripts
+buildScriptList();
+showScript(0);
+</script>
+
+
+
+</body></html>
