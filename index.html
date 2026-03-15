@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)file:///Users/yasmani/Downloads/Content_OS_v6_13.html -->
+<!-- saved from url=(0053)file:///Users/yasmani/Downloads/Content_OS_v6_45.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Content OS</title>
-<link href="./Content OS_files/css2" rel="stylesheet">
+<link href="./index_files/css2" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -84,6 +84,12 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 .rr.pri .cb{border-color:var(--rmid)}
 .rd{font-family:'DM Mono',monospace;font-size:.54rem;color:var(--gld)}
 .rr.done .rd,.rr.done .rt{color:var(--dim);text-decoration:line-through}
+.lc-item{display:flex;align-items:flex-start;gap:.5rem;padding:.4rem 0;cursor:pointer;border-bottom:1px solid var(--b1)}
+.lc-item:last-child{border-bottom:none}
+.lcb{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;margin-top:1px;transition:all .15s}
+.lct{font-size:.68rem;color:var(--txt);line-height:1.5}
+.lc-item.done .lcb{background:var(--grn);border-color:var(--grn);color:#000}
+.lc-item.done .lct{color:var(--dim);text-decoration:line-through}
 .rr.pri .rd{color:var(--red)}
 .rt{font-size:.68rem;color:#B0A090}
 .tag{font-family:'DM Mono',monospace;font-size:.46rem;padding:.07rem .25rem;border-radius:3px;white-space:nowrap;border:1px solid;flex-shrink:0}
@@ -99,7 +105,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 .cgrid{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--b1);border-radius:10px;overflow:hidden;margin-bottom:.85rem}
 .cdh{background:var(--s2);padding:.3rem;font-family:'DM Mono',monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:.09em;color:var(--dim);text-align:center;border-bottom:1px solid var(--b1);border-right:1px solid var(--b1)}
 .cdh:nth-child(7),.cc:nth-child(7n){border-right:none}
-.cc{min-height:94px;padding:.3rem;border-right:1px solid var(--b1);border-bottom:1px solid var(--b1);background:var(--s1);position:relative;transition:background .15s}
+.cc{min-height:94px;padding:.3rem;border-right:1px solid var(--b1);border-bottom:1px solid var(--b1);background:var(--s1);position:relative;transition:background .15s;height:auto}
 .cc:hover{background:var(--s2)}
 .cc.emp{background:var(--bg)}
 .cc.wknd{background:#0B0B0B}
@@ -107,7 +113,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 .cnum{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--dim);margin-bottom:.15rem}
 .cnum.tnum{color:var(--gld)}
 .coff{font-family:'DM Mono',monospace;font-size:.46rem;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-top:.15rem}
-.ev{display:block;padding:.14rem .22rem;border-radius:3px;margin-bottom:.14rem;font-size:.5rem;font-family:'DM Mono',monospace;line-height:1.3;border-left:2.5px solid;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.ev{display:block;padding:.14rem .22rem;border-radius:3px;margin-bottom:.14rem;font-size:.5rem;font-family:'DM Mono',monospace;line-height:1.3;border-left:2.5px solid;overflow:visible;white-space:normal;word-break:break-word}
 .er{background:var(--rbg);border-color:var(--red);color:var(--red)}
 .eb{background:var(--bbg);border-color:var(--blue);color:var(--blue)}
 .eg{background:var(--gbg);border-color:var(--grn);color:var(--grn)}
@@ -337,6 +343,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
     <button class="tab" onclick="go(&#39;weekly&#39;,this)">07 · Weekly Breakdown</button>
     <button class="tab" onclick="go(&#39;stats&#39;,this)">08 · Stats</button>
     <button class="tab" onclick="go(&#39;scripts&#39;,this)">09 · IG Scripts</button>
+    <button class="tab" onclick="go(&#39;launch&#39;,this)">10 · Pre-Launch</button>
   </div>
   <div class="nstat"><div class="dot"></div><span id="nstat">0 / 43 done</span></div>
 </nav>
@@ -364,57 +371,57 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
         <button class="ft" onclick="filt(&#39;stock&#39;,this)">📦 Stockpile</button>
       </div>
       <div class="glabel"><span>🔴 Priority Queue — Edit These First</span><span class="gc" id="gp">6 left</span></div>
-      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 1 SUN"><div class="cb"></div><div class="rd">Feb 4</div><div class="rt">Flocka Video</div><div class="tag tnow">WEEK 1 SUN</div></div>
-      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 1 SAT"><div class="cb"></div><div class="rd">Feb 2</div><div class="rt">DITD Routine</div><div class="tag tnow">WEEK 1 SAT</div></div>
-      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 2 SUN"><div class="cb"></div><div class="rd">Feb 6</div><div class="rt">DITD Routine</div><div class="tag tnow">WEEK 2 SUN</div></div>
-      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="WEEK 2 SAT"><div class="cb"></div><div class="rd">Feb 19</div><div class="rt">School Routine</div><div class="tag tnow">WEEK 2 SAT</div></div>
-      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jan 28</div><div class="rt">Laowa Unboxing</div><div class="tag tp3">P3</div></div>
-      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jan 21</div><div class="rt">HEB Shopping</div><div class="tag tp3">P3</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="BL #1"><div class="cb"></div><div class="rd">Feb 4</div><div class="rt">Flocka Video</div><div class="tag tnow">BL #1</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="BL #2"><div class="cb"></div><div class="rd">Feb 2</div><div class="rt">DITD Routine</div><div class="tag tnow">BL #2</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="BL #3"><div class="cb"></div><div class="rd">Feb 6</div><div class="rt">DITD Routine</div><div class="tag tnow">BL #3</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tnow" data-orig="BL #4"><div class="cb"></div><div class="rd">Feb 19</div><div class="rt">School Routine</div><div class="tag tnow">BL #4</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="BL #5"><div class="cb"></div><div class="rd">Jan 28</div><div class="rt">Laowa Unboxing</div><div class="tag tp3">BL #5</div></div>
+      <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="BL #6"><div class="cb"></div><div class="rd">Jan 21</div><div class="rt">HEB Shopping</div><div class="tag tp3">BL #6</div></div>
 
       <div class="glabel"><span>📦 January · 13 reels</span><span class="gc" id="gjan">13 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tstock" data-orig="STOCKPILE"><div class="cb"></div><div class="rd">Jan 30</div><div class="rt">Laowa gym video</div><div class="tag tstock">STOCKPILE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 20</div><div class="rt">Quick back day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jan 19</div><div class="rt">Chest + Tri Day</div><div class="tag tp3">P3</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 16</div><div class="rt">Leg day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 15</div><div class="rt">Back + Bicep</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 12</div><div class="rt">Back day AR LW</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 11</div><div class="rt">Upper body day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 10</div><div class="rt">HEB Shopping w Sandra</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 9</div><div class="rt">Leg day + work + eating</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 7</div><div class="rt">Shoulder day + eating gym</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Jan 6</div><div class="rt">Back day + leaving gym</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 18</div><div class="rt">AR Day 1, AR Frisco</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 5</div><div class="rt">Back day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tstock" data-orig="BL #7"><div class="cb"></div><div class="rd">Jan 30</div><div class="rt">Laowa gym video</div><div class="tag tstock">BL #7</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #8"><div class="cb"></div><div class="rd">Jan 20</div><div class="rt">Quick back day</div><div class="tag tq">BL #8</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tp3" data-orig="BL #9"><div class="cb"></div><div class="rd">Jan 19</div><div class="rt">Chest + Tri Day</div><div class="tag tp3">BL #9</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #10"><div class="cb"></div><div class="rd">Jan 16</div><div class="rt">Leg day</div><div class="tag tq">BL #10</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #11"><div class="cb"></div><div class="rd">Jan 15</div><div class="rt">Back + Bicep</div><div class="tag tq">BL #11</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #12"><div class="cb"></div><div class="rd">Jan 12</div><div class="rt">Back day AR LW</div><div class="tag tq">BL #12</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #13"><div class="cb"></div><div class="rd">Jan 11</div><div class="rt">Upper body day</div><div class="tag tq">BL #13</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #14"><div class="cb"></div><div class="rd">Jan 10</div><div class="rt">HEB Shopping w Sandra</div><div class="tag tq">BL #14</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #15"><div class="cb"></div><div class="rd">Jan 9</div><div class="rt">Leg day + work + eating</div><div class="tag tq">BL #15</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #16"><div class="cb"></div><div class="rd">Jan 7</div><div class="rt">Shoulder day + eating gym</div><div class="tag tq">BL #16</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #17"><div class="cb"></div><div class="rd">Jan 6</div><div class="rt">Back day + leaving gym</div><div class="tag tq">BL #17</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #18"><div class="cb"></div><div class="rd">Dec 18</div><div class="rt">AR Day 1, AR Frisco</div><div class="tag tq">BL #18</div></div>
+      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #19"><div class="cb"></div><div class="rd">Dec 5</div><div class="rt">Back day</div><div class="tag tq">BL #19</div></div>
 
       <div class="glabel"><span>📦 December · 4 reels</span><span class="gc" id="gdec">4 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 4</div><div class="rt">Chest day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Dec 3</div><div class="rt">Leg day</div><div class="tag tp3">P3</div></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Dec 1</div><div class="rt">Chest + Triceps</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Jun 21</div><div class="rt">HEB Day 1</div><div class="tag tp3">P3</div></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="BL #20"><div class="cb"></div><div class="rd">Dec 4</div><div class="rt">Chest day</div><div class="tag tq">BL #20</div></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="BL #21"><div class="cb"></div><div class="rd">Dec 3</div><div class="rt">Leg day</div><div class="tag tp3">BL #21</div></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="BL #22"><div class="cb"></div><div class="rd">Dec 1</div><div class="rt">Chest + Triceps</div><div class="tag tq">BL #22</div></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="BL #23"><div class="cb"></div><div class="rd">Jun 21</div><div class="rt">HEB Day 1</div><div class="tag tp3">BL #23</div></div>
 
       <div class="glabel"><span>📦 November · 6 reels</span><span class="gc" id="gnov">6 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 10</div><div class="rt">Pull day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 9</div><div class="rt">Push day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 6</div><div class="rt">Push day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 5</div><div class="rt">Pull day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 4</div><div class="rt">Leg day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Nov 2</div><div class="rt">Back + dog clip</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #24"><div class="cb"></div><div class="rd">Nov 10</div><div class="rt">Pull day</div><div class="tag tq">BL #24</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #25"><div class="cb"></div><div class="rd">Nov 9</div><div class="rt">Push day</div><div class="tag tq">BL #25</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #26"><div class="cb"></div><div class="rd">Nov 6</div><div class="rt">Push day</div><div class="tag tq">BL #26</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #27"><div class="cb"></div><div class="rd">Nov 5</div><div class="rt">Pull day</div><div class="tag tq">BL #27</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #28"><div class="cb"></div><div class="rd">Nov 4</div><div class="rt">Leg day</div><div class="tag tq">BL #28</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #29"><div class="cb"></div><div class="rd">Nov 2</div><div class="rt">Back + dog clip</div><div class="tag tq">BL #29</div></div>
 
       <div class="glabel"><span>📦 October · 8 reels</span><span class="gc" id="goct">8 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 29</div><div class="rt">Back and Bi H</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 28</div><div class="rt">Leg day H</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 27</div><div class="rt">Chest H</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 21</div><div class="rt">Chest + tricep + laptop work</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 14</div><div class="rt">Abs + leg day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 13</div><div class="rt">Bicep + back day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 6</div><div class="rt">Bicep + back day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Oct 1</div><div class="rt">Leg day</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #30"><div class="cb"></div><div class="rd">Oct 29</div><div class="rt">Back and Bi H</div><div class="tag tq">BL #30</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #31"><div class="cb"></div><div class="rd">Oct 28</div><div class="rt">Leg day H</div><div class="tag tq">BL #31</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #32"><div class="cb"></div><div class="rd">Oct 27</div><div class="rt">Chest H</div><div class="tag tq">BL #32</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #33"><div class="cb"></div><div class="rd">Oct 21</div><div class="rt">Chest + tricep + laptop work</div><div class="tag tq">BL #33</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #34"><div class="cb"></div><div class="rd">Oct 14</div><div class="rt">Abs + leg day</div><div class="tag tq">BL #34</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #35"><div class="cb"></div><div class="rd">Oct 13</div><div class="rt">Bicep + back day</div><div class="tag tq">BL #35</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #36"><div class="cb"></div><div class="rd">Oct 6</div><div class="rt">Bicep + back day</div><div class="tag tq">BL #36</div></div>
+      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #37"><div class="cb"></div><div class="rd">Oct 1</div><div class="rt">Leg day</div><div class="tag tq">BL #37</div></div>
 
       <div class="glabel"><span>📦 September · 4 reels</span><span class="gc" id="gsep">4 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Sep 10</div><div class="rt">Chest day</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Sep 5</div><div class="rt">Shoulder day LC + cinematics</div><div class="tag tq">QUEUE</div></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tp3" data-orig="P3"><div class="cb"></div><div class="rd">Sep 4</div><div class="rt">Back + Bi workout</div><div class="tag tp3">P3</div></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="QUEUE"><div class="cb"></div><div class="rd">Sep 2</div><div class="rt">UNT workout + cinematics</div><div class="tag tq">QUEUE</div></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="BL #38"><div class="cb"></div><div class="rd">Sep 10</div><div class="rt">Chest day</div><div class="tag tq">BL #38</div></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="BL #39"><div class="cb"></div><div class="rd">Sep 5</div><div class="rt">Shoulder day LC + cinematics</div><div class="tag tq">BL #39</div></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tp3" data-orig="BL #40"><div class="cb"></div><div class="rd">Sep 4</div><div class="rt">Back + Bi workout</div><div class="tag tp3">BL #40</div></div>
+      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="BL #41"><div class="cb"></div><div class="rd">Sep 2</div><div class="rt">UNT workout + cinematics</div><div class="tag tq">BL #41</div></div>
     </div>
     <div class="tsb">
       <div class="card"><h3 class="hr">Progress</h3>
@@ -450,12 +457,12 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 <!-- ══════════════ 02 CALENDAR ══════════════ -->
 <div class="sec on" id="cal">
   <div class="ph">
-    <div><h1>CONTENT <span class="acc">CALENDAR</span></h1><div class="sub">March 2026 · Sun+Sat gym edit · Mon teach · Wed gym · Thu batch · Fri teach</div></div>
+    <div><h1>CONTENT <span class="acc">CALENDAR</span></h1><div class="sub">March 2026 · Sun edit BL · Mon post BL · Tue edit BL · Wed post BL · Thu edit Teach · Fri post Teach · Sat film/rest</div></div>
     <div class="rstat"><div class="rsn" style="color:var(--pur)">3</div><div class="rsl">Posts / Week</div></div>
   </div>
   <div class="cb2">
     <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.35rem;color:var(--txt);letter-spacing:.06em;margin-bottom:.75rem">MARCH <span style="color:var(--dim)">2026</span></div>
-    <div class="cgrid" id="cgrid"><div class="cdh">SUN</div><div class="cdh">MON</div><div class="cdh">TUE</div><div class="cdh">WED</div><div class="cdh">THU</div><div class="cdh">FRI</div><div class="cdh">SAT</div><div class="cc wknd"><div class="cnum">1</div></div><div class="cc"><div class="cnum">2</div></div><div class="cc"><div class="cnum">3</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">4</div></div><div class="cc"><div class="cnum">5</div></div><div class="cc"><div class="cnum">6</div></div><div class="cc wknd"><div class="cnum">7</div></div><div class="cc wknd"><div class="cnum">8</div></div><div class="cc"><div class="cnum">9</div></div><div class="cc tday"><div class="cnum tnum">10</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">11</div><div class="ev eb">🎥 Film Teach #1</div><div class="ev er">✂️ Edit Teach #1</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">12</div><div class="ev er">✂️ Edit Gym #1 → save for Friday</div><div class="ev eb">🎥 Film Teach #2 &amp; #3</div></div><div class="cc"><div class="cnum">13</div><div class="ev eg">🟢 Post Gym Edit · Friday</div></div><div class="cc wknd"><div class="cnum">14</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel</div></div><div class="cc wknd"><div class="cnum">15</div><div class="ev ey">📝 Writing Day</div><div class="ev ep">📦 Stock: 2</div></div><div class="cc"><div class="cnum">16</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">17</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">18</div><div class="ev eg">🟢 Post Gym Edit #3</div></div><div class="cc"><div class="cnum">19</div><div class="ev eb">🎥 Batch × 3 videos</div></div><div class="cc"><div class="cnum">20</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev eg">🟢 Post Teach #2</div><div class="ev eb">✂️ batch 2&amp;3</div></div><div class="cc wknd"><div class="cnum">21</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel #1</div></div><div class="cc wknd"><div class="cnum">22</div><div class="ev ey">📝 Writing Day</div><div class="ev ep">📦 Stock: 3 ⚡</div></div><div class="cc"><div class="cnum">23</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">24</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">25</div><div class="ev eg">🟢 Post Gym Edit · Priority ✓</div></div><div class="cc"><div class="cnum">26</div><div class="ev eb">🎥 Batch × 3 videos</div></div><div class="cc"><div class="cnum">27</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev eg">🟢 Post Teach #2</div><div class="ev eb">✂️ batch 2&amp;3</div></div><div class="cc wknd"><div class="cnum">28</div><div class="ev ey">📝 Writing Day</div><div class="ev er">✂️ Edit gym reel #1</div></div><div class="cc wknd"><div class="cnum">29</div><div class="ev ey">📝 Writing Day</div><div class="ev ep">📦 Stock: 4 = 2 WKS AHEAD!</div></div><div class="cc"><div class="cnum">30</div><div class="ev eg">🟢 Post Teach #1</div></div><div class="cc"><div class="cnum">31</div><div class="coff">OFF</div></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div></div>
+    <div class="cgrid" id="cgrid"><div class="cdh">SUN</div><div class="cdh">MON</div><div class="cdh">TUE</div><div class="cdh">WED</div><div class="cdh">THU</div><div class="cdh">FRI</div><div class="cdh">SAT</div><div class="cc wknd"><div class="cnum">1</div></div><div class="cc"><div class="cnum">2</div></div><div class="cc"><div class="cnum">3</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">4</div></div><div class="cc"><div class="cnum">5</div></div><div class="cc"><div class="cnum">6</div></div><div class="cc wknd"><div class="cnum">7</div></div><div class="cc wknd"><div class="cnum">8</div></div><div class="cc"><div class="cnum">9</div></div><div class="cc"><div class="cnum">10</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">11</div></div><div class="cc"><div class="cnum">12</div><div class="ev eb">🎥 Film Teach #2 &amp; #3</div></div><div class="cc"><div class="cnum">13</div><div class="ev er">✂️ Edit BL #1 #2 #3 · sprint</div></div><div class="cc wknd"><div class="cnum">14</div><div class="ev ey">📝 Script Teach #2 &amp; #3</div><div class="ev eb">✂️ Edit Teach #1 &amp; #2</div></div><div class="cc wknd tday"><div class="cnum tnum">15</div><div class="ev er">✂️ Edit BL #4 #5 #6 · sprint</div><div class="ev ey">✍️ Write captions BL #1 &amp; #2</div><div class="ev ep">📦 6 queued · 2 weeks ahead ⚡</div></div><div class="cc"><div class="cnum">16</div><div class="ev eg">🟢 Post Teach #1 · 9am</div><div class="ev ep">📊 15 min analytics</div><div class="ev ep">✅ Check ManyChat triggers</div></div><div class="cc"><div class="cnum">17</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">18</div><div class="ev eg">🟢 Post BL #1 · 9am</div><div class="ev eb">🎥 Film Teach · 5pm</div><div class="ev ep">✅ Check ManyChat triggers</div></div><div class="cc"><div class="cnum">19</div><div class="ev eb">✂️ Edit Teach #3</div><div class="ev ey">✍️ Write captions BL #3 &amp; #4</div></div><div class="cc"><div class="cnum">20</div><div class="ev eg">🟢 Post BL #2</div><div class="ev ey">📝 Script next Teach</div><div class="ev ep">✅ Check ManyChat triggers</div></div><div class="cc wknd"><div class="cnum">21</div><div class="ev er">✂️ Edit BL #8 · buffer</div><div class="ev ey">✍️ Write captions BL #5 &amp; #6</div></div><div class="cc wknd"><div class="cnum">22</div><div class="ev er">✂️ Edit BL #9 · Sun</div><div class="ev ey">✍️ Write captions BL #7 &amp; #8</div></div><div class="cc"><div class="cnum">23</div><div class="ev eg">🟢 Post Teach #2 · 9am</div><div class="ev ep">📊 15 min analytics</div></div><div class="cc"><div class="cnum">24</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">25</div><div class="ev eg">🟢 Post BL #3 · 9am</div><div class="ev eb">🎥 Film Teach · 5pm</div></div><div class="cc"><div class="cnum">26</div><div class="ev eb">✂️ Edit Teach #4</div><div class="ev ey">✍️ Write captions BL #9 &amp; #10</div></div><div class="cc"><div class="cnum">27</div><div class="ev eg">🟢 Post BL #4</div><div class="ev ey">📝 Script next Teach</div></div><div class="cc wknd"><div class="cnum">28</div><div class="ev er">✂️ Edit BL #10 · Sat</div><div class="ev ey">✍️ Write captions BL #11 &amp; #12</div></div><div class="cc wknd"><div class="cnum">29</div><div class="ev er">✂️ Edit BL #11 · Sun</div><div class="ev ep">📊 1hr Analytics Deep Dive 🔍</div></div><div class="cc"><div class="cnum">30</div><div class="ev eg">🟢 Post Teach #3 · 9am</div><div class="ev ep">📊 15 min analytics</div></div><div class="cc"><div class="cnum">31</div><div class="coff">OFF</div></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div></div>
     <div class="cleg" style="margin-top:.75rem">
       <div class="cli"><div class="cld" style="background:var(--red)"></div><div class="cll">Gym Edit</div></div>
       <div class="cli"><div class="cld" style="background:var(--blue)"></div><div class="cll">Batch / Teach Edit</div></div>
@@ -542,7 +549,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
         <div class="wbtop"><div class="wbtitle">MARCH 2026</div><div class="wbsub">Content Pipeline</div></div>
         <div class="wbcal">
           <div class="wbhdrs"><div class="wbdh">SUN</div><div class="wbdh">MON</div><div class="wbdh" style="color:#CCC">TUE</div><div class="wbdh">WED</div><div class="wbdh">THU</div><div class="wbdh">FRI</div><div class="wbdh">SAT</div></div>
-          <div class="wbwks" id="wbcal"><div class="wbwk"><div class="wbc"><div class="wbn">1</div></div><div class="wbc"><div class="wbn">2</div></div><div class="wbc tue"><div class="wbn">3</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">4</div></div><div class="wbc"><div class="wbn">5</div></div><div class="wbc"><div class="wbn">6</div></div><div class="wbc"><div class="wbn">7</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn">8</div></div><div class="wbc"><div class="wbn">9</div></div><div class="wbc tue twb"><div class="wbn act tdy">10</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">11</div><div class="wbev we-b">🎥 FilmT#1</div><div class="wbev we-r">✂️ EditT#1</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc"><div class="wbn act">12</div><div class="wbev we-r">✂️ Gym#1→Fri</div><div class="wbev we-b">🎥 FilmT#2&amp;#3</div></div><div class="wbc"><div class="wbn act">13</div><div class="wbev we-g">🟢 PostGym·Fri</div></div><div class="wbc"><div class="wbn act">14</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-r">✂️ gym</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">15</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-p">📦 Stock:2</div></div><div class="wbc"><div class="wbn act">16</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc tue"><div class="wbn">17</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">18</div><div class="wbev we-g">🟢 PostGym#3</div></div><div class="wbc"><div class="wbn act">19</div><div class="wbev we-b">🎥 Batch×3</div></div><div class="wbc"><div class="wbn act">20</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-b">✂️ batch2&amp;3</div></div><div class="wbc"><div class="wbn act">21</div><div class="wbev we-y">📝 Writing#1</div><div class="wbev we-r">✂️ gym#1</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">22</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-p">📦 Stock:3⚡</div></div><div class="wbc"><div class="wbn act">23</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc tue"><div class="wbn">24</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">25</div><div class="wbev we-g">🟢 PostGym✓</div></div><div class="wbc"><div class="wbn act">26</div><div class="wbev we-b">🎥 Batch×3</div></div><div class="wbc"><div class="wbn act">27</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-b">✂️ batch2&amp;3</div></div><div class="wbc"><div class="wbn act">28</div><div class="wbev we-y">📝 Writing#1</div><div class="wbev we-r">✂️ gym#1</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">29</div><div class="wbev we-y">📝 Writing</div><div class="wbev we-p">📦 Stock:4=2WKS!</div></div><div class="wbc"><div class="wbn act">30</div><div class="wbev we-g">🟢 PostT#1</div></div><div class="wbc tue"><div class="wbn">31</div><div class="wboff">OFF</div></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div></div></div>
+          <div class="wbwks" id="wbcal"><div class="wbwk"><div class="wbc"><div class="wbn">1</div></div><div class="wbc"><div class="wbn">2</div></div><div class="wbc tue"><div class="wbn">3</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">4</div></div><div class="wbc"><div class="wbn">5</div></div><div class="wbc"><div class="wbn">6</div></div><div class="wbc"><div class="wbn">7</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn">8</div></div><div class="wbc"><div class="wbn">9</div></div><div class="wbc tue"><div class="wbn">10</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">11</div></div><div class="wbc"><div class="wbn act">12</div><div class="wbev we-b">🎥 FilmT#2&amp;#3</div></div><div class="wbc"><div class="wbn act">13</div><div class="wbev we-r">✂️ BL#1#2#3·sprint</div></div><div class="wbc"><div class="wbn act">14</div><div class="wbev we-y">📝 Script</div><div class="wbev we-b">✂️ T#1&amp;#2</div></div></div><div class="wbwk"><div class="wbc twb"><div class="wbn act tdy">15</div><div class="wbev we-r">✂️ BL#4#5#6</div><div class="wbev we-y">✍️ Captions</div><div class="wbev we-p">📦 6queued⚡</div></div><div class="wbc"><div class="wbn act">16</div><div class="wbev we-g">🟢 PostT#1</div><div class="wbev we-p">📊 analytics</div><div class="wbev we-p">✅ ManyChat</div></div><div class="wbc tue"><div class="wbn act">17</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">18</div><div class="wbev we-g">🟢 PostBL#1·9am</div><div class="wbev we-b">🎥 FilmT·5pm</div><div class="wbev we-p">✅ ManyChat</div></div><div class="wbc"><div class="wbn act">19</div><div class="wbev we-b">✂️ EditT#3</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc"><div class="wbn act">20</div><div class="wbev we-g">🟢 PostBL#2</div><div class="wbev we-y">📝 Script</div><div class="wbev we-p">✅ ManyChat</div></div><div class="wbc"><div class="wbn act">21</div><div class="wbev we-r">✂️ BL#8·buffer</div><div class="wbev we-y">✍️ Captions</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">22</div><div class="wbev we-r">✂️ BL#9·Sun</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc"><div class="wbn act">23</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-p">📊 analytics</div></div><div class="wbc tue"><div class="wbn">24</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">25</div><div class="wbev we-g">🟢 PostBL#3·9am</div><div class="wbev we-b">🎥 FilmT·5pm</div></div><div class="wbc"><div class="wbn act">26</div><div class="wbev we-b">✂️ EditT#4</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc"><div class="wbn act">27</div><div class="wbev we-g">🟢 PostBL#4</div><div class="wbev we-y">📝 Script</div></div><div class="wbc"><div class="wbn act">28</div><div class="wbev we-r">✂️ BL#10·Sat</div><div class="wbev we-y">✍️ Captions</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">29</div><div class="wbev we-r">✂️ BL#11·Sun</div><div class="wbev we-p">📊 1hr Deep Dive🔍</div></div><div class="wbc"><div class="wbn act">30</div><div class="wbev we-g">🟢 PostT#3</div><div class="wbev we-p">📊 analytics</div></div><div class="wbc tue"><div class="wbn act">31</div><div class="wboff">OFF</div></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div></div></div>
           <div class="wbnote">
             <div class="wbnt">NOTE</div>
             <div class="wbni"><div class="wbndot" style="background:#B45309"></div><span>Writing / Scripting</span></div>
@@ -797,6 +804,16 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 </div>
 
 <script>
+// ─── LAUNCH CHECKLIST ───
+function togLaunch(el) {
+  el.classList.toggle('done');
+  var lcb = el.querySelector('.lcb');
+  lcb.textContent = el.classList.contains('done') ? '✓' : '';
+  var done = document.querySelectorAll('#launch .lc-item.done').length;
+  document.getElementById('launchDone').textContent = done;
+  try { localStorage.setItem('launchOS6', JSON.stringify([].slice.call(document.querySelectorAll('#launch .lc-item')).map(function(i){return i.classList.contains('done')?1:0;}))); } catch(e){}
+}
+
 // ─── NAV ───
 function go(id, btn) {
   document.querySelectorAll('.sec').forEach(function(s) { s.classList.remove('on'); });
@@ -807,7 +824,7 @@ function go(id, btn) {
 
 // ─── DATA ───
 var TOTAL = 43;
-var TODAY_DATE = 10; // March 10 2026
+var TODAY_DATE = 15; // March 15 2026
 var gymCount = 0;
 var teachCount = 0;
 var batchCount = 0;
@@ -821,47 +838,51 @@ var WEEKS = [
 ];
 
 var CAL_EVENTS = {
-  10:[{c:'eb',t:'🎥 Film Teach 2 & 3'}],
-  11:[{c:'eb',t:'🎥 Film Teach #1'},{c:'er',t:'✂️ Edit Teach #1'},{c:'eg',t:'🟢 Post Teach #1'}],
-  12:[{c:'er',t:'✂️ Edit Gym #1 → save for Friday'},{c:'eb',t:'🎥 Film Teach #2 & #3'}],
-  13:[{c:'eg',t:'🟢 Post Gym Edit · Friday'}],
-  14:[{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel'}],
-  15:[{c:'ey',t:'📝 Writing Day'},{c:'ep',t:'📦 Stock: 2'}],
-  16:[{c:'eg',t:'🟢 Post Teach #1'}],
-  18:[{c:'eg',t:'🟢 Post Gym Edit #3'}],
-  19:[{c:'eb',t:'🎥 Batch × 3 videos'}],
-  20:[{c:'eb',t:'✂️ Edit Teach #2'},{c:'eg',t:'🟢 Post Teach #2'},{c:'eb',t:'✂️ batch 2&3'}],
-  21:[{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel #1'}],
-  22:[{c:'ey',t:'📝 Writing Day'},{c:'ep',t:'📦 Stock: 3 ⚡'}],
-  23:[{c:'eg',t:'🟢 Post Teach #1'}],
-  25:[{c:'eg',t:'🟢 Post Gym Edit · Priority ✓'}],
-  26:[{c:'eb',t:'🎥 Batch × 3 videos'}],
-  27:[{c:'eb',t:'✂️ Edit Teach #2'},{c:'eg',t:'🟢 Post Teach #2'},{c:'eb',t:'✂️ batch 2&3'}],
-  28:[{c:'ey',t:'📝 Writing Day'},{c:'er',t:'✂️ Edit gym reel #1'}],
-  29:[{c:'ey',t:'📝 Writing Day'},{c:'ep',t:'📦 Stock: 4 = 2 WKS AHEAD!'}],
-  30:[{c:'eg',t:'🟢 Post Teach #1'}]
+  // ── SPRINT WEEK · BUILD THE BUFFER ──
+  12:[{c:'eb',t:'🎥 Film Teach #2 & #3'}],
+  13:[{c:'er',t:'✂️ Edit BL #1 #2 #3 · sprint'}],
+  14:[{c:'ey',t:'📝 Script Teach #2 & #3'},{c:'eb',t:'✂️ Edit Teach #1 & #2'}],
+  15:[{c:'er',t:'✂️ Edit BL #4 #5 #6 · sprint'},{c:'ey',t:'✍️ Write captions BL #1 & #2'},{c:'ep',t:'📦 6 queued · 2 weeks ahead ⚡'}],
+  // ── WEEK OF MAR 16 · FULL RHYTHM ──
+  16:[{c:'eg',t:'🟢 Post Teach #1 · 9am'},{c:'ep',t:'📊 15 min analytics'},{c:'ep',t:'✅ Check ManyChat triggers'}],
+  17:[{c:'er',t:'✂️ Edit BL #7 · buffer'}],
+  18:[{c:'eg',t:'🟢 Post BL #1 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'},{c:'ep',t:'✅ Check ManyChat triggers'}],
+  19:[{c:'eb',t:'✂️ Edit Teach #3'},{c:'ey',t:'✍️ Write captions BL #3 & #4'}],
+  20:[{c:'eg',t:'🟢 Post BL #2'},{c:'ey',t:'📝 Script next Teach'},{c:'ep',t:'✅ Check ManyChat triggers'}],
+  21:[{c:'er',t:'✂️ Edit BL #8 · buffer'},{c:'ey',t:'✍️ Write captions BL #5 & #6'}],
+  // ── WEEK OF MAR 22 ──
+  22:[{c:'er',t:'✂️ Edit BL #9 · Sun'},{c:'ey',t:'✍️ Write captions BL #7 & #8'}],
+  23:[{c:'eg',t:'🟢 Post Teach #2 · 9am'},{c:'ep',t:'📊 15 min analytics'}],
+  25:[{c:'eg',t:'🟢 Post BL #3 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'}],
+  26:[{c:'eb',t:'✂️ Edit Teach #4'},{c:'ey',t:'✍️ Write captions BL #9 & #10'}],
+  27:[{c:'eg',t:'🟢 Post BL #4'},{c:'ey',t:'📝 Script next Teach'}],
+  28:[{c:'er',t:'✂️ Edit BL #10 · Sat'},{c:'ey',t:'✍️ Write captions BL #11 & #12'}],
+  // ── WEEK OF MAR 29 · END OF MONTH ──
+  29:[{c:'er',t:'✂️ Edit BL #11 · Sun'},{c:'ep',t:'📊 1hr Analytics Deep Dive 🔍'}],
+  30:[{c:'eg',t:'🟢 Post Teach #3 · 9am'},{c:'ep',t:'📊 15 min analytics'}],
+  31:[{c:'eg',t:'🟢 Post BL #5 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'},{c:'ey',t:'📋 End of Month Review'}]
 };
 
 var WB_EVENTS = {
-  10:[{cls:'we-b',t:'🎥 FilmT2&3'}],
-  11:[{cls:'we-b',t:'🎥 FilmT#1'},{cls:'we-r',t:'✂️ EditT#1'},{cls:'we-g',t:'🟢 PostT#1'}],
-  12:[{cls:'we-r',t:'✂️ Gym#1→Fri'},{cls:'we-b',t:'🎥 FilmT#2&#3'}],
-  13:[{cls:'we-g',t:'🟢 PostGym·Fri'}],
-  14:[{cls:'we-y',t:'📝 Writing'},{cls:'we-r',t:'✂️ gym'}],
-  15:[{cls:'we-y',t:'📝 Writing'},{cls:'we-p',t:'📦 Stock:2'}],
-  16:[{cls:'we-g',t:'🟢 PostT#1'}],
-  18:[{cls:'we-g',t:'🟢 PostGym#3'}],
-  19:[{cls:'we-b',t:'🎥 Batch×3'}],
-  20:[{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-b',t:'✂️ batch2&3'}],
-  21:[{cls:'we-y',t:'📝 Writing#1'},{cls:'we-r',t:'✂️ gym#1'}],
-  22:[{cls:'we-y',t:'📝 Writing'},{cls:'we-p',t:'📦 Stock:3⚡'}],
-  23:[{cls:'we-g',t:'🟢 PostT#1'}],
-  25:[{cls:'we-g',t:'🟢 PostGym✓'}],
-  26:[{cls:'we-b',t:'🎥 Batch×3'}],
-  27:[{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-b',t:'✂️ batch2&3'}],
-  28:[{cls:'we-y',t:'📝 Writing#1'},{cls:'we-r',t:'✂️ gym#1'}],
-  29:[{cls:'we-y',t:'📝 Writing'},{cls:'we-p',t:'📦 Stock:4=2WKS!'}],
-  30:[{cls:'we-g',t:'🟢 PostT#1'}]
+  12:[{cls:'we-b',t:'🎥 FilmT#2&#3'}],
+  13:[{cls:'we-r',t:'✂️ BL#1#2#3·sprint'}],
+  14:[{cls:'we-y',t:'📝 Script'},{cls:'we-b',t:'✂️ T#1&#2'}],
+  15:[{cls:'we-r',t:'✂️ BL#4#5#6'},{cls:'we-y',t:'✍️ Captions'},{cls:'we-p',t:'📦 6queued⚡'}],
+  16:[{cls:'we-g',t:'🟢 PostT#1'},{cls:'we-p',t:'📊 analytics'},{cls:'we-p',t:'✅ ManyChat'}],
+  17:[{cls:'we-r',t:'✂️ BL#7·buffer'}],
+  18:[{cls:'we-g',t:'🟢 PostBL#1·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'},{cls:'we-p',t:'✅ ManyChat'}],
+  19:[{cls:'we-b',t:'✂️ EditT#3'},{cls:'we-y',t:'✍️ Captions'}],
+  20:[{cls:'we-g',t:'🟢 PostBL#2'},{cls:'we-y',t:'📝 Script'},{cls:'we-p',t:'✅ ManyChat'}],
+  21:[{cls:'we-r',t:'✂️ BL#8·buffer'},{cls:'we-y',t:'✍️ Captions'}],
+  22:[{cls:'we-r',t:'✂️ BL#9·Sun'},{cls:'we-y',t:'✍️ Captions'}],
+  23:[{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-p',t:'📊 analytics'}],
+  25:[{cls:'we-g',t:'🟢 PostBL#3·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'}],
+  26:[{cls:'we-b',t:'✂️ EditT#4'},{cls:'we-y',t:'✍️ Captions'}],
+  27:[{cls:'we-g',t:'🟢 PostBL#4'},{cls:'we-y',t:'📝 Script'}],
+  28:[{cls:'we-r',t:'✂️ BL#10·Sat'},{cls:'we-y',t:'✍️ Captions'}],
+  29:[{cls:'we-r',t:'✂️ BL#11·Sun'},{cls:'we-p',t:'📊 1hr Deep Dive🔍'}],
+  30:[{cls:'we-g',t:'🟢 PostT#3'},{cls:'we-p',t:'📊 analytics'}],
+  31:[{cls:'we-g',t:'🟢 PostBL#5·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'},{cls:'we-y',t:'📋 EOM Review'}]
 };
 
 // ─── BACKLOG ───
@@ -945,6 +966,7 @@ function loadReels() {
 // ─── CALENDAR ───
 function buildCal() {
   var grid = document.getElementById('cgrid');
+  if (grid.children.length > 0) return; // prevent double render
   ['SUN','MON','TUE','WED','THU','FRI','SAT'].forEach(function(d) {
     var h = document.createElement('div');
     h.className = 'cdh';
@@ -1591,7 +1613,74 @@ function copyScript(idx) {
 // init scripts
 buildScriptList();
 showScript(0);
+
+// load launch checklist
+try {
+  var ls = JSON.parse(localStorage.getItem('launchOS6') || '[]');
+  var items = document.querySelectorAll('#launch .lc-item');
+  ls.forEach(function(v,i){ if(v && items[i]){ items[i].classList.add('done'); items[i].querySelector('.lcb').textContent='✓'; }});
+  document.getElementById('launchDone').textContent = document.querySelectorAll('#launch .lc-item.done').length;
+} catch(e) {}
 </script>
+
+<!-- ══════════════ 10 PRE-LAUNCH ══════════════ -->
+<div class="sec" id="launch">
+  <div class="ph">
+    <div><h1>PRE-<span class="acc">LAUNCH</span></h1><div class="sub">Complete this before posting your first video · one time setup · never scramble again</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--grn)" id="launchDone">0</div><div class="rsl">Done</div></div>
+  </div>
+  <div class="cb2">
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+
+      <!-- CONTENT -->
+      <div class="pc">
+        <div class="ph" style="padding:1rem 1.25rem .75rem">
+          <div><div class="sv" style="color:var(--red)">CONTENT</div><div class="sub">Backlog + editing setup</div></div>
+        </div>
+        <div style="padding:.5rem 1.25rem 1rem">
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Audit backlog — cut videos you don't want to post</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Re-number remaining reels as BL #1, #2, #3...</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Tag each reel 🔴 Gym or 🟣 Vlog</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Write captions + hooks for BL #1 &amp; #2 (Adrian/Arthur framework)</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Set up ManyChat — CLONE / LIGHT / SHORTCUTS triggers ready</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Premiere Pro template — LUT, color grade, text style saved</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Mac folder structure — Raw / Editing / Exported / Posted</div></div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="pc">
+        <div class="ph" style="padding:1rem 1.25rem .75rem">
+          <div><div class="sv" style="color:var(--blue)">PROFILE</div><div class="sub">First impression locked</div></div>
+        </div>
+        <div style="padding:.5rem 1.25rem 1rem">
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Bio updated — who you are, what you post, clear CTA</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Profile picture clean and on brand</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Highlight covers consistent</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Pinned post ready — best or most recent video</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Link in bio set up — ManyChat or Linktree</div></div>
+        </div>
+      </div>
+
+      <!-- SYSTEMS + MENTAL -->
+      <div class="pc">
+        <div class="ph" style="padding:1rem 1.25rem .75rem">
+          <div><div class="sv" style="color:var(--pur)">SYSTEMS + MENTAL</div><div class="sub">The machine runs itself</div></div>
+        </div>
+        <div style="padding:.5rem 1.25rem 1rem">
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Content OS live on GitHub — bookmark on phone</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">DJI Mic 2 + Atomos settings saved — setup under 5 mins</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Sprint complete — 6 videos queued, 2 weeks ahead ⚡</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Accept first 5 posts won't be perfect — post anyway</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Commit to schedule for 30 days before judging results</div></div>
+          <div class="lc-item" onclick="togLaunch(this)"><div class="lcb"></div><div class="lct">Analytics check every Monday — one thing to improve</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 
