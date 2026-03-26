@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)file:///Users/yasmani/Downloads/Content_OS_v6_50.html -->
+<!-- saved from url=(0053)file:///Users/yasmani/Downloads/content-os-v7_18.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Content OS</title>
-<link href="./index_files/css2" rel="stylesheet">
+<link href="file:///Users/yasmani/Downloads/index_files/css2" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -107,7 +107,10 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 .cdh:nth-child(7),.cc:nth-child(7n){border-right:none}
 .cc{min-height:94px;padding:.3rem;border-right:1px solid var(--b1);border-bottom:1px solid var(--b1);background:var(--s1);position:relative;transition:background .15s;height:auto}
 .cc:hover{background:var(--s2)}
-.cc.emp{background:var(--bg)}
+.cc.apr{background:#0D0D12;border-color:#1A1A2A}
+.cnum.aprlbl{font-size:.6rem;color:var(--blue);font-family:'DM Mono',monospace;text-transform:uppercase}
+.wbc.apr{background:#0D0D12}
+
 .cc.wknd{background:#0B0B0B}
 .cc.tday{outline:2px solid var(--gld);outline-offset:-2px}
 .cnum{font-family:'Bebas Neue',sans-serif;font-size:.9rem;color:var(--dim);margin-bottom:.15rem}
@@ -334,8 +337,8 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 <nav>
   <div class="logo">CONTENT OS</div>
   <div class="tabs">
-    <button class="tab" onclick="go(&#39;backlog&#39;,this)">01 · Backlog</button>
-    <button class="tab on" onclick="go(&#39;cal&#39;,this)">02 · Calendar</button>
+    <button class="tab on" onclick="go(&#39;backlog&#39;,this)">01 · Backlog</button>
+    <button class="tab" onclick="go(&#39;cal&#39;,this)">02 · Calendar</button>
     <button class="tab" onclick="go(&#39;plan&#39;,this)">03 · 2 Weeks Ahead</button>
     <button class="tab" onclick="go(&#39;board&#39;,this)">04 · Whiteboard</button>
     <button class="tab" onclick="go(&#39;ideas&#39;,this)">05 · Idea Bank</button>
@@ -344,22 +347,25 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
     <button class="tab" onclick="go(&#39;stats&#39;,this)">08 · Stats</button>
     <button class="tab" onclick="go(&#39;scripts&#39;,this)">09 · IG Scripts</button>
     <button class="tab" onclick="go(&#39;launch&#39;,this)">10 · Pre-Launch</button>
+    <button class="tab" onclick="go(&#39;weekly-checkin&#39;,this)">11 · Weekly Check-In</button>
+    <button class="tab" onclick="go(&#39;monthly-checkin&#39;,this)">12 · Monthly Check-In</button>
+    <button class="tab" onclick="go(&#39;shootday&#39;,this)">13 · Shoot Day</button>
   </div>
-  <div class="nstat"><div class="dot"></div><span id="nstat">0 / 43 done</span></div>
+  <div class="nstat"><div class="dot"></div><span id="nstat">0 / 26 done</span></div>
 </nav>
 
 <!-- ══════════════ 01 BACKLOG ══════════════ -->
-<div class="sec" id="backlog">
+<div class="sec on" id="backlog">
   <div class="ph">
     <div>
       <h1>REEL <span class="acc">BACKLOG</span></h1>
-      <div class="sub">43 unedited reels · 2 gym edits/week · Sun + Sat sessions</div>
+      <div class="sub">26 unedited reels · 2 gym edits/week · Sat + Sun sessions</div>
       <div class="pbar"><div class="pfill" id="prog" style="width:0%"></div></div>
       <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.54rem;color:var(--dim);margin-top:.3rem">
-        <span id="dnum">0</span> done · <span id="pnum">0%</span> · ~<span id="wnum">22</span>w to clear
+        <span id="dnum">0</span> done · <span id="pnum">0%</span> · ~<span id="wnum">13</span>w to clear
       </div>
     </div>
-    <div class="rstat"><div class="rsn r" id="remnum">43</div><div class="rsl">Remaining</div></div>
+    <div class="rstat"><div class="rsn r" id="remnum">26</div><div class="rsl">Remaining</div></div>
   </div>
   <div class="tb">
     <div>
@@ -378,7 +384,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
       <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="BL #5"><div class="cb"></div><div class="rd">Jan 28</div><div class="rt">Laowa Unboxing</div><div class="tag tp3">BL #5</div></div>
       <div class="rr pri" onclick="tog(this)" data-g="p" data-tag="tp3" data-orig="BL #6"><div class="cb"></div><div class="rd">Jan 21</div><div class="rt">HEB Shopping</div><div class="tag tp3">BL #6</div></div>
 
-      <div class="glabel"><span>📦 January · 13 reels</span><span class="gc" id="gjan">13 left</span></div>
+      <div class="glabel"><span>📦 January · 12 reels</span><span class="gc" id="gjan">12 left</span></div>
       <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tstock" data-orig="BL #7"><div class="cb"></div><div class="rd">Jan 30</div><div class="rt">Laowa gym video</div><div class="tag tstock">BL #7</div></div>
       <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #8"><div class="cb"></div><div class="rd">Jan 20</div><div class="rt">Quick back day</div><div class="tag tq">BL #8</div></div>
       <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tp3" data-orig="BL #9"><div class="cb"></div><div class="rd">Jan 19</div><div class="rt">Chest + Tri Day</div><div class="tag tp3">BL #9</div></div>
@@ -391,44 +397,24 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
       <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #16"><div class="cb"></div><div class="rd">Jan 7</div><div class="rt">Shoulder day + eating gym</div><div class="tag tq">BL #16</div></div>
       <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #17"><div class="cb"></div><div class="rd">Jan 6</div><div class="rt">Back day + leaving gym</div><div class="tag tq">BL #17</div></div>
       <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #18"><div class="cb"></div><div class="rd">Dec 18</div><div class="rt">AR Day 1, AR Frisco</div><div class="tag tq">BL #18</div></div>
-      <div class="rr" onclick="tog(this)" data-g="jan" data-tag="tq" data-orig="BL #19"><div class="cb"></div><div class="rd">Dec 5</div><div class="rt">Back day</div><div class="tag tq">BL #19</div></div>
 
-      <div class="glabel"><span>📦 December · 4 reels</span><span class="gc" id="gdec">4 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="BL #20"><div class="cb"></div><div class="rd">Dec 4</div><div class="rt">Chest day</div><div class="tag tq">BL #20</div></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="BL #21"><div class="cb"></div><div class="rd">Dec 3</div><div class="rt">Leg day</div><div class="tag tp3">BL #21</div></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tq" data-orig="BL #22"><div class="cb"></div><div class="rd">Dec 1</div><div class="rt">Chest + Triceps</div><div class="tag tq">BL #22</div></div>
-      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="BL #23"><div class="cb"></div><div class="rd">Jun 21</div><div class="rt">HEB Day 1</div><div class="tag tp3">BL #23</div></div>
+      <div class="glabel"><span>📦 December · 1 reel</span><span class="gc" id="gdec">1 left</span></div>
+      <div class="rr" onclick="tog(this)" data-g="dec" data-tag="tp3" data-orig="BL #19"><div class="cb"></div><div class="rd">Jun 21</div><div class="rt">HEB Day 1</div><div class="tag tp3">BL #19</div></div>
 
-      <div class="glabel"><span>📦 November · 6 reels</span><span class="gc" id="gnov">6 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #24"><div class="cb"></div><div class="rd">Nov 10</div><div class="rt">Pull day</div><div class="tag tq">BL #24</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #25"><div class="cb"></div><div class="rd">Nov 9</div><div class="rt">Push day</div><div class="tag tq">BL #25</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #26"><div class="cb"></div><div class="rd">Nov 6</div><div class="rt">Push day</div><div class="tag tq">BL #26</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #27"><div class="cb"></div><div class="rd">Nov 5</div><div class="rt">Pull day</div><div class="tag tq">BL #27</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #28"><div class="cb"></div><div class="rd">Nov 4</div><div class="rt">Leg day</div><div class="tag tq">BL #28</div></div>
-      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #29"><div class="cb"></div><div class="rd">Nov 2</div><div class="rt">Back + dog clip</div><div class="tag tq">BL #29</div></div>
+      <div class="glabel"><span>📦 November · 5 reels</span><span class="gc" id="gnov">5 left</span></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #20"><div class="cb"></div><div class="rd">Nov 10</div><div class="rt">Pull day</div><div class="tag tq">BL #20</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #21"><div class="cb"></div><div class="rd">Nov 6</div><div class="rt">Push day</div><div class="tag tq">BL #21</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #19"><div class="cb"></div><div class="rd">Nov 5</div><div class="rt">Pull day</div><div class="tag tq">BL #19</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #20"><div class="cb"></div><div class="rd">Nov 4</div><div class="rt">Leg day</div><div class="tag tq">BL #20</div></div>
+      <div class="rr" onclick="tog(this)" data-g="nov" data-tag="tq" data-orig="BL #21"><div class="cb"></div><div class="rd">Nov 2</div><div class="rt">Back + dog clip</div><div class="tag tq">BL #21</div></div>
 
-      <div class="glabel"><span>📦 October · 8 reels</span><span class="gc" id="goct">8 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #30"><div class="cb"></div><div class="rd">Oct 29</div><div class="rt">Back and Bi H</div><div class="tag tq">BL #30</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #31"><div class="cb"></div><div class="rd">Oct 28</div><div class="rt">Leg day H</div><div class="tag tq">BL #31</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #32"><div class="cb"></div><div class="rd">Oct 27</div><div class="rt">Chest H</div><div class="tag tq">BL #32</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #33"><div class="cb"></div><div class="rd">Oct 21</div><div class="rt">Chest + tricep + laptop work</div><div class="tag tq">BL #33</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #34"><div class="cb"></div><div class="rd">Oct 14</div><div class="rt">Abs + leg day</div><div class="tag tq">BL #34</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #35"><div class="cb"></div><div class="rd">Oct 13</div><div class="rt">Bicep + back day</div><div class="tag tq">BL #35</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #36"><div class="cb"></div><div class="rd">Oct 6</div><div class="rt">Bicep + back day</div><div class="tag tq">BL #36</div></div>
-      <div class="rr" onclick="tog(this)" data-g="oct" data-tag="tq" data-orig="BL #37"><div class="cb"></div><div class="rd">Oct 1</div><div class="rt">Leg day</div><div class="tag tq">BL #37</div></div>
-
-      <div class="glabel"><span>📦 September · 4 reels</span><span class="gc" id="gsep">4 left</span></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="BL #38"><div class="cb"></div><div class="rd">Sep 10</div><div class="rt">Chest day</div><div class="tag tq">BL #38</div></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="BL #39"><div class="cb"></div><div class="rd">Sep 5</div><div class="rt">Shoulder day LC + cinematics</div><div class="tag tq">BL #39</div></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tp3" data-orig="BL #40"><div class="cb"></div><div class="rd">Sep 4</div><div class="rt">Back + Bi workout</div><div class="tag tp3">BL #40</div></div>
-      <div class="rr" onclick="tog(this)" data-g="sep" data-tag="tq" data-orig="BL #41"><div class="cb"></div><div class="rd">Sep 2</div><div class="rt">UNT workout + cinematics</div><div class="tag tq">BL #41</div></div>
     </div>
     <div class="tsb">
       <div class="card"><h3 class="hr">Progress</h3>
-        <div class="srow"><span class="sl">Total Reels</span><span class="sv y">43</span></div>
+        <div class="srow"><span class="sl">Total Reels</span><span class="sv y">26</span></div>
         <div class="srow"><span class="sl">Done</span><span class="sv g" id="sbdone">0</span></div>
-        <div class="srow"><span class="sl">Remaining</span><span class="sv r" id="sbrem">43</span></div>
-        <div class="srow"><span class="sl">Weeks to Clear</span><span class="sv y" id="sbwks">22w</span></div>
+        <div class="srow"><span class="sl">Remaining</span><span class="sv r" id="sbrem">26</span></div>
+        <div class="srow"><span class="sl">Weeks to Clear</span><span class="sv y" id="sbwks">13w</span></div>
         <div class="srow"><span class="sl">Edit Pace</span><span class="sv" style="color:var(--txt)">2/week</span></div>
       </div>
       <div class="card"><h3 class="hg">Weekly Cycle</h3>
@@ -455,14 +441,14 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
 </div>
 
 <!-- ══════════════ 02 CALENDAR ══════════════ -->
-<div class="sec on" id="cal">
+<div class="sec" id="cal">
   <div class="ph">
-    <div><h1>CONTENT <span class="acc">CALENDAR</span></h1><div class="sub">March 2026 · Sun edit BL · Mon post BL · Tue edit BL · Wed post BL · Thu edit Teach · Fri post Teach · Sat film/rest</div></div>
+    <div><h1>CONTENT <span class="acc">CALENDAR</span></h1><div class="sub">Mar–Apr 2026 · DAY 1 = Mar 28 · 3x/week posting · build the buffer</div></div>
     <div class="rstat"><div class="rsn" style="color:var(--pur)">3</div><div class="rsl">Posts / Week</div></div>
   </div>
   <div class="cb2">
-    <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.35rem;color:var(--txt);letter-spacing:.06em;margin-bottom:.75rem">MARCH <span style="color:var(--dim)">2026</span></div>
-    <div class="cgrid" id="cgrid"><div class="cdh">SUN</div><div class="cdh">MON</div><div class="cdh">TUE</div><div class="cdh">WED</div><div class="cdh">THU</div><div class="cdh">FRI</div><div class="cdh">SAT</div><div class="cc wknd"><div class="cnum">1</div></div><div class="cc"><div class="cnum">2</div></div><div class="cc"><div class="cnum">3</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">4</div></div><div class="cc"><div class="cnum">5</div></div><div class="cc"><div class="cnum">6</div></div><div class="cc wknd"><div class="cnum">7</div></div><div class="cc wknd"><div class="cnum">8</div></div><div class="cc"><div class="cnum">9</div></div><div class="cc"><div class="cnum">10</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">11</div></div><div class="cc"><div class="cnum">12</div></div><div class="cc"><div class="cnum">13</div></div><div class="cc wknd"><div class="cnum">14</div></div><div class="cc wknd tday"><div class="cnum tnum">15</div><div class="ev eb">🎥 Film Teach #1 · after 4pm</div><div class="ev er">✂️ Edit BL #1 &amp; #2</div><div class="ev ey">✍️ Write captions BL #1 &amp; #2</div><div class="ev ep">⚙️ Setup ManyChat triggers</div></div><div class="cc"><div class="cnum">16</div><div class="ev eg">🟢 Post Teach #1 · 9am</div><div class="ev er">✂️ Edit BL #3 &amp; #4</div><div class="ev ep">✅ Check ManyChat triggers</div></div><div class="cc"><div class="cnum">17</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">18</div><div class="ev eg">🟢 Post BL #1 · 9am</div><div class="ev eb">🎥 Film Teach #2 &amp; #3 · 5pm</div><div class="ev ep">✅ Check ManyChat triggers</div></div><div class="cc"><div class="cnum">19</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev ey">✍️ Write captions BL #3 &amp; #4</div></div><div class="cc"><div class="cnum">20</div><div class="ev eg">🟢 Post BL #2 · Fri</div><div class="ev ey">📝 Script next Teach</div><div class="ev ep">✅ Check ManyChat triggers</div></div><div class="cc wknd"><div class="cnum">21</div><div class="ev er">✂️ Edit BL #7 &amp; #8</div><div class="ev ey">✍️ Write captions BL #5 &amp; #6</div><div class="ev ep">📦 2 weeks ahead · LOCKED ⚡</div></div><div class="cc wknd"><div class="cnum">22</div><div class="ev er">✂️ Edit BL #9 · Sun</div><div class="ev ey">✍️ Write captions BL #7 &amp; #8</div></div><div class="cc"><div class="cnum">23</div><div class="ev eg">🟢 Post Teach #2 · 9am</div><div class="ev ep">📊 15 min analytics</div></div><div class="cc"><div class="cnum">24</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">25</div><div class="ev eg">🟢 Post BL #3 · 9am</div><div class="ev eb">🎥 Film Teach · 5pm</div></div><div class="cc"><div class="cnum">26</div><div class="ev eb">✂️ Edit Teach #4</div><div class="ev ey">✍️ Write captions BL #9 &amp; #10</div></div><div class="cc"><div class="cnum">27</div><div class="ev eg">🟢 Post BL #4</div><div class="ev ey">📝 Script next Teach</div></div><div class="cc wknd"><div class="cnum">28</div><div class="ev er">✂️ Edit BL #10 · Sat</div><div class="ev ey">✍️ Write captions BL #11 &amp; #12</div></div><div class="cc wknd"><div class="cnum">29</div><div class="ev er">✂️ Edit BL #11 · Sun</div><div class="ev ep">📊 1hr Analytics Deep Dive 🔍</div></div><div class="cc"><div class="cnum">30</div><div class="ev eg">🟢 Post Teach #3 · 9am</div><div class="ev ep">📊 15 min analytics</div></div><div class="cc"><div class="cnum">31</div><div class="coff">OFF</div></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div><div class="cc emp"></div></div>
+    <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.35rem;color:var(--txt);letter-spacing:.06em;margin-bottom:.75rem">MAR–APR <span style="color:var(--dim)">2026</span></div>
+    <div class="cgrid" id="cgrid"><div class="cdh">SUN</div><div class="cdh">MON</div><div class="cdh">TUE</div><div class="cdh">WED</div><div class="cdh">THU</div><div class="cdh">FRI</div><div class="cdh">SAT</div><div class="cc wknd"><div class="cnum">1</div></div><div class="cc"><div class="cnum">2</div></div><div class="cc"><div class="cnum">3</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">4</div></div><div class="cc"><div class="cnum">5</div></div><div class="cc"><div class="cnum">6</div></div><div class="cc wknd"><div class="cnum">7</div></div><div class="cc wknd"><div class="cnum">8</div></div><div class="cc"><div class="cnum">9</div></div><div class="cc"><div class="cnum">10</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">11</div></div><div class="cc"><div class="cnum">12</div></div><div class="cc"><div class="cnum">13</div></div><div class="cc wknd"><div class="cnum">14</div></div><div class="cc wknd"><div class="cnum">15</div></div><div class="cc"><div class="cnum">16</div></div><div class="cc"><div class="cnum">17</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">18</div></div><div class="cc"><div class="cnum">19</div></div><div class="cc"><div class="cnum">20</div></div><div class="cc wknd"><div class="cnum">21</div></div><div class="cc wknd"><div class="cnum">22</div></div><div class="cc"><div class="cnum">23</div></div><div class="cc"><div class="cnum">24</div><div class="coff">OFF</div></div><div class="cc"><div class="cnum">25</div></div><div class="cc tday"><div class="cnum tnum">26</div></div><div class="cc"><div class="cnum">27</div></div><div class="cc wknd"><div class="cnum">28</div><div class="ev eb">🚀 DAY 1 · Setup ManyChat</div><div class="ev er">✂️ Edit BL #1 &amp; #2</div><div class="ev ey">✍️ Write captions BL #1 &amp; #2</div></div><div class="cc wknd"><div class="cnum">29</div><div class="ev er">✂️ Edit BL #3 &amp; #4</div><div class="ev ey">✍️ Write captions BL #3 &amp; #4</div></div><div class="cc"><div class="cnum">30</div><div class="ev eg">🟢 Post Teach #1 · 9am</div><div class="ev ep">✅ Check ManyChat</div></div><div class="cc"><div class="cnum">31</div><div class="coff">OFF</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 1</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 2</div><div class="ev eb">✂️ Edit Teach #2</div><div class="ev eg">🟢 Post BL #2</div><div class="ev er">Edit batch 2 &amp; 3</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 3</div><div class="ev er">✂️ Edit BL #5 &amp; #6</div><div class="ev ey">✍️ Write captions BL #5 &amp; #6</div></div><div class="cc wknd apr"><div class="cnum aprlbl">Apr 4</div></div><div class="cc wknd apr"><div class="cnum aprlbl">Apr 5</div><div class="ev er">✂️ Edit BL #7 &amp; #8 → stockpile</div><div class="ev ep">📦 Stock:1</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 6</div><div class="ev eg">🟢 Post Teach #2 · 9am</div><div class="ev ep">📊 15 min analytics</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 7</div><div class="coff">OFF</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 8</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 9</div><div class="ev eb">✂️ Edit Teach #3</div><div class="ev eg">🟢 Post BL #4</div><div class="ev er">Edit batch 2 &amp; 3</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 10</div><div class="ev er">✂️ Edit BL #9 &amp; #10</div><div class="ev ey">✍️ Write captions</div></div><div class="cc wknd apr"><div class="cnum aprlbl">Apr 11</div></div><div class="cc wknd apr"><div class="cnum aprlbl">Apr 12</div><div class="ev ep">✂️ Edit BL → stockpile · Stock:2</div><div class="ev ey">✍️ Write captions</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 13</div><div class="ev eg">🟢 Post Teach #3 · 9am</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 14</div><div class="coff">OFF</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 15</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 16</div><div class="ev eb">✂️ Edit Teach #4</div><div class="ev eg">🟢 Post BL #6</div><div class="ev er">Edit batch 2 &amp; 3</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 17</div><div class="ev er">✂️ Edit BL #11 &amp; #12</div><div class="ev ey">✍️ Write captions</div></div><div class="cc wknd apr"><div class="cnum aprlbl">Apr 18</div></div><div class="cc wknd apr"><div class="cnum aprlbl">Apr 19</div><div class="ev ep">✂️ Edit BL → stockpile · Stock:3 ⚡</div><div class="ev ey">✍️ Write captions</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 20</div><div class="ev eg">🟢 Post Teach #4 · 9am</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 21</div><div class="coff">OFF</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 22</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 23</div><div class="ev eb">✂️ Edit Teach #5</div><div class="ev eg">🟢 Post BL #8</div><div class="ev er">Edit batch 2 &amp; 3</div></div><div class="cc apr"><div class="cnum aprlbl">Apr 24</div><div class="ev er">✂️ Edit BL #13 &amp; #14</div><div class="ev ey">✍️ Write captions</div><div class="ev ep">📦 Stock:4 · 2 WEEKS AHEAD ⚡</div></div><div class="cc wknd apr"><div class="cnum aprlbl">Apr 25</div></div></div>
     <div class="cleg" style="margin-top:.75rem">
       <div class="cli"><div class="cld" style="background:var(--red)"></div><div class="cll">Gym Edit</div></div>
       <div class="cli"><div class="cld" style="background:var(--blue)"></div><div class="cll">Batch / Teach Edit</div></div>
@@ -549,14 +535,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
         <div class="wbtop"><div class="wbtitle">MARCH 2026</div><div class="wbsub">Content Pipeline</div></div>
         <div class="wbcal">
           <div class="wbhdrs"><div class="wbdh">SUN</div><div class="wbdh">MON</div><div class="wbdh" style="color:#CCC">TUE</div><div class="wbdh">WED</div><div class="wbdh">THU</div><div class="wbdh">FRI</div><div class="wbdh">SAT</div></div>
-          <div class="wbwks" id="wbcal"><div class="wbwk"><div class="wbc"><div class="wbn">1</div></div><div class="wbc"><div class="wbn">2</div></div><div class="wbc tue"><div class="wbn">3</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">4</div></div><div class="wbc"><div class="wbn">5</div></div><div class="wbc"><div class="wbn">6</div></div><div class="wbc"><div class="wbn">7</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn">8</div></div><div class="wbc"><div class="wbn">9</div></div><div class="wbc tue"><div class="wbn">10</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">11</div></div><div class="wbc"><div class="wbn">12</div></div><div class="wbc"><div class="wbn">13</div></div><div class="wbc"><div class="wbn">14</div></div></div><div class="wbwk"><div class="wbc twb"><div class="wbn act tdy">15</div><div class="wbev we-b">🎥 FilmT#1</div><div class="wbev we-r">✂️ BL#1&amp;#2</div><div class="wbev we-y">✍️ Captions</div><div class="wbev we-p">⚙️ ManyChat setup</div></div><div class="wbc"><div class="wbn act">16</div><div class="wbev we-g">🟢 PostT#1</div><div class="wbev we-r">✂️ BL#3&amp;#4</div><div class="wbev we-p">✅ ManyChat</div></div><div class="wbc tue"><div class="wbn act">17</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">18</div><div class="wbev we-g">🟢 PostBL#1·9am</div><div class="wbev we-b">🎥 FilmT#2&amp;#3·5pm</div><div class="wbev we-p">✅ ManyChat</div></div><div class="wbc"><div class="wbn act">19</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc"><div class="wbn act">20</div><div class="wbev we-g">🟢 PostBL#2·Fri</div><div class="wbev we-y">📝 Script</div><div class="wbev we-p">✅ ManyChat</div></div><div class="wbc"><div class="wbn act">21</div><div class="wbev we-r">✂️ BL#7&amp;#8</div><div class="wbev we-y">✍️ Captions</div><div class="wbev we-p">📦 2wks⚡</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">22</div><div class="wbev we-r">✂️ BL#9·Sun</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc"><div class="wbn act">23</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-p">📊 analytics</div></div><div class="wbc tue"><div class="wbn">24</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn act">25</div><div class="wbev we-g">🟢 PostBL#3·9am</div><div class="wbev we-b">🎥 FilmT·5pm</div></div><div class="wbc"><div class="wbn act">26</div><div class="wbev we-b">✂️ EditT#4</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc"><div class="wbn act">27</div><div class="wbev we-g">🟢 PostBL#4</div><div class="wbev we-y">📝 Script</div></div><div class="wbc"><div class="wbn act">28</div><div class="wbev we-r">✂️ BL#10·Sat</div><div class="wbev we-y">✍️ Captions</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">29</div><div class="wbev we-r">✂️ BL#11·Sun</div><div class="wbev we-p">📊 1hr Deep Dive🔍</div></div><div class="wbc"><div class="wbn act">30</div><div class="wbev we-g">🟢 PostT#3</div><div class="wbev we-p">📊 analytics</div></div><div class="wbc tue"><div class="wbn act">31</div><div class="wboff">OFF</div></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div><div class="wbc emp"></div></div></div>
-          <div class="wbnote">
-            <div class="wbnt">NOTE</div>
-            <div class="wbni"><div class="wbndot" style="background:#B45309"></div><span>Writing / Scripting</span></div>
-            <div class="wbni"><div class="wbndot" style="background:#1565C0"></div><span>Filming / Batch</span></div>
-            <div class="wbni"><div class="wbndot" style="background:#D93025"></div><span>Editing (gym)</span></div>
-            <div class="wbni"><div class="wbndot" style="background:#1B7F4C"></div><span>Posting</span></div>
-            <div class="wbni"><div class="wbndot" style="background:#7C3AED"></div><span>Stockpile</span></div>
+          <div class="wbwks" id="wbcal"><div class="wbwk"><div class="wbc"><div class="wbn">1</div></div><div class="wbc"><div class="wbn">2</div></div><div class="wbc tue"><div class="wbn">3</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">4</div></div><div class="wbc"><div class="wbn">5</div></div><div class="wbc"><div class="wbn">6</div></div><div class="wbc"><div class="wbn">7</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn">8</div></div><div class="wbc"><div class="wbn">9</div></div><div class="wbc tue"><div class="wbn">10</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">11</div></div><div class="wbc"><div class="wbn">12</div></div><div class="wbc"><div class="wbn">13</div></div><div class="wbc"><div class="wbn">14</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn">15</div></div><div class="wbc"><div class="wbn">16</div></div><div class="wbc tue"><div class="wbn">17</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">18</div></div><div class="wbc"><div class="wbn">19</div></div><div class="wbc"><div class="wbn">20</div></div><div class="wbc"><div class="wbn">21</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn">22</div></div><div class="wbc"><div class="wbn">23</div></div><div class="wbc tue"><div class="wbn">24</div><div class="wboff">OFF</div></div><div class="wbc"><div class="wbn">25</div></div><div class="wbc twb"><div class="wbn tdy">26</div></div><div class="wbc"><div class="wbn">27</div></div><div class="wbc"><div class="wbn act">28</div><div class="wbev we-b">🚀 DAY 1</div><div class="wbev we-r">✂️ BL#1&amp;#2</div><div class="wbev we-y">✍️ Captions</div><div class="wbev we-p">⚙️ ManyChat</div></div></div><div class="wbwk"><div class="wbc"><div class="wbn act">29</div><div class="wbev we-r">✂️ BL#3&amp;#4</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc"><div class="wbn act">30</div><div class="wbev we-g">🟢 PostT#1·9am</div><div class="wbev we-p">✅ ManyChat</div></div><div class="wbc tue"><div class="wbn act">31</div><div class="wboff">OFF</div></div><div class="wbc apr"><div class="wbn">A1</div></div><div class="wbc apr"><div class="wbn act">A2</div><div class="wbev we-b">✂️ EditT#2</div><div class="wbev we-g">🟢 PostBL#2</div><div class="wbev we-r">✂️ Batch2&amp;#3</div></div><div class="wbc apr"><div class="wbn act">A3</div><div class="wbev we-r">✂️ BL#5&amp;#6</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc apr"><div class="wbn">A4</div></div></div><div class="wbwk"><div class="wbc apr"><div class="wbn act">A5</div><div class="wbev we-r">✂️ BL#7&amp;#8→stock</div><div class="wbev we-p">📦 Stock:1</div></div><div class="wbc apr"><div class="wbn act">A6</div><div class="wbev we-g">🟢 PostT#2</div><div class="wbev we-p">📊 analytics</div></div><div class="wbc tue apr"><div class="wbn act">A7</div><div class="wboff">OFF</div></div><div class="wbc apr"><div class="wbn">A8</div></div><div class="wbc apr"><div class="wbn act">A9</div><div class="wbev we-b">✂️ EditT#3</div><div class="wbev we-g">🟢 PostBL#4</div><div class="wbev we-r">✂️ Batch2&amp;#3</div></div><div class="wbc apr"><div class="wbn act">A10</div><div class="wbev we-r">✂️ BL#9&amp;#10</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc apr"><div class="wbn">A11</div></div></div><div class="wbwk"><div class="wbc apr"><div class="wbn act">A12</div><div class="wbev we-p">✂️ BL→stock·Stock:2</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc apr"><div class="wbn act">A13</div><div class="wbev we-g">🟢 PostT#3</div></div><div class="wbc tue apr"><div class="wbn act">A14</div><div class="wboff">OFF</div></div><div class="wbc apr"><div class="wbn">A15</div></div><div class="wbc apr"><div class="wbn act">A16</div><div class="wbev we-b">✂️ EditT#4</div><div class="wbev we-g">🟢 PostBL#6</div><div class="wbev we-r">✂️ Batch2&amp;#3</div></div><div class="wbc apr"><div class="wbn act">A17</div><div class="wbev we-r">✂️ BL#11&amp;#12</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc apr"><div class="wbn">A18</div></div></div><div class="wbwk"><div class="wbc apr"><div class="wbn act">A19</div><div class="wbev we-p">✂️ BL→stock·Stock:3⚡</div><div class="wbev we-y">✍️ Captions</div></div><div class="wbc apr"><div class="wbn act">A20</div><div class="wbev we-g">🟢 PostT#4</div></div><div class="wbc tue apr"><div class="wbn act">A21</div><div class="wboff">OFF</div></div><div class="wbc apr"><div class="wbn">A22</div></div><div class="wbc apr"><div class="wbn act">A23</div><div class="wbev we-b">✂️ EditT#5</div><div class="wbev we-g">🟢 PostBL#8</div><div class="wbev we-r">✂️ Batch2&amp;#3</div></div><div class="wbc apr"><div class="wbn act">A24</div><div class="wbev we-r">✂️ BL#13&amp;#14</div><div class="wbev we-y">✍️ Captions</div><div class="wbev we-p">📦 Stock:4·2WKS⚡</div></div><div class="wbc apr"><div class="wbn">A25</div></div></div></div>
           </div>
         </div>
       </div>
@@ -569,10 +548,10 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
         <div class="ckrow"><div class="cksw" style="background:#1B7F4C"></div><div class="cktext"><strong>GREEN</strong> — Post days (Mon, Wed, Fri)</div></div>
         <div class="ckrow"><div class="cksw" style="background:#B45309"></div><div class="cktext"><strong>GOLD</strong> — Writing / scripting days</div></div>
       </div>
-      <div class="wbguide" id="wbguide"><div class="wgc"><div class="wgh" style="color: var(--red);">Week 1 · Mar 1–7</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 1</div><div class="wgitems"><div class="wi wi-y">Writing Day + Script 3</div><div class="wi wi-r">Edit gym reel #2 → stockpile</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 4</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 5</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 6</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 7</div><div class="wgitems"><div class="wi wi-y">Writing Day #1</div><div class="wi wi-r">Edit gym reel #1 → posts Wed</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--red);">Week 2 · Mar 8–14 · Stock: 1</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 8</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-p">Edit gym reel → stockpile · Stock:1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON 9</div><div class="wgitems"><div class="wi wi-g">POST Teach #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 11</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit #2</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 12</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 13</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 14</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-r">Edit gym reel #1</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--grn);">Week 3 · Mar 15–21 · Stock: 2</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 15</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-p">Edit gym reel → stockpile · Stock:2</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON 16</div><div class="wgitems"><div class="wi wi-g">POST Teach #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 18</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit #3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 19</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 20</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 21</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-r">Edit gym reel #1</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--pur);">Week 4 · Mar 22–28 · Stock: 3 ⚡</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 22</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-p">Edit gym reel → stockpile · Stock:3 ⚡</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON 23</div><div class="wgitems"><div class="wi wi-g">POST Teach #1</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 25</div><div class="wgitems"><div class="wi wi-g">POST Gym Edit · Priority Queue ✓</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">THU 26</div><div class="wgitems"><div class="wi wi-b">BATCH FILM × 3 · 2–5:30pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI 27</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST Teach #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT 28</div><div class="wgitems"><div class="wi wi-y">Writing Day</div><div class="wi wi-r">Edit gym reel #1 → posts Wed Apr 1</div></div></div></div></div></div>
+      <div class="wbguide" id="wbguide"><div class="wgc"><div class="wgh" style="color: var(--red);">Week 1 · Mar 28–Apr 3 · DAY 1 🚀</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--red);">SAT 28</div><div class="wgitems"><div class="wi wi-p">🚀 DAY 1 · Setup ManyChat</div><div class="wi wi-r">Edit BL #1 &amp; #2</div><div class="wi wi-y">Write captions BL #1 &amp; #2</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN 29</div><div class="wgitems"><div class="wi wi-r">Edit BL #3 &amp; #4</div><div class="wi wi-y">Write captions BL #3 &amp; #4</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON 30</div><div class="wgitems"><div class="wi wi-g">🟢 POST Teach #1 · 9am</div><div class="wi wi-p">✅ Check ManyChat</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED 31</div><div class="wgitems"><div class="wi wi-g">🟢 POST BL #1 · 9am</div><div class="wi wi-b">🎥 Film Teach #2 &amp; #3 · 5pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI Apr 2</div><div class="wgitems"><div class="wi wi-b">Edit Teach #2</div><div class="wi wi-g">POST BL #2</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT Apr 3</div><div class="wgitems"><div class="wi wi-r">Edit BL #5 &amp; #6</div><div class="wi wi-y">Write captions BL #5 &amp; #6</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--red);">Week 2 · Apr 4–10 · Stock: 1</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN Apr 5</div><div class="wgitems"><div class="wi wi-r">Edit BL #7 &amp; #8 → stockpile · Stock:1</div><div class="wi wi-y">Write captions</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON Apr 6</div><div class="wgitems"><div class="wi wi-g">🟢 POST Teach #2 · 9am</div><div class="wi wi-p">📊 15 min analytics</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED Apr 7</div><div class="wgitems"><div class="wi wi-g">🟢 POST BL #3 · 9am</div><div class="wi wi-b">🎥 Film Teach · 5pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI Apr 9</div><div class="wgitems"><div class="wi wi-b">Edit Teach #3</div><div class="wi wi-g">POST BL #4</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT Apr 10</div><div class="wgitems"><div class="wi wi-r">Edit BL #9 &amp; #10</div><div class="wi wi-y">Write captions</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--grn);">Week 3 · Apr 11–17 · Stock: 2</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN Apr 12</div><div class="wgitems"><div class="wi wi-p">Edit gym reel → stockpile · Stock:2</div><div class="wi wi-y">Write captions</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON Apr 13</div><div class="wgitems"><div class="wi wi-g">🟢 POST Teach #3 · 9am</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED Apr 14</div><div class="wgitems"><div class="wi wi-g">🟢 POST BL #5 · 9am</div><div class="wi wi-b">🎥 Film Teach · 5pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI Apr 16</div><div class="wgitems"><div class="wi wi-b">Edit Teach #4</div><div class="wi wi-g">POST BL #6</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT Apr 17</div><div class="wgitems"><div class="wi wi-r">Edit BL #11 &amp; #12</div><div class="wi wi-y">Write captions</div></div></div></div></div><div class="wgc"><div class="wgh" style="color: var(--pur);">Week 4 · Apr 18–24 · Stock: 3 ⚡</div><div class="wgb"><div class="wgrow"><div class="wgday" style="color: var(--gld);">SUN Apr 19</div><div class="wgitems"><div class="wi wi-p">Edit gym reel → stockpile · Stock:3 ⚡</div><div class="wi wi-y">Write captions</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">MON Apr 20</div><div class="wgitems"><div class="wi wi-g">🟢 POST Teach #4 · 9am</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--red);">WED Apr 21</div><div class="wgitems"><div class="wi wi-g">🟢 POST BL #7 · 9am</div><div class="wi wi-b">🎥 Film Teach · 5pm</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--blue);">FRI Apr 23</div><div class="wgitems"><div class="wi wi-b">Edit Teach #5</div><div class="wi wi-g">POST BL #8</div><div class="wi wi-b">Edit batch 2 &amp; 3</div></div></div><div class="wgrow"><div class="wgday" style="color: var(--gld);">SAT Apr 24</div><div class="wgitems"><div class="wi wi-r">Edit BL #13 &amp; #14</div><div class="wi wi-y">Write captions</div></div></div></div></div></div>
     </div>
   </div>
-</div>
+
 
 <!-- ══════════════ 05 IDEA BANK ══════════════ -->
 <div class="sec" id="ideas">
@@ -751,12 +730,12 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
     <div class="stcard">
       <div class="stlabel">Reels Edited</div>
       <div class="stnum r" id="st-done">0</div>
-      <div class="stsub">out of 43 total backlog reels</div>
+      <div class="stsub">out of 26 total backlog reels</div>
       <div class="stbar"><div class="stfill" id="st-prog" style="width:0%;background:var(--red)"></div></div>
     </div>
     <div class="stcard">
       <div class="stlabel">Weeks to Clear Backlog</div>
-      <div class="stnum y" id="st-weeks">22</div>
+      <div class="stnum y" id="st-weeks">13</div>
       <div class="stsub">at current pace of 2 gym edits/week</div>
     </div>
     <div class="stcard">
@@ -790,7 +769,7 @@ nav{position:sticky;top:0;z-index:300;background:rgba(8,8,8,.97);backdrop-filter
     </div>
     <div class="stcard">
       <div class="stlabel">Target Date</div>
-      <div class="stnum y">Apr 13</div>
+      <div class="stnum y">Apr 18</div>
       <div class="stsub">2 weeks ahead of posting schedule</div>
     </div>
     <div class="stcard" style="grid-column:1/-1;background:var(--rbg);border-color:var(--rmid)">
@@ -823,8 +802,8 @@ function go(id, btn) {
 }
 
 // ─── DATA ───
-var TOTAL = 43;
-var TODAY_DATE = 15; // March 15 2026
+var TOTAL = 26;
+var TODAY_DATE = 26; // Highlight Mar 26
 var gymCount = 0;
 var teachCount = 0;
 var batchCount = 0;
@@ -834,49 +813,64 @@ var WEEKS = [
   [8,9,10,11,12,13,14],
   [15,16,17,18,19,20,21],
   [22,23,24,25,26,27,28],
-  [29,30,31,null,null,null,null]
+  [29,30,31,'a1','a2','a3','a4'],
+  ['a5','a6','a7','a8','a9','a10','a11'],
+  ['a12','a13','a14','a15','a16','a17','a18'],
+  ['a19','a20','a21','a22','a23','a24','a25']
 ];
 
 var CAL_EVENTS = {
-  // ── SPRINT WEEK · BUILD THE BUFFER ──
-  15:[{c:'eb',t:'🎥 Film Teach #1 · after 4pm'},{c:'er',t:'✂️ Edit BL #1 & #2'},{c:'ey',t:'✍️ Write captions BL #1 & #2'},{c:'ep',t:'⚙️ Setup ManyChat triggers'}],
-  // ── WEEK OF MAR 16 · RHYTHM + SPRINT CONTINUES ──
-  16:[{c:'eg',t:'🟢 Post Teach #1 · 9am'},{c:'er',t:'✂️ Edit BL #3 & #4'},{c:'ep',t:'✅ Check ManyChat triggers'}],
-  17:[{c:'er',t:'✂️ Edit BL #5 & #6 · buffer'}],
-  18:[{c:'eg',t:'🟢 Post BL #1 · 9am'},{c:'eb',t:'🎥 Film Teach #2 & #3 · 5pm'},{c:'ep',t:'✅ Check ManyChat triggers'}],
-  19:[{c:'eb',t:'✂️ Edit Teach #2'},{c:'ey',t:'✍️ Write captions BL #3 & #4'}],
-  20:[{c:'eg',t:'🟢 Post BL #2 · Fri'},{c:'ey',t:'📝 Script next Teach'},{c:'ep',t:'✅ Check ManyChat triggers'}],
-  21:[{c:'er',t:'✂️ Edit BL #7 & #8'},{c:'ey',t:'✍️ Write captions BL #5 & #6'},{c:'ep',t:'📦 2 weeks ahead · LOCKED ⚡'}],
-  // ── WEEK OF MAR 22 ──
-  22:[{c:'er',t:'✂️ Edit BL #9 · Sun'},{c:'ey',t:'✍️ Write captions BL #7 & #8'}],
-  23:[{c:'eg',t:'🟢 Post Teach #2 · 9am'},{c:'ep',t:'📊 15 min analytics'}],
-  25:[{c:'eg',t:'🟢 Post BL #3 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'}],
-  26:[{c:'eb',t:'✂️ Edit Teach #4'},{c:'ey',t:'✍️ Write captions BL #9 & #10'}],
-  27:[{c:'eg',t:'🟢 Post BL #4'},{c:'ey',t:'📝 Script next Teach'}],
-  28:[{c:'er',t:'✂️ Edit BL #10 · Sat'},{c:'ey',t:'✍️ Write captions BL #11 & #12'}],
-  // ── WEEK OF MAR 29 · END OF MONTH ──
-  29:[{c:'er',t:'✂️ Edit BL #11 · Sun'},{c:'ep',t:'📊 1hr Analytics Deep Dive 🔍'}],
-  30:[{c:'eg',t:'🟢 Post Teach #3 · 9am'},{c:'ep',t:'📊 15 min analytics'}],
-  31:[{c:'eg',t:'🟢 Post BL #5 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'},{c:'ey',t:'📋 End of Month Review'}]
+  // ── DAY 1 · MAR 28 (SAT) ──
+  28:[{c:'eb',t:'🚀 DAY 1 · Setup ManyChat'},{c:'er',t:'✂️ Edit BL #1 & #2'},{c:'ey',t:'✍️ Write captions BL #1 & #2'}],
+  // ── WEEK OF MAR 29 ──
+  29:[{c:'er',t:'✂️ Edit BL #3 & #4'},{c:'ey',t:'✍️ Write captions BL #3 & #4'}],
+  30:[{c:'eg',t:'🟢 Post Teach #1 · 9am'},{c:'ep',t:'✅ Check ManyChat'}],
+  31:[{c:'eg',t:'🟢 Post BL #1 · 9am'},{c:'eb',t:'🎥 Film Teach #2 & #3 · 5pm'},{c:'ey',t:'📋 EOM Review'}],
+  // ── WEEK OF APR 2 ──
+  a2:[{c:'eb',t:'✂️ Edit Teach #2'},{c:'eg',t:'🟢 Post BL #2'},{c:'er',t:'Edit batch 2 & 3'}],
+  a3:[{c:'er',t:'✂️ Edit BL #5 & #6'},{c:'ey',t:'✍️ Write captions BL #5 & #6'}],
+  // ── WEEK OF APR 5 ──
+  a5:[{c:'er',t:'✂️ Edit BL #7 & #8 → stockpile'},{c:'ep',t:'📦 Stock:1'}],
+  a6:[{c:'eg',t:'🟢 Post Teach #2 · 9am'},{c:'ep',t:'📊 15 min analytics'}],
+  a7:[{c:'eg',t:'🟢 Post BL #3 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'}],
+  a9:[{c:'eb',t:'✂️ Edit Teach #3'},{c:'eg',t:'🟢 Post BL #4'},{c:'er',t:'Edit batch 2 & 3'}],
+  a10:[{c:'er',t:'✂️ Edit BL #9 & #10'},{c:'ey',t:'✍️ Write captions'}],
+  // ── WEEK OF APR 12 ──
+  a12:[{c:'ep',t:'✂️ Edit BL → stockpile · Stock:2'},{c:'ey',t:'✍️ Write captions'}],
+  a13:[{c:'eg',t:'🟢 Post Teach #3 · 9am'}],
+  a14:[{c:'eg',t:'🟢 Post BL #5 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'}],
+  a16:[{c:'eb',t:'✂️ Edit Teach #4'},{c:'eg',t:'🟢 Post BL #6'},{c:'er',t:'Edit batch 2 & 3'}],
+  a17:[{c:'er',t:'✂️ Edit BL #11 & #12'},{c:'ey',t:'✍️ Write captions'}],
+  // ── WEEK OF APR 19 ──
+  a19:[{c:'ep',t:'✂️ Edit BL → stockpile · Stock:3 ⚡'},{c:'ey',t:'✍️ Write captions'}],
+  a20:[{c:'eg',t:'🟢 Post Teach #4 · 9am'}],
+  a21:[{c:'eg',t:'🟢 Post BL #7 · 9am'},{c:'eb',t:'🎥 Film Teach · 5pm'}],
+  a23:[{c:'eb',t:'✂️ Edit Teach #5'},{c:'eg',t:'🟢 Post BL #8'},{c:'er',t:'Edit batch 2 & 3'}],
+  a24:[{c:'er',t:'✂️ Edit BL #13 & #14'},{c:'ey',t:'✍️ Write captions'},{c:'ep',t:'📦 Stock:4 · 2 WEEKS AHEAD ⚡'}]
 };
 
 var WB_EVENTS = {
-  15:[{cls:'we-b',t:'🎥 FilmT#1'},{cls:'we-r',t:'✂️ BL#1&#2'},{cls:'we-y',t:'✍️ Captions'},{cls:'we-p',t:'⚙️ ManyChat setup'}],
-  16:[{cls:'we-g',t:'🟢 PostT#1'},{cls:'we-r',t:'✂️ BL#3&#4'},{cls:'we-p',t:'✅ ManyChat'}],
-  17:[{cls:'we-r',t:'✂️ BL#5&#6·buffer'}],
-  18:[{cls:'we-g',t:'🟢 PostBL#1·9am'},{cls:'we-b',t:'🎥 FilmT#2&#3·5pm'},{cls:'we-p',t:'✅ ManyChat'}],
-  19:[{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-y',t:'✍️ Captions'}],
-  20:[{cls:'we-g',t:'🟢 PostBL#2·Fri'},{cls:'we-y',t:'📝 Script'},{cls:'we-p',t:'✅ ManyChat'}],
-  21:[{cls:'we-r',t:'✂️ BL#7&#8'},{cls:'we-y',t:'✍️ Captions'},{cls:'we-p',t:'📦 2wks⚡'}],
-  22:[{cls:'we-r',t:'✂️ BL#9·Sun'},{cls:'we-y',t:'✍️ Captions'}],
-  23:[{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-p',t:'📊 analytics'}],
-  25:[{cls:'we-g',t:'🟢 PostBL#3·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'}],
-  26:[{cls:'we-b',t:'✂️ EditT#4'},{cls:'we-y',t:'✍️ Captions'}],
-  27:[{cls:'we-g',t:'🟢 PostBL#4'},{cls:'we-y',t:'📝 Script'}],
-  28:[{cls:'we-r',t:'✂️ BL#10·Sat'},{cls:'we-y',t:'✍️ Captions'}],
-  29:[{cls:'we-r',t:'✂️ BL#11·Sun'},{cls:'we-p',t:'📊 1hr Deep Dive🔍'}],
-  30:[{cls:'we-g',t:'🟢 PostT#3'},{cls:'we-p',t:'📊 analytics'}],
-  31:[{cls:'we-g',t:'🟢 PostBL#5·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'},{cls:'we-y',t:'📋 EOM Review'}]
+  28:[{cls:'we-b',t:'🚀 DAY 1'},{cls:'we-r',t:'✂️ BL#1&#2'},{cls:'we-y',t:'✍️ Captions'},{cls:'we-p',t:'⚙️ ManyChat'}],
+  29:[{cls:'we-r',t:'✂️ BL#3&#4'},{cls:'we-y',t:'✍️ Captions'}],
+  30:[{cls:'we-g',t:'🟢 PostT#1·9am'},{cls:'we-p',t:'✅ ManyChat'}],
+  31:[{cls:'we-g',t:'🟢 PostBL#1·9am'},{cls:'we-b',t:'🎥 FilmT#2&#3·5pm'},{cls:'we-y',t:'📋 EOM'}],
+  a2:[{cls:'we-b',t:'✂️ EditT#2'},{cls:'we-g',t:'🟢 PostBL#2'},{cls:'we-r',t:'✂️ Batch2&#3'}],
+  a3:[{cls:'we-r',t:'✂️ BL#5&#6'},{cls:'we-y',t:'✍️ Captions'}],
+  a5:[{cls:'we-r',t:'✂️ BL#7&#8→stock'},{cls:'we-p',t:'📦 Stock:1'}],
+  a6:[{cls:'we-g',t:'🟢 PostT#2'},{cls:'we-p',t:'📊 analytics'}],
+  a7:[{cls:'we-g',t:'🟢 PostBL#3·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'}],
+  a9:[{cls:'we-b',t:'✂️ EditT#3'},{cls:'we-g',t:'🟢 PostBL#4'},{cls:'we-r',t:'✂️ Batch2&#3'}],
+  a10:[{cls:'we-r',t:'✂️ BL#9&#10'},{cls:'we-y',t:'✍️ Captions'}],
+  a12:[{cls:'we-p',t:'✂️ BL→stock·Stock:2'},{cls:'we-y',t:'✍️ Captions'}],
+  a13:[{cls:'we-g',t:'🟢 PostT#3'}],
+  a14:[{cls:'we-g',t:'🟢 PostBL#5·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'}],
+  a16:[{cls:'we-b',t:'✂️ EditT#4'},{cls:'we-g',t:'🟢 PostBL#6'},{cls:'we-r',t:'✂️ Batch2&#3'}],
+  a17:[{cls:'we-r',t:'✂️ BL#11&#12'},{cls:'we-y',t:'✍️ Captions'}],
+  a19:[{cls:'we-p',t:'✂️ BL→stock·Stock:3⚡'},{cls:'we-y',t:'✍️ Captions'}],
+  a20:[{cls:'we-g',t:'🟢 PostT#4'}],
+  a21:[{cls:'we-g',t:'🟢 PostBL#7·9am'},{cls:'we-b',t:'🎥 FilmT·5pm'}],
+  a23:[{cls:'we-b',t:'✂️ EditT#5'},{cls:'we-g',t:'🟢 PostBL#8'},{cls:'we-r',t:'✂️ Batch2&#3'}],
+  a24:[{cls:'we-r',t:'✂️ BL#13&#14'},{cls:'we-y',t:'✍️ Captions'},{cls:'we-p',t:'📦 Stock:4·2WKS⚡'}]
 };
 
 // ─── BACKLOG ───
@@ -960,7 +954,7 @@ function loadReels() {
 // ─── CALENDAR ───
 function buildCal() {
   var grid = document.getElementById('cgrid');
-  if (grid.children.length > 0) return; // prevent double render
+  grid.innerHTML = ''; // always rebuild fresh
   ['SUN','MON','TUE','WED','THU','FRI','SAT'].forEach(function(d) {
     var h = document.createElement('div');
     h.className = 'cdh';
@@ -972,13 +966,16 @@ function buildCal() {
       var cell = document.createElement('div');
       var isTue = ci === 2;
       var isWknd = ci === 0 || ci === 6;
-      var cls = 'cc' + (!date ? ' emp' : isWknd ? ' wknd' : '');
+      var isApr = typeof date === 'string' && date.charAt(0) === 'a';
+      var isEmpty = !date;
+      var cls = 'cc' + (isEmpty ? ' emp' : isWknd ? ' wknd' : '') + (isApr ? ' apr' : '');
       if (date === TODAY_DATE) cls += ' tday';
       cell.className = cls;
       if (date) {
         var num = document.createElement('div');
-        num.className = 'cnum' + (date === TODAY_DATE ? ' tnum' : '');
-        num.textContent = date;
+        var displayNum = isApr ? ('Apr ' + date.slice(1)) : date;
+        num.className = 'cnum' + (date === TODAY_DATE ? ' tnum' : '') + (isApr ? ' aprlbl' : '');
+        num.textContent = displayNum;
         cell.appendChild(num);
         if (isTue) {
           var off = document.createElement('div');
@@ -1008,13 +1005,15 @@ function buildWB() {
     week.forEach(function(date, ci) {
       var isTue = ci === 2;
       var cell = document.createElement('div');
-      var cls = 'wbc' + (!date ? ' emp' : isTue ? ' tue' : '');
+      var isApr = typeof date === 'string' && date.charAt(0) === 'a';
+      var cls = 'wbc' + (!date ? ' emp' : isTue ? ' tue' : '') + (isApr ? ' apr' : '');
       if (date === TODAY_DATE) cls += ' twb';
       cell.className = cls;
       if (date) {
         var num = document.createElement('div');
+        var displayNum = isApr ? ('A' + date.slice(1)) : date;
         num.className = 'wbn' + (WB_EVENTS[date] ? ' act' : '') + (date === TODAY_DATE ? ' tdy' : '');
-        num.textContent = date;
+        num.textContent = displayNum;
         cell.appendChild(num);
         if (isTue) {
           var off = document.createElement('div');
@@ -1038,36 +1037,34 @@ function buildWB() {
   // Write-on guide weeks
   var guide = document.getElementById('wbguide');
   var wkdata = [
-    {h:'Week 1 · Mar 1–7',hc:'var(--red)',days:[
-      {d:'SUN 1',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day + Script 3'},{c:'wi-r',t:'Edit gym reel #2 → stockpile'}]},
-      {d:'WED 4',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit #1'}]},
-      {d:'THU 5',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
-      {d:'FRI 6',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
-      {d:'SAT 7',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day #1'},{c:'wi-r',t:'Edit gym reel #1 → posts Wed'}]}
+    {h:'Week 1 · Mar 28–Apr 3 · DAY 1 🚀',hc:'var(--red)',days:[
+      {d:'SAT 28',dc:'var(--red)',items:[{c:'wi-p',t:'🚀 DAY 1 · Setup ManyChat'},{c:'wi-r',t:'Edit BL #1 & #2'},{c:'wi-y',t:'Write captions BL #1 & #2'}]},
+      {d:'SUN 29',dc:'var(--gld)',items:[{c:'wi-r',t:'Edit BL #3 & #4'},{c:'wi-y',t:'Write captions BL #3 & #4'}]},
+      {d:'MON 30',dc:'var(--blue)',items:[{c:'wi-g',t:'🟢 POST Teach #1 · 9am'},{c:'wi-p',t:'✅ Check ManyChat'}]},
+      {d:'WED 31',dc:'var(--red)',items:[{c:'wi-g',t:'🟢 POST BL #1 · 9am'},{c:'wi-b',t:'🎥 Film Teach #2 & #3 · 5pm'}]},
+      {d:'FRI Apr 2',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST BL #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT Apr 3',dc:'var(--gld)',items:[{c:'wi-r',t:'Edit BL #5 & #6'},{c:'wi-y',t:'Write captions BL #5 & #6'}]}
     ]},
-    {h:'Week 2 · Mar 8–14 · Stock: 1',hc:'var(--red)',days:[
-      {d:'SUN 8',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-p',t:'Edit gym reel → stockpile · Stock:1'}]},
-      {d:'MON 9',dc:'var(--blue)',items:[{c:'wi-g',t:'POST Teach #1'}]},
-      {d:'WED 11',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit #2'}]},
-      {d:'THU 12',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
-      {d:'FRI 13',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
-      {d:'SAT 14',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-r',t:'Edit gym reel #1'}]}
+    {h:'Week 2 · Apr 4–10 · Stock: 1',hc:'var(--red)',days:[
+      {d:'SUN Apr 5',dc:'var(--gld)',items:[{c:'wi-r',t:'Edit BL #7 & #8 → stockpile · Stock:1'},{c:'wi-y',t:'Write captions'}]},
+      {d:'MON Apr 6',dc:'var(--blue)',items:[{c:'wi-g',t:'🟢 POST Teach #2 · 9am'},{c:'wi-p',t:'📊 15 min analytics'}]},
+      {d:'WED Apr 7',dc:'var(--red)',items:[{c:'wi-g',t:'🟢 POST BL #3 · 9am'},{c:'wi-b',t:'🎥 Film Teach · 5pm'}]},
+      {d:'FRI Apr 9',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #3'},{c:'wi-g',t:'POST BL #4'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT Apr 10',dc:'var(--gld)',items:[{c:'wi-r',t:'Edit BL #9 & #10'},{c:'wi-y',t:'Write captions'}]}
     ]},
-    {h:'Week 3 · Mar 15–21 · Stock: 2',hc:'var(--grn)',days:[
-      {d:'SUN 15',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-p',t:'Edit gym reel → stockpile · Stock:2'}]},
-      {d:'MON 16',dc:'var(--blue)',items:[{c:'wi-g',t:'POST Teach #1'}]},
-      {d:'WED 18',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit #3'}]},
-      {d:'THU 19',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
-      {d:'FRI 20',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
-      {d:'SAT 21',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-r',t:'Edit gym reel #1'}]}
+    {h:'Week 3 · Apr 11–17 · Stock: 2',hc:'var(--grn)',days:[
+      {d:'SUN Apr 12',dc:'var(--gld)',items:[{c:'wi-p',t:'Edit gym reel → stockpile · Stock:2'},{c:'wi-y',t:'Write captions'}]},
+      {d:'MON Apr 13',dc:'var(--blue)',items:[{c:'wi-g',t:'🟢 POST Teach #3 · 9am'}]},
+      {d:'WED Apr 14',dc:'var(--red)',items:[{c:'wi-g',t:'🟢 POST BL #5 · 9am'},{c:'wi-b',t:'🎥 Film Teach · 5pm'}]},
+      {d:'FRI Apr 16',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #4'},{c:'wi-g',t:'POST BL #6'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT Apr 17',dc:'var(--gld)',items:[{c:'wi-r',t:'Edit BL #11 & #12'},{c:'wi-y',t:'Write captions'}]}
     ]},
-    {h:'Week 4 · Mar 22–28 · Stock: 3 ⚡',hc:'var(--pur)',days:[
-      {d:'SUN 22',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-p',t:'Edit gym reel → stockpile · Stock:3 ⚡'}]},
-      {d:'MON 23',dc:'var(--blue)',items:[{c:'wi-g',t:'POST Teach #1'}]},
-      {d:'WED 25',dc:'var(--red)',items:[{c:'wi-g',t:'POST Gym Edit · Priority Queue ✓'}]},
-      {d:'THU 26',dc:'var(--blue)',items:[{c:'wi-b',t:'BATCH FILM × 3 · 2–5:30pm'}]},
-      {d:'FRI 27',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #2'},{c:'wi-g',t:'POST Teach #2'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
-      {d:'SAT 28',dc:'var(--gld)',items:[{c:'wi-y',t:'Writing Day'},{c:'wi-r',t:'Edit gym reel #1 → posts Wed Apr 1'}]}
+    {h:'Week 4 · Apr 18–24 · Stock: 3 ⚡',hc:'var(--pur)',days:[
+      {d:'SUN Apr 19',dc:'var(--gld)',items:[{c:'wi-p',t:'Edit gym reel → stockpile · Stock:3 ⚡'},{c:'wi-y',t:'Write captions'}]},
+      {d:'MON Apr 20',dc:'var(--blue)',items:[{c:'wi-g',t:'🟢 POST Teach #4 · 9am'}]},
+      {d:'WED Apr 21',dc:'var(--red)',items:[{c:'wi-g',t:'🟢 POST BL #7 · 9am'},{c:'wi-b',t:'🎥 Film Teach · 5pm'}]},
+      {d:'FRI Apr 23',dc:'var(--blue)',items:[{c:'wi-b',t:'Edit Teach #5'},{c:'wi-g',t:'POST BL #8'},{c:'wi-b',t:'Edit batch 2 & 3'}]},
+      {d:'SAT Apr 24',dc:'var(--gld)',items:[{c:'wi-r',t:'Edit BL #13 & #14'},{c:'wi-y',t:'Write captions'}]}
     ]}
   ];
 
@@ -1678,4 +1675,715 @@ try {
 
 
 
+
+<!-- ══════════════ 11 WEEKLY CHECK-IN ══════════════ -->
+<div class="sec" id="weekly-checkin">
+  <div class="ph">
+    <div><h1>WEEKLY <span class="acc">CHECK-IN</span></h1><div class="sub">Every Monday · confirm last week · track your streak · stay honest</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--grn)" id="wci-streak">0</div><div class="rsl">Week Streak 🔥</div></div>
+  </div>
+  <div style="padding:1.25rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+
+    <div>
+      <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:.9rem;color:var(--gld);letter-spacing:.08em;margin-bottom:.85rem">THIS WEEK · TAP TO CONFIRM</div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hg">📲 Posting</h3>
+        <div class="wci-item" onclick="togWCI(this)" data-key="post-mon">
+          <div class="wci-box"></div><div class="wci-label">Posted Monday (Teach #1)</div>
+        </div>
+        <div class="wci-item" onclick="togWCI(this)" data-key="post-wed">
+          <div class="wci-box"></div><div class="wci-label">Posted Wednesday (Gym BL)</div>
+        </div>
+        <div class="wci-item" onclick="togWCI(this)" data-key="post-fri">
+          <div class="wci-box"></div><div class="wci-label">Posted Friday (Teach #2)</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hr">✂️ Editing</h3>
+        <div class="wci-item" onclick="togWCI(this)" data-key="edit-gym1">
+          <div class="wci-box"></div><div class="wci-label">Edited Gym Reel #1 (Sat)</div>
+        </div>
+        <div class="wci-item" onclick="togWCI(this)" data-key="edit-gym2">
+          <div class="wci-box"></div><div class="wci-label">Edited Gym Reel #2 → stockpile (Sun)</div>
+        </div>
+        <div class="wci-item" onclick="togWCI(this)" data-key="edit-teach">
+          <div class="wci-box"></div><div class="wci-label">Edited Teach batch (Fri)</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hb">🎥 Filming</h3>
+        <div class="wci-item" onclick="togWCI(this)" data-key="film-thu">
+          <div class="wci-box"></div><div class="wci-label">Batch filmed × 3 on Thursday</div>
+        </div>
+        <div class="wci-item" onclick="togWCI(this)" data-key="stockpile-grew">
+          <div class="wci-box"></div><div class="wci-label">Stockpile grew or held steady</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:.5rem;margin-top:.5rem">
+        <button onclick="submitWCI()" style="flex:1;font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1rem;letter-spacing:.08em;padding:.55rem;border-radius:6px;border:none;background:var(--grn);color:#000;cursor:pointer">LOCK IN WEEK ✓</button>
+        <button onclick="resetWCI()" style="font-family:&#39;DM Mono&#39;,monospace;font-size:.52rem;text-transform:uppercase;padding:.55rem .8rem;border-radius:6px;border:1px solid var(--b2);background:transparent;color:var(--dim);cursor:pointer">Reset</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="card" style="margin-bottom:.65rem" id="wci-score-card">
+        <h3 class="hy">📊 This Week Score</h3>
+        <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:3.5rem;line-height:1;color:var(--grn);margin:.4rem 0" id="wci-score">0/8</div>
+        <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.52rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em" id="wci-score-label">tap tasks to update</div>
+        <div class="pbar" style="margin-top:.65rem"><div class="pfill" id="wci-prog" style="width:0%"></div></div>
+      </div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hp">📅 2 Weeks Ahead Goal</h3>
+        <div style="display:flex;flex-direction:column;gap:.35rem;margin-top:.4rem">
+          <div class="wci-item" onclick="togWCI(this)" data-key="two-weeks-ahead">
+            <div class="wci-box"></div><div class="wci-label">Gym stockpile ≥ 4 videos ⚡</div>
+          </div>
+          <div class="wci-item" onclick="togWCI(this)" data-key="teach-stockpile">
+            <div class="wci-box"></div><div class="wci-label">Teach stockpile ≥ 4 videos ⚡</div>
+          </div>
+        </div>
+        <div style="margin-top:.65rem;padding:.5rem;border-radius:6px;background:var(--gbg);border:1px solid var(--gmid)" id="wci-ahead-status">
+          <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.54rem;color:var(--dim);text-transform:uppercase">Status</div>
+          <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.1rem;color:var(--dim)" id="wci-ahead-label">Not yet — keep building</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="hr">📈 Week History</h3>
+        <div id="wci-history" style="display:flex;flex-direction:column;gap:.3rem;margin-top:.4rem"><div class="wci-history-row"><span style="color:var(--dim)">Week of 3/26</span><span style="color:var(--red)">0/10 · 0%</span></div><div class="wci-history-row"><span style="color:var(--dim)">Week of 3/26</span><span style="color:var(--red)">0/10 · 0%</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 12 MONTHLY CHECK-IN ══════════════ -->
+<div class="sec" id="monthly-checkin">
+  <div class="ph">
+    <div><h1>MONTHLY <span class="acc">CHECK-IN</span></h1><div class="sub">End of month snapshot · are you 2 weeks ahead? · what to fix next month</div></div>
+    <div class="rstat"><div class="rsn" style="color:var(--pur)" id="mci-months">0</div><div class="rsl">Months Logged</div></div>
+  </div>
+  <div style="padding:1.25rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+    <div>
+      <div style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:.9rem;color:var(--gld);letter-spacing:.08em;margin-bottom:.85rem">END OF MONTH · FILL THIS IN</div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hg">🎯 The Big One</h3>
+        <div class="wci-item" onclick="togMCI(this)" data-key="m-two-ahead">
+          <div class="wci-box"></div><div class="wci-label" style="font-size:.76rem;font-weight:700">Did you hit 2 weeks ahead this month?</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hr">📊 Numbers</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem">
+          <div>
+            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;margin-bottom:.2rem">Posts This Month</div>
+            <input id="mci-posts" type="number" min="0" max="20" placeholder="0" style="width:100%;font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.4rem;background:var(--s2);border:1px solid var(--b2);border-radius:5px;color:var(--txt);padding:.3rem .5rem;text-align:center">
+          </div>
+          <div>
+            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;margin-bottom:.2rem">Reels Edited</div>
+            <input id="mci-edited" type="number" min="0" max="20" placeholder="0" style="width:100%;font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.4rem;background:var(--s2);border:1px solid var(--b2);border-radius:5px;color:var(--txt);padding:.3rem .5rem;text-align:center">
+          </div>
+          <div>
+            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;margin-bottom:.2rem">Gym Stockpile</div>
+            <input id="mci-gymstock" type="number" min="0" max="12" placeholder="0" style="width:100%;font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.4rem;background:var(--s2);border:1px solid var(--b2);border-radius:5px;color:var(--txt);padding:.3rem .5rem;text-align:center">
+          </div>
+          <div>
+            <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;margin-bottom:.2rem">Teach Stockpile</div>
+            <input id="mci-teachstock" type="number" min="0" max="12" placeholder="0" style="width:100%;font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.4rem;background:var(--s2);border:1px solid var(--b2);border-radius:5px;color:var(--txt);padding:.3rem .5rem;text-align:center">
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hy">✍️ Reflection</h3>
+        <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;margin-bottom:.3rem;margin-top:.4rem">One Win This Month</div>
+        <textarea id="mci-win" placeholder="e.g. Hit 3x/week every week..." style="width:100%;font-family:&#39;DM Mono&#39;,monospace;font-size:.64rem;background:var(--s2);border:1px solid var(--b2);border-radius:5px;color:var(--txt);padding:.5rem;resize:none;height:56px"></textarea>
+        <div style="font-family:&#39;DM Mono&#39;,monospace;font-size:.5rem;color:var(--dim);text-transform:uppercase;margin-bottom:.3rem;margin-top:.5rem">One Thing to Fix Next Month</div>
+        <textarea id="mci-fix" placeholder="e.g. Batch film earlier in the week..." style="width:100%;font-family:&#39;DM Mono&#39;,monospace;font-size:.64rem;background:var(--s2);border:1px solid var(--b2);border-radius:5px;color:var(--txt);padding:.5rem;resize:none;height:56px"></textarea>
+      </div>
+
+      <button onclick="submitMCI()" style="width:100%;font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1rem;letter-spacing:.08em;padding:.6rem;border-radius:6px;border:none;background:var(--pur);color:#fff;cursor:pointer">LOCK IN MONTH ✓</button>
+    </div>
+
+    <div>
+      <div class="card" style="margin-bottom:.65rem">
+        <h3 class="hp">📅 Monthly History</h3>
+        <div id="mci-history" style="display:flex;flex-direction:column;gap:.5rem;margin-top:.4rem"><div style="font-family:DM Mono,monospace;font-size:.54rem;color:var(--dim)">No months logged yet!</div></div>
+      </div>
+      <div class="card">
+        <h3 class="hg">🏆 Goal Tracker</h3>
+        <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.4rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid var(--b1)">
+            <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:.56rem;color:var(--dim);text-transform:uppercase">Months at 2 Weeks Ahead</span>
+            <span style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.1rem;color:var(--grn)" id="mci-ahead-count">0</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid var(--b1)">
+            <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:.56rem;color:var(--dim);text-transform:uppercase">Total Posts Logged</span>
+            <span style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.1rem;color:var(--blue)" id="mci-total-posts">0</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:.3rem 0">
+            <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:.56rem;color:var(--dim);text-transform:uppercase">Total Reels Edited</span>
+            <span style="font-family:&#39;Bebas Neue&#39;,sans-serif;font-size:1.1rem;color:var(--red)" id="mci-total-edited">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ 13 SHOOT DAY ══════════════ -->
+<div class="sec" id="shootday">
+  <div class="ph">
+    <div><h1>SHOOT <span class="acc">DAY</span></h1><div class="sub">Select your shoot type · check off gear · reset when done</div></div>
+    <div class="rstat" style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+      <div style="display:flex;align-items:baseline;gap:.75rem">
+        <div>
+          <div class="rsn" style="color: var(--dim);" id="sd-done">0/7</div>
+          <div class="rsl">Sections Done</div>
+        </div>
+        <div style="width:1px;height:2rem;background:var(--b2)"></div>
+        <div>
+          <div class="rsn" style="color: var(--dim);" id="sd-items-done">0/<span id="sd-items-total">39</span></div>
+          <div class="rsl">Items Checked</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shoot type tabs -->
+  <div style="padding:.75rem 2rem 0;display:flex;gap:.4rem;border-bottom:1px solid var(--b1)">
+    <button class="sdt on" id="sdtab-client" onclick="switchShoot(&#39;client&#39;,this)">🎬 Client Shoot</button>
+    <button class="sdt" id="sdtab-gym" onclick="switchShoot(&#39;gym&#39;,this)">💪 Gym Shoot</button>
+    <button class="sdt" id="sdtab-full" onclick="switchShoot(&#39;full&#39;,this)">🌅 Full Day Shoot</button>
+    <button onclick="resetSD()" style="margin-left:auto;font-family:&#39;DM Mono&#39;,monospace;font-size:.52rem;text-transform:uppercase;letter-spacing:.07em;padding:.25rem .65rem;border-radius:4px;border:1px solid var(--b2);background:transparent;color:var(--dim);cursor:pointer" onmouseover="this.style.color=&#39;var(--txt)&#39;" onmouseout="this.style.color=&#39;var(--dim)&#39;">↺ Reset</button>
+  </div>
+
+  <!-- GYM SHOOT -->
+  <div id="sdp-gym" class="sdpage" style="padding: 1.25rem 2rem; display: none; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+
+    <div>
+      <div class="card sd-card" id="sdc-camera">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hr">🎥 Camera Setup <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">9 items</span></h3>
+          <div class="sd-badge" id="sdb-camera">0/9</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sony a7 IV (battery charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sigma 24–70mm f/2.8 DG DN II</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sigma 50mm f/1.4 DG DN Art</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">Laowa 10mm AF</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">Extra NP-FZ100 batteries (fully charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">ND filter (if shooting outside)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">K&amp;F Black Pro-Mist filter</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">K&amp;F CPL filter (for car glare)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;camera&#39;)"><div class="sd-box"></div><div class="sd-label">Lens cloth / blower</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card sd-card" id="sdc-audio" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hb">🎤 Audio <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">5 items</span></h3>
+          <div class="sd-badge" id="sdb-audio">0/5</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;audio&#39;)"><div class="sd-box"></div><div class="sd-label">DJI Mic 2 (charged + transmitter paired)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;audio&#39;)"><div class="sd-box"></div><div class="sd-label">Rode VideoMic Pro (backup)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;audio&#39;)"><div class="sd-box"></div><div class="sd-label">Sony ECM-1B (if doing sit-down)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;audio&#39;)"><div class="sd-box"></div><div class="sd-label">Check audio levels before shooting</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;audio&#39;)"><div class="sd-box"></div><div class="sd-label">Windscreen (if shooting outside)</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-monitor" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hg">📺 Monitoring <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">4 items</span></h3>
+          <div class="sd-badge" id="sdb-monitor">0/4</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;monitor&#39;)"><div class="sd-box"></div><div class="sd-label">Atomos Ninja V (charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;monitor&#39;)"><div class="sd-box"></div><div class="sd-label">NP-F750 batteries × 3 for Ninja V</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;monitor&#39;)"><div class="sd-box"></div><div class="sd-label">LUT loaded on Ninja V</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;monitor&#39;)"><div class="sd-box"></div><div class="sd-label">Vilttrox DC 550 power (if studio)</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-storage">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hy">💾 Storage <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">3 items</span></h3>
+          <div class="sd-badge" id="sdb-storage">0/3</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;storage&#39;)"><div class="sd-box"></div><div class="sd-label">Lexar 320GB CFexpress (empty + formatted)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;storage&#39;)"><div class="sd-box"></div><div class="sd-label">Spare SD card (just in case)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;storage&#39;)"><div class="sd-box"></div><div class="sd-label">Samsung T7 SSD (for offload)</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card sd-card" id="sdc-support" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hp">🦅 Support &amp; Stabilization <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">7 items</span></h3>
+          <div class="sd-badge" id="sdb-support">0/7</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;support&#39;)"><div class="sd-box"></div><div class="sd-label">iFootage Cobra 3 Carbon Fiber Monopod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;support&#39;)"><div class="sd-box"></div><div class="sd-label">Sirui Induro Tripod (if studio/locked shots)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;support&#39;)"><div class="sd-box"></div><div class="sd-label">DJI RS 4 Mini gimbal (charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;support&#39;)"><div class="sd-box"></div><div class="sd-label">SmallRig VT-20 Pro mini tripod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;support&#39;)"><div class="sd-box"></div><div class="sd-label">iFootage Shark Slider Nano II</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;support&#39;)"><div class="sd-box"></div><div class="sd-label">SmallRig Rhino Cage (if needed)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;support&#39;)"><div class="sd-box"></div><div class="sd-label">Quick releases + mounting gear</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-carry" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hr">🎒 Carry &amp; Extras <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">7 items</span></h3>
+          <div class="sd-badge" id="sdb-carry">0/7</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;carry&#39;)"><div class="sd-box"></div><div class="sd-label">Peter McKinnon 35L or 21L pack</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;carry&#39;)"><div class="sd-box"></div><div class="sd-label">Shot list (phone notes or printed)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;carry&#39;)"><div class="sd-box"></div><div class="sd-label">BTS clips for promo content</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;carry&#39;)"><div class="sd-box"></div><div class="sd-label">DJI Osmo Pocket 3 (BTS/vlog)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;carry&#39;)"><div class="sd-box"></div><div class="sd-label">Water bottle</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;carry&#39;)"><div class="sd-box"></div><div class="sd-label">Snack (trust me)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;carry&#39;)"><div class="sd-box"></div><div class="sd-label">Small towel (lens/sweat)</div></div>
+      </div>
+
+    </div>
+
+  </div><!-- end sdp-gym -->
+
+  <!-- CLIENT SHOOT -->
+  <div id="sdp-client" class="sdpage" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; padding: 1.25rem 2rem;">
+
+    <div>
+      <div class="card sd-card" id="sdc-cl-camera" style="">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hr">🎥 Camera Setup <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">9 items</span></h3>
+          <div class="sd-badge" id="sdb-cl-camera" style="background: var(--s3); border-color: var(--b2); color: var(--dim);">9 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sony a7 IV (battery charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sigma 24–70mm f/2.8 DG DN II</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sigma 50mm f/1.4 DG DN Art</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Laowa 10mm AF</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Extra NP-FZ100 batteries (fully charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">ND filter (if shooting outside)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">K&amp;F Black Pro-Mist filter</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">K&amp;F CPL filter (for car glare)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Lens cloth / blower</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card sd-card" id="sdc-cl-audio" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hb">🎤 Audio <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">5 items</span></h3>
+          <div class="sd-badge" id="sdb-cl-audio">5 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-audio&#39;)"><div class="sd-box"></div><div class="sd-label">DJI Mic 2 (charged + transmitter paired)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-audio&#39;)"><div class="sd-box"></div><div class="sd-label">Sony ECM-1B (for sit-down interviews)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-audio&#39;)"><div class="sd-box"></div><div class="sd-label">Rode VideoMic Pro (backup)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-audio&#39;)"><div class="sd-box"></div><div class="sd-label">Windscreen (if shooting outside)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-audio&#39;)"><div class="sd-box"></div><div class="sd-label">Check audio levels before shoot</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-cl-monitor" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hg">📺 Monitoring <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">4 items</span></h3>
+          <div class="sd-badge" id="sdb-cl-monitor">4 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-monitor&#39;)"><div class="sd-box"></div><div class="sd-label">Atomos Ninja V (charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-monitor&#39;)"><div class="sd-box"></div><div class="sd-label">NP-F750 batteries × 3 for Ninja V</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-monitor&#39;)"><div class="sd-box"></div><div class="sd-label">LUT loaded on Ninja V</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-monitor&#39;)"><div class="sd-box"></div><div class="sd-label">Vilttrox DC 550 power (if studio)</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-cl-storage">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hy">💾 Storage <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">3 items</span></h3>
+          <div class="sd-badge" id="sdb-cl-storage">3 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-storage&#39;)"><div class="sd-box"></div><div class="sd-label">Lexar 320GB CFexpress (empty + formatted)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-storage&#39;)"><div class="sd-box"></div><div class="sd-label">Spare SD card (just in case)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-storage&#39;)"><div class="sd-box"></div><div class="sd-label">Samsung T7 SSD (for offload)</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card sd-card" id="sdc-cl-light" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hy">💡 Lighting <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">4 items</span></h3>
+          <div class="sd-badge" id="sdb-cl-light">4 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-light&#39;)"><div class="sd-box"></div><div class="sd-label">Amaran 300c LED (charged / cable)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-light&#39;)"><div class="sd-box"></div><div class="sd-label">Aputure Light Dome II softbox</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-light&#39;)"><div class="sd-box"></div><div class="sd-label">Amaran Ace 25c portable light</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-light&#39;)"><div class="sd-box"></div><div class="sd-label">Light stand + sandbag</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-cl-support" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hp">🦅 Support &amp; Stabilization <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">7 items</span></h3>
+          <div class="sd-badge" id="sdb-cl-support">7 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-support&#39;)"><div class="sd-box"></div><div class="sd-label">iFootage Cobra 3 Carbon Fiber Monopod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-support&#39;)"><div class="sd-box"></div><div class="sd-label">Sirui Induro Tripod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-support&#39;)"><div class="sd-box"></div><div class="sd-label">DJI RS 4 Mini gimbal (charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-support&#39;)"><div class="sd-box"></div><div class="sd-label">SmallRig VT-20 Pro mini tripod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-support&#39;)"><div class="sd-box"></div><div class="sd-label">iFootage Shark Slider Nano II</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-support&#39;)"><div class="sd-box"></div><div class="sd-label">SmallRig Rhino Cage (if needed)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-support&#39;)"><div class="sd-box"></div><div class="sd-label">Quick releases + mounting gear</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-cl-carry">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hr">🎒 Carry &amp; Extras <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">7 items</span></h3>
+          <div class="sd-badge" id="sdb-cl-carry">7 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Peter McKinnon 35L or 21L pack</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Shot list (phone notes or printed)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-carry&#39;)"><div class="sd-box"></div><div class="sd-label">BTS clips for promo content</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-carry&#39;)"><div class="sd-box"></div><div class="sd-label">DJI Osmo Pocket 3 (BTS/vlog)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Contract / invoice on phone</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Water bottle + snack</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;cl-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Small towel (lens/sweat)</div></div>
+      </div>
+    </div>
+
+  </div><!-- end sdp-client -->
+
+  <!-- FULL DAY SHOOT -->
+  <div id="sdp-full" class="sdpage" style="padding: 1.25rem 2rem; display: none; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+
+    <div>
+      <div class="card sd-card" id="sdc-fd-camera">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hr">🎥 Full Camera Kit <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">9 items</span></h3>
+          <div class="sd-badge" id="sdb-fd-camera">9 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sony a7 IV (battery charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sigma 24–70mm f/2.8 DG DN II</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Sigma 50mm f/1.4 DG DN Art</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Laowa 10mm AF</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Extra NP-FZ100 batteries × 3</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">ND filter + Pro-Mist + CPL</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">DJI Osmo Pocket 3 (BTS)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Lexar CFexpress + spare SD (formatted)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-camera&#39;)"><div class="sd-box"></div><div class="sd-label">Samsung T7 SSD for offload</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card sd-card" id="sdc-fd-audio" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hb">🎤 Full Audio <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">4 items</span></h3>
+          <div class="sd-badge" id="sdb-fd-audio">4 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-audio&#39;)"><div class="sd-box"></div><div class="sd-label">DJI Mic 2 (charged + paired)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-audio&#39;)"><div class="sd-box"></div><div class="sd-label">Sony ECM-1B</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-audio&#39;)"><div class="sd-box"></div><div class="sd-label">Rode VideoMic Pro</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-audio&#39;)"><div class="sd-box"></div><div class="sd-label">Windscreen + check levels</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-fd-light">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hy">💡 Full Lighting <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">4 items</span></h3>
+          <div class="sd-badge" id="sdb-fd-light">4 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-light&#39;)"><div class="sd-box"></div><div class="sd-label">Amaran 300c + Aputure Light Dome II</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-light&#39;)"><div class="sd-box"></div><div class="sd-label">Amaran Ace 25c portable</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-light&#39;)"><div class="sd-box"></div><div class="sd-label">Atomos Ninja V + NP-F750 × 3</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-light&#39;)"><div class="sd-box"></div><div class="sd-label">Vilttrox DC 550 power</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card sd-card" id="sdc-fd-support" style="margin-bottom:.65rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hp">🦅 Full Support Kit <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">7 items</span></h3>
+          <div class="sd-badge" id="sdb-fd-support">7 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-support&#39;)"><div class="sd-box"></div><div class="sd-label">Sirui Induro Tripod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-support&#39;)"><div class="sd-box"></div><div class="sd-label">iFootage Cobra 3 Carbon Fiber Monopod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-support&#39;)"><div class="sd-box"></div><div class="sd-label">DJI RS 4 Mini gimbal (charged)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-support&#39;)"><div class="sd-box"></div><div class="sd-label">iFootage Shark Slider Nano II</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-support&#39;)"><div class="sd-box"></div><div class="sd-label">SmallRig Rhino Cage</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-support&#39;)"><div class="sd-box"></div><div class="sd-label">SmallRig VT-20 Pro mini tripod</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-support&#39;)"><div class="sd-box"></div><div class="sd-label">Quick releases + mounting gear</div></div>
+      </div>
+
+      <div class="card sd-card" id="sdc-fd-carry">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
+          <h3 class="hg">🎒 Pack &amp; Extras <span style="font-size:.55rem;color:var(--dim);font-family:&#39;DM Mono&#39;,monospace;font-weight:400">6 items</span></h3>
+          <div class="sd-badge" id="sdb-fd-carry">6 left</div>
+        </div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Peter McKinnon 35L + 21L Cube</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Shot list printed or on phone</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Water bottle + snacks</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Small towel (lens/sweat)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Power bank (phone + accessories)</div></div>
+        <div class="sd-item" onclick="togSD(this,&#39;fd-carry&#39;)"><div class="sd-box"></div><div class="sd-label">Contract / invoice on phone</div></div>
+      </div>
+    </div>
+
+  </div><!-- end sdp-full -->
+
+</div>
+
+<style>
+.wci-item,.sd-item{display:flex;align-items:center;gap:.5rem;padding:.3rem .2rem;border-bottom:1px solid var(--b1);cursor:pointer;transition:background .1s}
+.wci-item:last-child,.sd-item:last-child{border:none}
+.wci-item:hover,.sd-item:hover{background:var(--s2)}
+.wci-box,.sd-box{width:15px;height:15px;border-radius:3px;border:1.5px solid var(--b2);display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;transition:all .15s}
+.wci-item.done .wci-box,.sd-item.done .sd-box{background:var(--grn);border-color:var(--grn);color:#000}
+.wci-label,.sd-label{font-size:.68rem;color:#B0A090;line-height:1.4}
+.wci-item.done .wci-label,.sd-item.done .sd-label{color:var(--dim);text-decoration:line-through}
+.wci-history-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid var(--b1);font-family:'DM Mono',monospace;font-size:.54rem}
+.wci-history-row:last-child{border:none}
+.sd-badge{font-family:'DM Mono',monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:.07em;padding:.18rem .45rem;border-radius:4px;border:1px solid var(--b2);background:var(--s3);color:var(--dim);transition:all .25s;white-space:nowrap}
+.sd-card{transition:border-color .25s}
+.sdt{font-family:'DM Mono',monospace;font-size:.54rem;text-transform:uppercase;letter-spacing:.08em;padding:.35rem .85rem;border-radius:6px 6px 0 0;border:1px solid transparent;border-bottom:none;background:transparent;color:var(--dim);cursor:pointer;transition:all .15s;margin-bottom:-1px}
+.sdt:hover{color:var(--txt);background:var(--s2)}
+.sdt.on{color:var(--txt);background:var(--s2);border-color:var(--b2)}
+</style>
+
+<script>
+// ── WEEKLY CHECK-IN ──
+var wciDone = {};
+function togWCI(el) {
+  el.classList.toggle('done');
+  var box = el.querySelector('.wci-box');
+  box.textContent = el.classList.contains('done') ? '✓' : '';
+  updateWCIScore();
+  // check 2-weeks-ahead
+  var ahead = document.querySelector('[data-key="two-weeks-ahead"]');
+  var teach = document.querySelector('[data-key="teach-stockpile"]');
+  var bothAhead = ahead && ahead.classList.contains('done') && teach && teach.classList.contains('done');
+  var label = document.getElementById('wci-ahead-label');
+  if (label) {
+    label.textContent = bothAhead ? '2 WEEKS AHEAD ⚡ LOCKED IN!' : 'Not yet — keep building';
+    label.style.color = bothAhead ? 'var(--grn)' : 'var(--dim)';
+  }
+}
+function updateWCIScore() {
+  var total = document.querySelectorAll('#weekly-checkin .wci-item').length;
+  var done = document.querySelectorAll('#weekly-checkin .wci-item.done').length;
+  var pct = Math.round(done/total*100);
+  document.getElementById('wci-score').textContent = done + '/' + total;
+  document.getElementById('wci-score').style.color = pct === 100 ? 'var(--grn)' : pct >= 50 ? 'var(--gld)' : 'var(--red)';
+  document.getElementById('wci-score-label').textContent = pct === 100 ? 'Perfect week! 🔥' : pct >= 75 ? 'Solid week 💪' : pct >= 50 ? 'Half there — push it' : 'Tap tasks to update';
+  document.getElementById('wci-prog').style.width = pct + '%';
+}
+function submitWCI() {
+  var total = document.querySelectorAll('#weekly-checkin .wci-item').length;
+  var done = document.querySelectorAll('#weekly-checkin .wci-item.done').length;
+  var pct = Math.round(done/total*100);
+  var weeks = JSON.parse(localStorage.getItem('wciHistory') || '[]');
+  var now = new Date();
+  var label = 'Week of ' + (now.getMonth()+1) + '/' + now.getDate();
+  weeks.unshift({label:label, score:done, total:total, pct:pct});
+  if (weeks.length > 8) weeks = weeks.slice(0,8);
+  localStorage.setItem('wciHistory', JSON.stringify(weeks));
+  // update streak
+  var streak = 0;
+  for (var i=0;i<weeks.length;i++) { if(weeks[i].pct>=75) streak++; else break; }
+  localStorage.setItem('wciStreak', streak);
+  document.getElementById('wci-streak').textContent = streak;
+  renderWCIHistory(weeks);
+  alert('Week locked in! Score: ' + done + '/' + total + ' · Streak: ' + streak + ' weeks 🔥');
+}
+function resetWCI() {
+  document.querySelectorAll('#weekly-checkin .wci-item').forEach(function(el){
+    el.classList.remove('done');
+    el.querySelector('.wci-box').textContent = '';
+  });
+  updateWCIScore();
+}
+function renderWCIHistory(weeks) {
+  var hist = document.getElementById('wci-history');
+  if (!weeks || weeks.length === 0) { hist.innerHTML = '<div style="font-family:DM Mono,monospace;font-size:.54rem;color:var(--dim)">No weeks logged yet!</div>'; return; }
+  hist.innerHTML = weeks.map(function(w) {
+    var col = w.pct >= 75 ? 'var(--grn)' : w.pct >= 50 ? 'var(--gld)' : 'var(--red)';
+    return '<div class="wci-history-row"><span style="color:var(--dim)">' + w.label + '</span><span style="color:' + col + '">' + w.score + '/' + w.total + ' · ' + w.pct + '%</span></div>';
+  }).join('');
+}
+// load on init
+(function(){
+  var weeks = JSON.parse(localStorage.getItem('wciHistory') || '[]');
+  var streak = localStorage.getItem('wciStreak') || 0;
+  document.getElementById('wci-streak').textContent = streak;
+  renderWCIHistory(weeks);
+})();
+
+// ── MONTHLY CHECK-IN ──
+function togMCI(el) {
+  el.classList.toggle('done');
+  el.querySelector('.wci-box').textContent = el.classList.contains('done') ? '✓' : '';
+}
+function submitMCI() {
+  var posts = parseInt(document.getElementById('mci-posts').value) || 0;
+  var edited = parseInt(document.getElementById('mci-edited').value) || 0;
+  var gymstock = parseInt(document.getElementById('mci-gymstock').value) || 0;
+  var teachstock = parseInt(document.getElementById('mci-teachstock').value) || 0;
+  var win = document.getElementById('mci-win').value || '—';
+  var fix = document.getElementById('mci-fix').value || '—';
+  var ahead = document.querySelector('[data-key="m-two-ahead"]').classList.contains('done');
+  var months = JSON.parse(localStorage.getItem('mciHistory') || '[]');
+  var now = new Date();
+  var label = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][now.getMonth()] + ' ' + now.getFullYear();
+  months.unshift({label:label, posts:posts, edited:edited, gymstock:gymstock, teachstock:teachstock, ahead:ahead, win:win, fix:fix});
+  if (months.length > 6) months = months.slice(0,6);
+  localStorage.setItem('mciHistory', JSON.stringify(months));
+  renderMCIHistory(months);
+  updateMCITotals(months);
+  alert('Month locked in! ' + (ahead ? '2 WEEKS AHEAD ⚡' : 'Keep building — next month!'));
+}
+function renderMCIHistory(months) {
+  var hist = document.getElementById('mci-history');
+  if (!months || months.length === 0) { hist.innerHTML = '<div style="font-family:DM Mono,monospace;font-size:.54rem;color:var(--dim)">No months logged yet!</div>'; return; }
+  hist.innerHTML = months.map(function(m) {
+    return '<div style="background:var(--s2);border:1px solid var(--b1);border-radius:7px;padding:.6rem .8rem;margin-bottom:.4rem">' +
+      '<div style="display:flex;justify-content:space-between;margin-bottom:.3rem">' +
+        '<span style="font-family:Bebas Neue,sans-serif;font-size:1rem;letter-spacing:.06em">' + m.label + '</span>' +
+        '<span style="font-family:DM Mono,monospace;font-size:.56rem;color:' + (m.ahead ? 'var(--grn)' : 'var(--dim)') + '">' + (m.ahead ? '2WKS AHEAD ⚡' : 'not yet') + '</span>' +
+      '</div>' +
+      '<div style="display:flex;gap:.8rem;font-family:DM Mono,monospace;font-size:.52rem;color:var(--dim)">' +
+        '<span>' + m.posts + ' posts</span><span>' + m.edited + ' edited</span><span>gym:' + m.gymstock + '</span><span>teach:' + m.teachstock + '</span>' +
+      '</div>' +
+      '<div style="font-size:.6rem;color:#907F70;margin-top:.3rem">✅ ' + m.win + '</div>' +
+      '<div style="font-size:.6rem;color:#907F70">🔧 ' + m.fix + '</div>' +
+    '</div>';
+  }).join('');
+}
+function updateMCITotals(months) {
+  var ahead = months.filter(function(m){return m.ahead}).length;
+  var posts = months.reduce(function(a,m){return a+m.posts},0);
+  var edited = months.reduce(function(a,m){return a+m.edited},0);
+  document.getElementById('mci-ahead-count').textContent = ahead;
+  document.getElementById('mci-total-posts').textContent = posts;
+  document.getElementById('mci-total-edited').textContent = edited;
+  document.getElementById('mci-months').textContent = months.length;
+}
+(function(){
+  var months = JSON.parse(localStorage.getItem('mciHistory') || '[]');
+  renderMCIHistory(months);
+  updateMCITotals(months);
+})();
+
+// ── SHOOT DAY ──
+var SD_TOTALS = {
+  // Gym
+  camera:9, audio:5, monitor:4, storage:3, support:7, carry:7,
+  // Client
+  'cl-camera':9, 'cl-audio':5, 'cl-monitor':4, 'cl-storage':3, 'cl-light':4, 'cl-support':7, 'cl-carry':7,
+  // Full Day
+  'fd-camera':9, 'fd-audio':4, 'fd-light':4, 'fd-support':7, 'fd-carry':6
+};
+var SD_PAGES = {
+  gym: ['camera','audio','monitor','storage','support','carry'],
+  client: ['cl-camera','cl-audio','cl-monitor','cl-storage','cl-light','cl-support','cl-carry'],
+  full: ['fd-camera','fd-audio','fd-light','fd-support','fd-carry']
+};
+var currentShoot = 'gym';
+
+var SD_ITEM_TOTALS = {
+  gym: 9+5+4+3+7+7,       // 35
+  client: 9+5+4+3+4+7+7,  // 39
+  full: 9+4+4+7+6          // 30
+};
+
+function switchShoot(type, btn) {
+  currentShoot = type;
+  document.querySelectorAll('.sdt').forEach(function(b){ b.classList.remove('on'); });
+  btn.classList.add('on');
+  document.querySelectorAll('.sdpage').forEach(function(p){ p.style.display = 'none'; });
+  var page = document.getElementById('sdp-' + type);
+  if (page) page.style.display = 'grid';
+  // update items total label
+  var totalEl = document.getElementById('sd-items-total');
+  if (totalEl) totalEl.textContent = SD_ITEM_TOTALS[type] || 0;
+  updateSDTotal();
+}
+
+function updateSDTotal() {
+  var sections = SD_PAGES[currentShoot] || [];
+  var sectionsDone = sections.filter(function(s) {
+    var card = document.getElementById('sdc-' + s);
+    return card && card.querySelectorAll('.sd-item.done').length === SD_TOTALS[s];
+  }).length;
+
+  // count total items checked across current shoot
+  var itemsDone = 0;
+  sections.forEach(function(s) {
+    var card = document.getElementById('sdc-' + s);
+    if (card) itemsDone += card.querySelectorAll('.sd-item.done').length;
+  });
+  var itemsTotal = SD_ITEM_TOTALS[currentShoot] || 0;
+
+  var secEl = document.getElementById('sd-done');
+  secEl.textContent = sectionsDone + '/' + sections.length;
+  secEl.style.color = sectionsDone === sections.length ? 'var(--grn)' : sectionsDone > 0 ? 'var(--gld)' : 'var(--dim)';
+
+  var itemEl = document.getElementById('sd-items-done');
+  if (itemEl) {
+    itemEl.innerHTML = itemsDone + '/<span id="sd-items-total">' + itemsTotal + '</span>';
+    itemEl.style.color = itemsDone === itemsTotal ? 'var(--grn)' : itemsDone > 0 ? 'var(--blue)' : 'var(--dim)';
+  }
+}
+
+function togSD(el, section) {
+  el.classList.toggle('done');
+  el.querySelector('.sd-box').textContent = el.classList.contains('done') ? '✓' : '';
+  updateSDSection(section);
+  updateSDTotal();
+}
+
+function updateSDSection(section) {
+  var card = document.getElementById('sdc-' + section);
+  var badge = document.getElementById('sdb-' + section);
+  if (!card || !badge) return;
+  var total = SD_TOTALS[section];
+  var done = card.querySelectorAll('.sd-item.done').length;
+  var remaining = total - done;
+  if (done === total) {
+    badge.textContent = '✓ DONE';
+    badge.style.background = 'var(--gbg)';
+    badge.style.borderColor = 'var(--grn)';
+    badge.style.color = 'var(--grn)';
+    card.style.borderColor = 'var(--gmid)';
+  } else {
+    badge.textContent = remaining + ' left';
+    badge.style.background = done > 0 ? 'var(--ybg)' : 'var(--s3)';
+    badge.style.borderColor = done > 0 ? 'var(--gld)' : 'var(--b2)';
+    badge.style.color = done > 0 ? 'var(--gld)' : 'var(--dim)';
+    card.style.borderColor = '';
+  }
+}
+
+function resetSD() {
+  var sections = SD_PAGES[currentShoot] || [];
+  sections.forEach(function(s) {
+    var card = document.getElementById('sdc-' + s);
+    if (card) card.querySelectorAll('.sd-item').forEach(function(el){
+      el.classList.remove('done');
+      el.querySelector('.sd-box').textContent = '';
+    });
+    updateSDSection(s);
+  });
+  updateSDTotal();
+}
+
+// init — show gym page by default
+(function(){
+  document.getElementById('sdp-client').style.display = 'grid';
+  document.getElementById('sdp-gym').style.display = 'none';
+  document.getElementById('sdp-full').style.display = 'none';
+  currentShoot = 'client';
+  var totalEl = document.getElementById('sd-items-total');
+  if (totalEl) totalEl.textContent = SD_ITEM_TOTALS['client'];
+  var secEl = document.getElementById('sd-done');
+  if (secEl) secEl.textContent = '0/' + SD_PAGES['client'].length;
+  updateSDTotal();
+})();
+</script>
 </body></html>
